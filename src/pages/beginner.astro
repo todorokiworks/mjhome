@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ImageGrid from "../components/ImageGrid.astro";
+---
+
+<Layout title="はじめての方へ" description="MJ Homeが初めての方へ。">
+  <PageHero
+    imageSrc="/img/beginner/img_header.png"
+    imageAlt=""
+    title="はじめての方へ"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "はじめての方へ" },
+    ]}
+  />
+  <section class="beginner section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="MJ Homeについて"
+        titleEnglish="About us"
+        align="center"
+      />
+      <p class="beginner__lead">
+        不動産のプロが創る、資産価値を高める土地活用・売買・リノベーションをご提案します。
+      </p>
+      <ImageGrid
+        images={[
+          { src: "/img/beginner/img_about01.png", alt: "" },
+          { src: "/img/beginner/img_about02.png", alt: "" },
+          { src: "/img/beginner/img_about03.png", alt: "" },
+          { src: "/img/beginner/img_about04.png", alt: "" },
+        ]}
+        columns={2}
+      />
+      <SectionHeading
+        titleJapanese="MJ Homeの強み"
+        titleEnglish="Strengths"
+        align="center"
+      />
+      <ul class="beginner__strengths">
+        <li class="beginner__strength">
+          <img src="/img/beginner/img_strength01.png" alt="" width="400" height="240" loading="lazy" />
+          <h3 class="beginner__strength-title">収益を最大化する設計</h3>
+          <p class="beginner__strength-text">市場と土地条件に合わせたボリュームと仕様で、収益性を高めます。</p>
+        </li>
+        <li class="beginner__strength">
+          <img src="/img/beginner/img_strength02.png" alt="" width="400" height="240" loading="lazy" />
+          <h3 class="beginner__strength-title">品質とコストのバランス</h3>
+          <p class="beginner__strength-text">標準化とパートナー連携で、適正コストを実現します。</p>
+        </li>
+        <li class="beginner__strength">
+          <img src="/img/beginner/img_strength03.png" alt="" width="400" height="240" loading="lazy" />
+          <h3 class="beginner__strength-title">運用まで見据えた提案</h3>
+          <p class="beginner__strength-text">建後の管理・修��まで含めた長期視点を大切にします。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .beginner {
+    .beginner__lead {
+      text-align: center;
+      font-size: 18px;
+      font-weight: $fw-bold;
+      line-height: 1.8;
+      margin: 0 0 $spacing-xl;
+      color: $color-primary;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 16px;
+      }
+    }
+
+    .beginner__strengths {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-lg;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .beginner__strength {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    .beginner__strength-title {
+      font-size: 18px;
+      font-weight: $fw-bold;
+      margin: 0 0 $spacing-xs;
+    }
+
+    .beginner__strength-text {
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+</style>

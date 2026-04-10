@@ -1,0 +1,71 @@
+---
+interface GridImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images: GridImage[];
+  columns?: 2 | 3;
+}
+
+const { images, columns = 3 } = Astro.props;
+---
+
+<ul
+  class:list={[
+    "image-grid",
+    columns === 2 && "image-grid--cols-2",
+    columns === 3 && "image-grid--cols-3",
+  ]}
+>
+  {
+    images.map((image) => (
+      <li class="image-grid__item">
+        <img
+          class="image-grid__image"
+          src={image.src}
+          alt={image.alt}
+          width="400"
+          height="300"
+          loading="lazy"
+        />
+      </li>
+    ))
+  }
+</ul>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .image-grid {
+    display: grid;
+    gap: $spacing-sm;
+    list-style: none;
+    margin: 0 0 $spacing-xl;
+    padding: 0;
+
+    @media (max-width: $breakpoint-sp) {
+      margin-bottom: $spacing-lg;
+    }
+
+    .image-grid__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    &.image-grid--cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &.image-grid--cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

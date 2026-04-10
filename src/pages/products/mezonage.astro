@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/mezonage";
+---
+
+<ProductBrandPage
+  title="MEZONAGE"
+  description="MEZONAGE rental apartments by MJ Home."
+  brandName="MEZONAGE"
+  heroTitle="MEZONAGE"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "MEZONAGE" },
+  ]}
+  introLead="Contemporary rental product tuned for today’s tenants."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="MEZONAGE"
+  splits={[
+    {
+      title: "Brand concept",
+      body: "Story-driven positioning beyond commodity leasing.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "MEZONAGE",
+    },
+    {
+      title: "Daylit living",
+      body: "Balancing daylight, privacy, and comfortable room proportions.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "Living",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="mezonage"
+/>

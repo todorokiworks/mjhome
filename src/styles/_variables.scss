@@ -1,0 +1,39 @@
+/* Variables — align with mjhome base */
+
+// Colors
+$color-primary: #319b42;
+$color-secondary: #ebf8ed;
+$color-text: #212322;
+$color-white: #ffffff;
+
+$button-gradient: linear-gradient(
+  180deg,
+  rgba(#17bc31, 1) 0%,
+  rgba(#319b42, 1) 50%,
+  rgba(#194e21, 1) 100%
+);
+$footer-background-color: #262626;
+
+// Layout
+$content-wrapper-width: 1680px;
+$content-max-width: 1200px;
+
+// Breakpoints
+$breakpoint-sp: 768px;
+$breakpoint-tb: 1024px;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 40px;
+$spacing-xl: 60px;
+$spacing-xxl: 80px;
+
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$noto-sans-jp: "Noto Sans JP", sans-serif;
+$font-filmotype-lucky: "filmotype-lucky", sans-serif;
+
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;

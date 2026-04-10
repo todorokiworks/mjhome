@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+
+<Layout title="選ばれる理由" description="MJ Homeが選ばれる理由。">
+  <PageHero
+    imageSrc="/img/reason/img_header.png"
+    imageAlt=""
+    title="選ばれる理由"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "選ばれる理由" },
+    ]}
+  />
+  <section class="reason-page section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="選ばれる理由"
+        titleEnglish="Why us"
+        align="center"
+      />
+      <ul class="reason-page__list">
+        <li class="reason-page__item">
+          <img src="/img/reason/img_reason01.png" alt="" width="600" height="360" loading="lazy" />
+          <h3 class="reason-page__title">低コスト運用</h3>
+          <p class="reason-page__body">修��計画と標準仕様の最適化で、��持コストを抑えます。</p>
+        </li>
+        <li class="reason-page__item">
+          <img src="/img/reason/img_reason02.png" alt="" width="600" height="360" loading="lazy" />
+          <h3 class="reason-page__title">短工期</h3>
+          <p class="reason-page__body">工程管理と協力会社連携で、工期短��に取り組みます。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .reason-page {
+    .reason-page__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: $spacing-xl;
+
+      @media (max-width: $breakpoint-sp) {
+        gap: $spacing-lg;
+      }
+    }
+
+    .reason-page__item {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: $spacing-md;
+      }
+    }
+
+    .reason-page__title {
+      font-size: 22px;
+      font-weight: $fw-bold;
+      margin: 0 0 $spacing-sm;
+    }
+
+    .reason-page__body {
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+    }
+  }
+</style>

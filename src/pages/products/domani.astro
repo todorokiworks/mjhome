@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/domani";
+---
+
+<ProductBrandPage
+  title="Domani"
+  description="Domani brand rental housing by MJ Home."
+  brandName="Domani"
+  heroTitle="Domani"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "Domani" },
+  ]}
+  introLead="Design-led flagship brand balancing yield and aesthetics."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="Domani"
+  splits={[
+    {
+      title: "Exterior and plans",
+      body: "Facades that fit the streetscape and floor plans built for long-term occupancy and owner-friendly operations.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "Domani exterior",
+    },
+    {
+      title: "Interior and specifications",
+      body: "Durable, maintainable finishes and equipment selected to support stable leasing.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "Domani interior",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="domani"
+/>

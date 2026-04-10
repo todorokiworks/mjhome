@@ -1,0 +1,95 @@
+---
+interface Props {
+  titleJapanese: string;
+  titleEnglish: string;
+  headingLevel?: "h2" | "h3";
+  align?: "left" | "center";
+}
+
+const {
+  titleJapanese,
+  titleEnglish,
+  headingLevel = "h2",
+  align = "center",
+} = Astro.props;
+
+const HeadingTag = headingLevel;
+---
+
+<div
+  class:list={[
+    "section-heading",
+    align === "center" && "section-heading--center",
+    align === "left" && "section-heading--left",
+  ]}
+>
+  <p class="section-heading__background" aria-hidden="true">{titleEnglish}</p>
+  <HeadingTag class="section-heading__title">{titleJapanese}</HeadingTag>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .section-heading {
+    position: relative;
+    margin-bottom: $spacing-lg;
+    padding-top: $spacing-md;
+
+    @media (max-width: $breakpoint-sp) {
+      margin-bottom: $spacing-md;
+      padding-top: $spacing-sm;
+    }
+
+    .section-heading__background {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      font-family: $font-filmotype-lucky;
+      font-size: 72px;
+      line-height: 1;
+      color: rgba($color-primary, 0.2);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 48px;
+      }
+    }
+
+    .section-heading__title {
+      position: relative;
+      z-index: 1;
+      font-family: $noto-sans-jp;
+      font-size: 32px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+      color: $color-text;
+      margin: 0;
+      padding-top: $spacing-lg;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 22px;
+        padding-top: $spacing-md;
+      }
+    }
+
+    &.section-heading--left {
+      .section-heading__background {
+        left: 0;
+        transform: none;
+      }
+
+      .section-heading__title {
+        text-align: left;
+      }
+    }
+
+    &.section-heading--center {
+      .section-heading__title {
+        text-align: center;
+      }
+    }
+  }
+</style>

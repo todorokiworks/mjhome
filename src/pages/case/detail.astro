@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import ImageGrid from "../../components/ImageGrid.astro";
+---
+
+<Layout title="施工事例詳細" description="施工事例の詳細ページ。">
+  <PageHero
+    imageSrc="/img/case/img_header.png"
+    imageAlt=""
+    title="施工事例"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "施工事例", href: "/case" },
+      { label: "詳細" },
+    ]}
+  />
+  <section class="case-detail section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="K-smart 参考プラン"
+        titleEnglish="Project"
+        align="left"
+      />
+      <p class="case-detail__text">
+        プランの特長や仕様に関する説明テキストです。画像はダミーを使用しています。
+      </p>
+      <img
+        class="case-detail__hero"
+        src="/img/case/img_dummy_lg.png"
+        alt=""
+        width="1200"
+        height="720"
+        loading="lazy"
+      />
+      <ImageGrid
+        images={[
+          { src: "/img/case/img_dummy.png", alt: "" },
+          { src: "/img/case/img_dummy.png", alt: "" },
+          { src: "/img/case/img_dummy.png", alt: "" },
+          { src: "/img/case/img_dummy.png", alt: "" },
+        ]}
+        columns={2}
+      />
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+
+  .case-detail {
+    .case-detail__text {
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0 0 $spacing-lg;
+    }
+
+    .case-detail__hero {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: $spacing-lg;
+    }
+  }
+</style>

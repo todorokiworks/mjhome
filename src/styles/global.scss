@@ -1,0 +1,58 @@
+@use "./variables" as *;
+@use "./reset";
+
+.content {
+  width: 100%;
+
+  .content__inner {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @media (max-width: $breakpoint-sp) {
+      padding: 0 $spacing-sm;
+      max-width: 100%;
+    }
+  }
+}
+
+.section {
+  padding: $spacing-xxl 0;
+
+  @media (max-width: $breakpoint-sp) {
+    padding: $spacing-xl 0;
+  }
+}
+
+.pc {
+  display: block;
+
+  @media (max-width: $breakpoint-sp) {
+    display: none;
+  }
+}
+
+.sp {
+  display: none;
+
+  @media (max-width: $breakpoint-sp) {
+    display: block;
+  }
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 160px;
+
+  @media (max-width: $breakpoint-sp) {
+    scroll-padding-top: 100px;
+  }
+}
+
+body {
+  font-family: $noto-sans-jp;
+  overflow-x: hidden;
+  background-color: $color-white;
+  color: $color-text;
+}

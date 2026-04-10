@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+
+<Layout title="資料ダウン��ード" description="Document download placeholder.">
+  <section class="download-page section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="資料ダウン��ード"
+        titleEnglish="Download"
+        align="center"
+      />
+      <p class="download-page__note">
+        Placeholder page. Connect file hosting and forms as needed.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .download-page {
+    .download-page__note {
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+    }
+  }
+</style>

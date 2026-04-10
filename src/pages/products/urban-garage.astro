@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/urbangarage";
+---
+
+<ProductBrandPage
+  title="URBAN GARAGE"
+  description="URBAN GARAGE inner-garage urban housing by MJ Home."
+  brandName="URBAN GARAGE"
+  heroTitle="URBAN GARAGE"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "URBAN GARAGE" },
+  ]}
+  introLead="Urban style with integrated garage space."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="URBAN GARAGE"
+  splits={[
+    {
+      title: "Location and facade",
+      body: "Efficient use of the site with a form that fits the neighborhood.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "URBAN GARAGE exterior",
+    },
+    {
+      title: "Garage volume",
+      body: "Generous garage planning for vehicles, hobbies, or workspace.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "Garage",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="urban-garage"
+/>

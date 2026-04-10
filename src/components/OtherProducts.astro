@@ -1,0 +1,135 @@
+---
+import type { ProductLogoItem } from "../types/product";
+
+interface Props {
+  items: ProductLogoItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="other-products section">
+  <div class="section__inner">
+    <div class="other-products__heading-wrap">
+      <p class="other-products__background" aria-hidden="true">Other products</p>
+      <h2 class="other-products__title">他の商品を見る</h2>
+    </div>
+    <ul class="other-products__grid">
+      {
+        items.map((item) => (
+          <li class="other-products__item">
+            <a href={item.href} class="other-products__link">
+              <img
+                class="other-products__logo"
+                src={item.src}
+                alt={item.alt}
+                width="200"
+                height="80"
+                loading="lazy"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .other-products {
+    .other-products__heading-wrap {
+      position: relative;
+      text-align: center;
+      margin-bottom: $spacing-xl;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+      }
+    }
+
+    .other-products__background {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -58%);
+      font-family: $font-filmotype-lucky;
+      font-size: 64px;
+      line-height: 1;
+      color: rgba($color-primary, 0.22);
+      white-space: nowrap;
+      pointer-events: none;
+      margin: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 40px;
+      }
+    }
+
+    .other-products__title {
+      position: relative;
+      z-index: 1;
+      font-family: $noto-sans-jp;
+      font-size: 26px;
+      font-weight: $fw-bold;
+      margin: 0;
+      padding-top: $spacing-lg;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 20px;
+        padding-top: $spacing-md;
+      }
+    }
+
+    .other-products__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: $spacing-md;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (max-width: $breakpoint-tb) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-sm;
+      }
+    }
+
+    .other-products__item {
+      margin: 0;
+    }
+
+    .other-products__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 88px;
+      padding: $spacing-sm;
+      background-color: $color-white;
+      border: 1px solid rgba($color-text, 0.08);
+      border-radius: 4px;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        border-color: rgba($color-primary, 0.35);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      }
+    }
+
+    .other-products__logo {
+      max-width: 100%;
+      max-height: 56px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+</style>

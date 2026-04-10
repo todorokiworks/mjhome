@@ -1,0 +1,104 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+---
+
+<Layout title="施工事例" description="MJ Homeの施工事例一覧。">
+  <PageHero
+    imageSrc="/img/case/img_header.png"
+    imageAlt=""
+    title="施工事例"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "施工事例" },
+    ]}
+  />
+  <section class="case-index section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="事例一覧"
+        titleEnglish="WORKS"
+        align="center"
+      />
+      <ul class="case-index__grid">
+        <li>
+          <a href="/case/detail" class="case-index__card">
+            <span class="case-index__label">APARTMENT</span>
+            <img src="/img/case/img_dummy.png" alt="" width="400" height="260" loading="lazy" />
+            <p class="case-index__name">K-smart 参考プラン</p>
+          </a>
+        </li>
+        <li>
+          <a href="/case/detail" class="case-index__card">
+            <span class="case-index__label">APARTMENT</span>
+            <img src="/img/case/img_dummy.png" alt="" width="400" height="260" loading="lazy" />
+            <p class="case-index__name">Plan 2</p>
+          </a>
+        </li>
+        <li>
+          <a href="/case/detail" class="case-index__card">
+            <span class="case-index__label">APARTMENT</span>
+            <img src="/img/case/img_dummy.png" alt="" width="400" height="260" loading="lazy" />
+            <p class="case-index__name">Plan 3</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+
+  .case-index {
+    .case-index__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .case-index__card {
+      position: relative;
+      display: block;
+      color: inherit;
+      text-decoration: none;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        display: block;
+      }
+    }
+
+    .case-index__label {
+      position: absolute;
+      top: $spacing-sm;
+      right: $spacing-sm;
+      z-index: 1;
+      background: $color-primary;
+      color: $color-white;
+      font-size: 11px;
+      font-weight: $fw-bold;
+      padding: 6px 10px;
+      border-radius: 2px;
+    }
+
+    .case-index__name {
+      margin: $spacing-sm 0 0;
+      font-size: 16px;
+      font-weight: $fw-bold;
+    }
+  }
+</style>

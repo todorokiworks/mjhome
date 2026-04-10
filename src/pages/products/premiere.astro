@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/premiere";
+---
+
+<ProductBrandPage
+  title="Premiere"
+  description="Premiere designer apartments by MJ Home."
+  brandName="Premiere"
+  heroTitle="Premiere"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "Premiere" },
+  ]}
+  introLead="Design-first apartments with refined exteriors and interiors."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="Premiere"
+  splits={[
+    {
+      title: "Modern exterior",
+      body: "Materiality and shadow play for a dignified street presence.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "Premiere exterior",
+    },
+    {
+      title: "Interior quality",
+      body: "Shared and private spaces tuned for tenant satisfaction.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "Premiere interior",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="premiere"
+/>

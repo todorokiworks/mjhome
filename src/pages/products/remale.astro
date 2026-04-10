@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/remale";
+---
+
+<ProductBrandPage
+  title="REMALE"
+  description="REMALE brand rental housing by MJ Home."
+  brandName="REMALE"
+  heroTitle="REMALE"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "REMALE" },
+  ]}
+  introLead="Added value for rental assets with resale perspective."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="REMALE"
+  splits={[
+    {
+      title: "Exterior design",
+      body: "Timeless massing and materials aligned with local rent levels.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "REMALE exterior",
+    },
+    {
+      title: "Operational interiors",
+      body: "Specifications that simplify turnover and restoration work.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "REMALE interior",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="remale"
+/>

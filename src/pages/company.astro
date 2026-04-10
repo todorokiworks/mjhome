@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+
+<Layout title="会社概要" description="株式会社エム・ジェイホームの会社概要。">
+  <PageHero
+    imageSrc="/img/company/img_header.png"
+    imageAlt=""
+    title="会社概要"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "会社概要" },
+    ]}
+  />
+  <section class="company-page section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="会社情報"
+        titleEnglish="Company"
+        align="center"
+      />
+      <dl class="company-page__dl">
+        <div class="company-page__row">
+          <dt class="company-page__dt">会社名</dt>
+          <dd class="company-page__dd">〒526-0835 滋賀県長浜市室町109-1 16街区14番</dd>
+        </div>
+        <div class="company-page__row">
+          <dt class="company-page__dt">所在地</dt>
+          <dd class="company-page__dd">��526-0835 滋��県長浜市室町109-1 16街区14番</dd>
+        </div>
+        <div class="company-page__row">
+          <dt class="company-page__dt">電話</dt>
+          <dd class="company-page__dd">0749-65-5940</dd>
+        </div>
+      </dl>
+      <img
+        class="company-page__map"
+        src="/img/company/img_access.png"
+        alt="アクセスマップ"
+        width="1000"
+        height="560"
+        loading="lazy"
+      />
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .company-page {
+    .company-page__dl {
+      margin: 0 0 $spacing-xl;
+    }
+
+    .company-page__row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: $spacing-md;
+      padding: $spacing-sm 0;
+      border-bottom: 1px solid rgba($color-text, 0.1);
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+        gap: $spacing-xs;
+      }
+    }
+
+    .company-page__dt {
+      font-weight: $fw-bold;
+      margin: 0;
+    }
+
+    .company-page__dd {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .company-page__map {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+</style>

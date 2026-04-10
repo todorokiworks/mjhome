@@ -1,0 +1,265 @@
+---
+
+---
+
+<footer class="footer">
+  <div class="footer__cta-banners">
+    <a href="/download" class="footer__cta-banner footer__cta-banner--download">
+      <span class="footer__cta-banner-text">資料ダウンロード</span>
+    </a>
+    <a href="/contact" class="footer__cta-banner footer__cta-banner--contact">
+      <span class="footer__cta-banner-text">お問い合わせ</span>
+    </a>
+  </div>
+  <div class="footer__inner">
+    <nav class="footer__nav" aria-label="フッターナビゲーション">
+      <ul class="footer__nav-list">
+        <li class="footer__nav-item">
+          <a href="/" class="footer__nav-link">トップ</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="/beginner" class="footer__nav-link">はじめての方へ</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="/products" class="footer__nav-link">商品一覧</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="/case" class="footer__nav-link">施工事例</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="/reason" class="footer__nav-link">選ばれる理由</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="/company" class="footer__nav-link">会社概要</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="/contact" class="footer__nav-link">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="footer__logo">
+      <img
+        src="/img/common/img_logo_footer.png"
+        alt="MJ Home"
+        width="200"
+        height="48"
+      />
+    </div>
+    <div class="footer__company">
+      <p class="footer__company-name">株式会社エム・ジェイホーム</p>
+      <p class="footer__company-address">
+        〒526-0835<br />
+        滋賀県長浜市室町109-1 16街区14番
+      </p>
+      <p class="footer__company-contact">
+        TEL:0749-65-5940 / FAX: 0749-65-5950
+      </p>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright-text">
+        Copyright © MJ HOME Co., Ltd. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  @use "../styles/variables" as *;
+
+  .footer {
+    background-color: $footer-background-color;
+    color: $color-white;
+
+    .footer__cta-banners {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: $content-wrapper-width;
+      margin: 0 auto;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer__cta-banner {
+      position: relative;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: $color-white;
+      background-size: cover;
+      background-position: center;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      .footer__cta-banner-text {
+        position: relative;
+        z-index: 1;
+        font-size: 18px;
+        font-weight: $fw-bold;
+        font-family: $noto-sans-jp;
+      }
+
+      &:hover {
+        opacity: 1;
+
+        &::after {
+          background: rgba(0, 0, 0, 0.55);
+        }
+      }
+    }
+
+    .footer__cta-banner--download {
+      background-image: url("/img/common/img_bnr_dl_bg.png");
+    }
+
+    .footer__cta-banner--contact {
+      background-image: url("/img/common/img_bnr_contact_bg.png");
+    }
+
+    .footer__inner {
+      margin: 0 auto;
+      padding: $spacing-xxl $spacing-md $spacing-lg;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-lg;
+      max-width: $content-max-width;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-xl $spacing-sm $spacing-md;
+        align-items: flex-start;
+      }
+    }
+
+    .footer__nav {
+      width: 100%;
+
+      .footer__nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $spacing-md $spacing-lg;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+        }
+      }
+
+      .footer__nav-item {
+        margin: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          width: 100%;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      .footer__nav-link {
+        color: $color-white;
+        text-decoration: none;
+        font-family: $noto-sans-jp;
+        font-size: 15px;
+        font-weight: $fw-medium;
+        transition: opacity 0.3s ease;
+
+        @media (max-width: $breakpoint-sp) {
+          display: block;
+          padding: $spacing-sm 0;
+        }
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .footer__logo {
+      img {
+        height: 48px;
+        width: auto;
+        display: block;
+
+        @media (max-width: $breakpoint-sp) {
+          height: 40px;
+        }
+      }
+    }
+
+    .footer__company {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+
+      @media (max-width: $breakpoint-sp) {
+        text-align: left;
+      }
+
+      .footer__company-name {
+        font-family: $noto-sans-jp;
+        font-size: 18px;
+        font-weight: $fw-bold;
+        margin: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 16px;
+        }
+      }
+
+      .footer__company-address {
+        font-family: $noto-sans-jp;
+        font-size: 15px;
+        font-weight: $fw-regular;
+        line-height: 1.8;
+        margin: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 14px;
+        }
+      }
+
+      .footer__company-contact {
+        font-family: $noto-sans-jp;
+        font-size: 15px;
+        font-weight: $fw-regular;
+        margin: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .footer__bottom {
+      width: 100%;
+      padding-top: $spacing-md;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+      .footer__copyright-text {
+        margin: 0;
+        text-align: center;
+        font-family: $noto-sans-jp;
+        font-size: 12px;
+        font-weight: $fw-regular;
+        color: rgba(255, 255, 255, 0.85);
+
+        @media (max-width: $breakpoint-sp) {
+          text-align: left;
+        }
+      }
+    }
+  }
+</style>

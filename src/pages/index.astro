@@ -1,0 +1,488 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { productLineup } from "../data/productLineup";
+---
+
+<Layout title="トップ" description="資産価値を守り、賃貸経営を強くする建築を。株式会社エム・ジェイホーム">
+  <section class="top-mv">
+    <div class="top-mv__image-wrap">
+      <img
+        class="top-mv__image"
+        src="/img/top/img_mv.png"
+        alt=""
+        width="1920"
+        height="800"
+      />
+      <div class="top-mv__overlay" aria-hidden="true" />
+    </div>
+    <div class="top-mv__inner section__inner">
+      <p class="top-mv__lead">
+        資産価値を守り、賃貸経営を強くする建築を。
+      </p>
+      <p class="top-mv__sub">
+        オーナー様の視点に立った建築サービスをご提供します。
+      </p>
+    </div>
+  </section>
+
+  <section class="top-about section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="頼れるパートナーとして"
+        titleEnglish="be partner"
+        align="center"
+      />
+      <div class="top-about__row">
+        <div class="top-about__text">
+          <p class="top-about__paragraph">
+            私たちは、土地活用から設計・施工、賃貸運営の視点までを一貫してサポートし、お客様の資産形成を支えるパートナーを目指しています。
+          </p>
+          <p class="top-about__paragraph">
+            木造・収益物件の企画に強みを持ち、地域に根ざした提案で「建てて終わり」ではない伴走型のサービスを大切にしています。
+          </p>
+          <a href="/beginner" class="top-about__button">はじめての方へ</a>
+        </div>
+        <div class="top-about__media">
+          <img
+            src="/img/top/img_intro.png"
+            alt="現場で打ち合わせをする様子"
+            width="560"
+            height="420"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="top-products section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="商品一覧"
+        titleEnglish="Products"
+        align="center"
+      />
+      <ul class="top-products__grid">
+        {
+          productLineup.map((product) => (
+            <li class="top-products__item">
+              <a href={product.href} class="top-products__link">
+                <img
+                  src={product.src}
+                  alt={product.alt}
+                  width="280"
+                  height="120"
+                  loading="lazy"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="top-case section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="施工事例"
+        titleEnglish="Construction example"
+        align="center"
+      />
+      <ul class="top-case__grid">
+        <li class="top-case__item">
+          <a href="/case/detail" class="top-case__card">
+            <span class="top-case__label">APARTMENT</span>
+            <img
+              src="/img/case/img_dummy.png"
+              alt="施工事例"
+              width="400"
+              height="260"
+              loading="lazy"
+            />
+            <p class="top-case__name">K-smart 参考プラン</p>
+          </a>
+        </li>
+        <li class="top-case__item">
+          <a href="/case/detail" class="top-case__card">
+            <span class="top-case__label">APARTMENT</span>
+            <img
+              src="/img/case/img_dummy.png"
+              alt="施工事例"
+              width="400"
+              height="260"
+              loading="lazy"
+            />
+            <p class="top-case__name">Plan 2</p>
+          </a>
+        </li>
+        <li class="top-case__item">
+          <a href="/case/detail" class="top-case__card">
+            <span class="top-case__label">APARTMENT</span>
+            <img
+              src="/img/case/img_dummy.png"
+              alt="施工事例"
+              width="400"
+              height="260"
+              loading="lazy"
+            />
+            <p class="top-case__name">Plan 3</p>
+          </a>
+        </li>
+      </ul>
+      <div class="top-case__action">
+        <a href="/case" class="top-case__button">一覧を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="top-reason section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="選ばれる理由"
+        titleEnglish="Why choose us"
+        align="center"
+      />
+      <ul class="top-reason__list">
+        <li class="top-reason__item">
+          <span class="top-reason__num">01</span>
+          <h3 class="top-reason__title">低コスト管理</h3>
+          <p class="top-reason__text">
+            長期的な修繕計画と標準仕様の最適化で維持コストを抑えた運用をサポートします。
+          </p>
+        </li>
+        <li class="top-reason__item">
+          <span class="top-reason__num">02</span>
+          <h3 class="top-reason__title">短工期</h3>
+          <p class="top-reason__text">
+            工程管理とパートナー連携により、着工から竣工までの期間を短縮します。
+          </p>
+        </li>
+        <li class="top-reason__item">
+          <span class="top-reason__num">03</span>
+          <h3 class="top-reason__title">2×4工法</h3>
+          <p class="top-reason__text">
+            2×4工法のメリットを活かし、快適性とコストのバランスを取ります。
+          </p>
+        </li>
+      </ul>
+      <div class="top-reason__action">
+        <a href="/reason" class="top-reason__button">詳しく見る</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .top-mv {
+    position: relative;
+    margin-top: -100px;
+
+    @media (max-width: $breakpoint-sp) {
+      margin-top: -60px;
+    }
+
+    .top-mv__image-wrap {
+      position: relative;
+    }
+
+    .top-mv__image {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+
+      @media (max-width: $breakpoint-sp) {
+        height: 360px;
+      }
+    }
+
+    .top-mv__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.25) 100%
+      );
+    }
+
+    .top-mv__inner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      padding-bottom: $spacing-xxl;
+
+      @media (max-width: $breakpoint-sp) {
+        padding-bottom: $spacing-xl;
+      }
+    }
+
+    .top-mv__lead {
+      font-family: $noto-sans-jp;
+      font-size: 32px;
+      font-weight: $fw-bold;
+      color: $color-white;
+      line-height: 1.5;
+      margin: 0 0 $spacing-sm;
+      max-width: 640px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 22px;
+      }
+    }
+
+    .top-mv__sub {
+      font-family: $noto-sans-jp;
+      font-size: 16px;
+      color: $color-white;
+      margin: 0;
+      max-width: 520px;
+      line-height: 1.75;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .top-about {
+    .top-about__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-xl;
+      align-items: center;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .top-about__paragraph {
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0 0 $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+
+    .top-about__button {
+      display: inline-block;
+      margin-top: $spacing-sm;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: $fw-medium;
+      color: $color-white;
+      background: $button-gradient;
+      border-radius: 999px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .top-about__media {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .top-products {
+    background-color: $color-secondary;
+
+    .top-products__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: $spacing-md;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (max-width: $breakpoint-tb) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-sm;
+      }
+    }
+
+    .top-products__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      padding: $spacing-sm;
+      background: $color-white;
+      border-radius: 4px;
+      border: 1px solid rgba($color-text, 0.06);
+
+      &:hover {
+        opacity: 1;
+        border-color: rgba($color-primary, 0.35);
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 64px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .top-case {
+    .top-case__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .top-case__card {
+      position: relative;
+      display: block;
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 1;
+
+        img {
+          transform: scale(1.02);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+        transition: transform 0.35s ease;
+      }
+    }
+
+    .top-case__label {
+      position: absolute;
+      top: $spacing-sm;
+      right: $spacing-sm;
+      z-index: 1;
+      background: $color-primary;
+      color: $color-white;
+      font-size: 11px;
+      font-weight: $fw-bold;
+      padding: 6px 10px;
+      border-radius: 2px;
+    }
+
+    .top-case__name {
+      margin: $spacing-sm 0 0;
+      font-size: 16px;
+      font-weight: $fw-bold;
+    }
+
+    .top-case__action {
+      text-align: center;
+      margin-top: $spacing-xl;
+    }
+
+    .top-case__button {
+      display: inline-block;
+      padding: 14px 40px;
+      font-size: 15px;
+      font-weight: $fw-medium;
+      color: $color-white;
+      background: $button-gradient;
+      border-radius: 999px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .top-reason {
+    .top-reason__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-lg;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .top-reason__item {
+      padding: $spacing-md;
+      border: 1px solid rgba($color-primary, 0.25);
+      border-radius: 8px;
+      background: $color-white;
+    }
+
+    .top-reason__num {
+      display: block;
+      font-family: $font-filmotype-lucky;
+      font-size: 36px;
+      color: rgba($color-primary, 0.45);
+      line-height: 1;
+      margin-bottom: $spacing-sm;
+    }
+
+    .top-reason__title {
+      font-size: 18px;
+      font-weight: $fw-bold;
+      margin: 0 0 $spacing-sm;
+    }
+
+    .top-reason__text {
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .top-reason__action {
+      text-align: center;
+      margin-top: $spacing-xl;
+    }
+
+    .top-reason__button {
+      display: inline-block;
+      padding: 14px 40px;
+      font-size: 15px;
+      font-weight: $fw-medium;
+      color: $color-white;
+      background: $button-gradient;
+      border-radius: 999px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+</style>

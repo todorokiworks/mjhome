@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/tsukuba";
+---
+
+<ProductBrandPage
+  title="Tsunagu Project"
+  description="Regional partnership project by MJ Home."
+  brandName="Tsunagu Project"
+  heroTitle="Tsunagu Project"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "つなぐPROJECT" },
+  ]}
+  introLead="Connecting communities through redevelopment and housing."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="Tsunagu Project"
+  splits={[
+    {
+      title: "Town contribution",
+      body: "From cleared sites to sustainable neighborhood fabric.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "Project exterior",
+    },
+    {
+      title: "Senior-ready housing",
+      body: "Safe systems and spatial planning for specialized needs.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "Interior",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="tsunagu-project"
+/>

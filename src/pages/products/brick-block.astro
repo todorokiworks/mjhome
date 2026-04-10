@@ -1,0 +1,45 @@
+---
+import ProductBrandPage from "../../components/ProductBrandPage.astro";
+
+const base = "/img/product/blickblock";
+---
+
+<ProductBrandPage
+  title="BRICK BLOCK"
+  description="BRICK BLOCK detached investment housing by MJ Home."
+  brandName="BRICK BLOCK"
+  heroTitle="BRICK BLOCK"
+  heroImage={`${base}/img_header.png`}
+  breadcrumbs={[
+    { label: "TOP", href: "/" },
+    { label: "商品一覧", href: "/products" },
+    { label: "BRICK BLOCK" },
+  ]}
+  introLead="Detached living with reproducible new-build investment product."
+  introLogo={`${base}/img_logo.png`}
+  introLogoAlt="BRICK BLOCK"
+  splits={[
+    {
+      title: "Exterior for long stays",
+      body: "Brick-like character and balanced proportions that support stable tenancy.",
+      image: `${base}/img_house01.png`,
+      imageAlt: "BRICK BLOCK exterior",
+    },
+    {
+      title: "Manageable layouts",
+      body: "Plans that work for singles and families with straightforward maintenance.",
+      image: `${base}/img_house02.png`,
+      imageAlt: "BRICK BLOCK interior",
+      reverse: true,
+    },
+  ]}
+  gallery={[
+    { src: `${base}/img_house03.png`, alt: "" },
+    { src: `${base}/img_house04.png`, alt: "" },
+    { src: `${base}/img_house05.png`, alt: "" },
+    { src: `${base}/img_house06.png`, alt: "" },
+    { src: `${base}/img_house07.png`, alt: "" },
+    { src: `${base}/img_house08.png`, alt: "" },
+  ]}
+  excludeSlug="brick-block"
+/>

@@ -1,0 +1,89 @@
+---
+import type { BreadcrumbItem } from "../types/nav";
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="パンくずリスト">
+  <ol class="breadcrumbs__list">
+    {
+      items.map((item, index) => (
+        <li class="breadcrumbs__item">
+          {item.href && index < items.length - 1 ? (
+            <a href={item.href} class="breadcrumbs__link">
+              {item.label}
+            </a>
+          ) : (
+            <span class="breadcrumbs__current">{item.label}</span>
+          )}
+          {index < items.length - 1 && (
+            <span class="breadcrumbs__separator" aria-hidden="true">
+              {" "}
+              &gt;{" "}
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .breadcrumbs {
+    padding: $spacing-sm $spacing-md;
+    max-width: $content-max-width;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-sp) {
+      padding: $spacing-sm;
+    }
+
+    .breadcrumbs__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: $noto-sans-jp;
+      font-size: 13px;
+      color: rgba($color-text, 0.65);
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 12px;
+      }
+    }
+
+    .breadcrumbs__item {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    .breadcrumbs__link {
+      color: rgba($color-text, 0.65);
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary;
+        opacity: 1;
+      }
+    }
+
+    .breadcrumbs__current {
+      color: $color-text;
+      font-weight: $fw-medium;
+    }
+
+    .breadcrumbs__separator {
+      margin: 0 6px;
+      color: rgba($color-text, 0.45);
+    }
+  }
+</style>

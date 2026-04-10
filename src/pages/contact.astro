@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+
+<Layout title="お問い合わせ" description="お問い合わせフォーム（プレースホルダー）。">
+  <section class="contact-page section">
+    <div class="section__inner">
+      <SectionHeading
+        titleJapanese="お問い合わせ"
+        titleEnglish="Contact"
+        align="center"
+      />
+      <p class="contact-page__note">
+        フォーム実装は別途接続してください。電話でのお問い合わせは
+        <a href="tel:0749655940">0749-65-5940</a>
+        まで。
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .contact-page {
+    .contact-page__note {
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+    }
+  }
+</style>

@@ -1,0 +1,108 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  imageSrc: string;
+  imageAlt: string;
+  reverse?: boolean;
+}
+
+const { title, body, imageSrc, imageAlt, reverse = false } = Astro.props;
+---
+
+<div class:list={["content-split", reverse && "content-split--reverse"]}>
+  <div class="content-split__media">
+    <img
+      class="content-split__image"
+      src={imageSrc}
+      alt={imageAlt}
+      width="600"
+      height="400"
+      loading="lazy"
+    />
+  </div>
+  <div class="content-split__text">
+    <h3 class="content-split__title">{title}</h3>
+    <p class="content-split__body" set:html={body} />
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .content-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    align-items: center;
+    margin-bottom: $spacing-xl;
+
+    @media (max-width: $breakpoint-sp) {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+      margin-bottom: $spacing-lg;
+    }
+
+    .content-split__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .content-split__title {
+      font-family: $noto-sans-jp;
+      font-size: 22px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+      margin: 0 0 $spacing-sm;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 18px;
+      }
+    }
+
+    .content-split__body {
+      font-family: $noto-sans-jp;
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+
+    &.content-split--reverse {
+      .content-split__media {
+        order: 2;
+      }
+
+      .content-split__text {
+        order: 1;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        .content-split__media {
+          order: 1;
+        }
+
+        .content-split__text {
+          order: 2;
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-sp) {
+      .content-split__media {
+        order: 1;
+      }
+
+      .content-split__text {
+        order: 2;
+      }
+    }
+  }
+</style>
