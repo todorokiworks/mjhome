@@ -1,13 +1,13 @@
 ---
-
+import { withBase } from "../utils/withBase";
 ---
 
 <header class="header">
   <div class="header__inner">
     <p class="header__logo">
-      <a href="/">
+      <a href={withBase("/")}>
         <img
-          src="/img/common/img_logo.png"
+          src={withBase("/img/common/img_logo.png")}
           alt="MJ Home 株式会社エム・ジェイホーム"
           width="180"
           height="40"
@@ -17,27 +17,27 @@
     <nav class="header__nav" aria-label="グローバルナビゲーション">
       <ul class="header__nav-list">
         <li class="header__nav-item">
-          <a href="/" class="header__nav-link">トップ</a>
+          <a href={withBase("/")} class="header__nav-link">トップ</a>
         </li>
         <li class="header__nav-item">
-          <a href="/beginner" class="header__nav-link">はじめての方へ</a>
+          <a href={withBase("/beginner")} class="header__nav-link">はじめての方へ</a>
         </li>
         <li class="header__nav-item">
-          <a href="/products" class="header__nav-link">商品一覧</a>
+          <a href={withBase("/products")} class="header__nav-link">商品一覧</a>
         </li>
         <li class="header__nav-item">
-          <a href="/case" class="header__nav-link">施工事例</a>
+          <a href={withBase("/case")} class="header__nav-link">施工事例</a>
         </li>
         <li class="header__nav-item">
-          <a href="/reason" class="header__nav-link">選ばれる理由</a>
+          <a href={withBase("/reason")} class="header__nav-link">選ばれる理由</a>
         </li>
         <li class="header__nav-item">
-          <a href="/company" class="header__nav-link">会社概要</a>
+          <a href={withBase("/company")} class="header__nav-link">会社概要</a>
         </li>
       </ul>
     </nav>
     <div class="header__button">
-      <a href="/contact" class="header__contact-button">お問い合わせ</a>
+      <a href={withBase("/contact")} class="header__contact-button">お問い合わせ</a>
     </div>
     <button
       class="header__menu-toggle"
@@ -63,9 +63,9 @@
     <div class="header__menu-content">
       <div class="header__menu-header">
         <p class="header__menu-logo">
-          <a href="/">
+          <a href={withBase("/")}>
             <img
-              src="/img/common/img_logo.png"
+              src={withBase("/img/common/img_logo.png")}
               alt="MJ Home"
               width="160"
               height="36"
@@ -84,30 +84,30 @@
       <nav class="header__menu-nav" aria-label="モバイルナビゲーション">
         <ul class="header__menu-nav-list">
           <li class="header__menu-nav-item">
-            <a href="/" class="header__menu-nav-link">トップ</a>
+            <a href={withBase("/")} class="header__menu-nav-link">トップ</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href="/beginner" class="header__menu-nav-link">はじめての方へ</a>
+            <a href={withBase("/beginner")} class="header__menu-nav-link">はじめての方へ</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href="/products" class="header__menu-nav-link">商品一覧</a>
+            <a href={withBase("/products")} class="header__menu-nav-link">商品一覧</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href="/case" class="header__menu-nav-link">施工事例</a>
+            <a href={withBase("/case")} class="header__menu-nav-link">施工事例</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href="/reason" class="header__menu-nav-link">選ばれる理由</a>
+            <a href={withBase("/reason")} class="header__menu-nav-link">選ばれる理由</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href="/company" class="header__menu-nav-link">会社概要</a>
+            <a href={withBase("/company")} class="header__menu-nav-link">会社概要</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href="/contact" class="header__menu-nav-link">お問い合わせ</a>
+            <a href={withBase("/contact")} class="header__menu-nav-link">お問い合わせ</a>
           </li>
         </ul>
       </nav>
       <div class="header__menu-button">
-        <a href="/contact" class="header__contact-button header__contact-button--block"
+        <a href={withBase("/contact")} class="header__contact-button header__contact-button--block"
           >お問い合わせ</a
         >
       </div>

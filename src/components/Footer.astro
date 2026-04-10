@@ -1,13 +1,24 @@
 ---
+import { withBase } from "../utils/withBase";
 
+const bnrDl = withBase("/img/common/img_bnr_dl_bg.png");
+const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
 ---
 
 <footer class="footer">
   <div class="footer__cta-banners">
-    <a href="/download" class="footer__cta-banner footer__cta-banner--download">
+    <a
+      href={withBase("/download")}
+      class="footer__cta-banner footer__cta-banner--download"
+      style={`background-image: url('${bnrDl}')`}
+    >
       <span class="footer__cta-banner-text">資料ダウンロード</span>
     </a>
-    <a href="/contact" class="footer__cta-banner footer__cta-banner--contact">
+    <a
+      href={withBase("/contact")}
+      class="footer__cta-banner footer__cta-banner--contact"
+      style={`background-image: url('${bnrContact}')`}
+    >
       <span class="footer__cta-banner-text">お問い合わせ</span>
     </a>
   </div>
@@ -15,31 +26,31 @@
     <nav class="footer__nav" aria-label="フッターナビゲーション">
       <ul class="footer__nav-list">
         <li class="footer__nav-item">
-          <a href="/" class="footer__nav-link">トップ</a>
+          <a href={withBase("/")} class="footer__nav-link">トップ</a>
         </li>
         <li class="footer__nav-item">
-          <a href="/beginner" class="footer__nav-link">はじめての方へ</a>
+          <a href={withBase("/beginner")} class="footer__nav-link">はじめての方へ</a>
         </li>
         <li class="footer__nav-item">
-          <a href="/products" class="footer__nav-link">商品一覧</a>
+          <a href={withBase("/products")} class="footer__nav-link">商品一覧</a>
         </li>
         <li class="footer__nav-item">
-          <a href="/case" class="footer__nav-link">施工事例</a>
+          <a href={withBase("/case")} class="footer__nav-link">施工事例</a>
         </li>
         <li class="footer__nav-item">
-          <a href="/reason" class="footer__nav-link">選ばれる理由</a>
+          <a href={withBase("/reason")} class="footer__nav-link">選ばれる理由</a>
         </li>
         <li class="footer__nav-item">
-          <a href="/company" class="footer__nav-link">会社概要</a>
+          <a href={withBase("/company")} class="footer__nav-link">会社概要</a>
         </li>
         <li class="footer__nav-item">
-          <a href="/contact" class="footer__nav-link">お問い合わせ</a>
+          <a href={withBase("/contact")} class="footer__nav-link">お問い合わせ</a>
         </li>
       </ul>
     </nav>
     <div class="footer__logo">
       <img
-        src="/img/common/img_logo_footer.png"
+        src={withBase("/img/common/img_logo_footer.png")}
         alt="MJ Home"
         width="200"
         height="48"
@@ -114,14 +125,6 @@
           background: rgba(0, 0, 0, 0.55);
         }
       }
-    }
-
-    .footer__cta-banner--download {
-      background-image: url("/img/common/img_bnr_dl_bg.png");
-    }
-
-    .footer__cta-banner--contact {
-      background-image: url("/img/common/img_bnr_contact_bg.png");
     }
 
     .footer__inner {

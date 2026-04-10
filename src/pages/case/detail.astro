@@ -4,6 +4,7 @@ import PageHero from "../../components/PageHero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import ImageGrid from "../../components/ImageGrid.astro";
+import { withBase } from "../../utils/withBase";
 ---
 
 <Layout title="施工事例詳細" description="施工事例の詳細ページ。">
@@ -31,7 +32,7 @@ import ImageGrid from "../../components/ImageGrid.astro";
       </p>
       <img
         class="case-detail__hero"
-        src="/img/case/img_dummy_lg.png"
+        src={withBase("/img/case/img_dummy_lg.png")}
         alt=""
         width="1200"
         height="720"

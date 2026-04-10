@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/PageHero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import { withBase } from "../../utils/withBase";
 ---
 
 <Layout title="施工事例" description="MJ Homeの施工事例一覧。">
@@ -26,23 +27,23 @@ import SectionHeading from "../../components/SectionHeading.astro";
       />
       <ul class="case-index__grid">
         <li>
-          <a href="/case/detail" class="case-index__card">
+          <a href={withBase("/case/detail")} class="case-index__card">
             <span class="case-index__label">APARTMENT</span>
-            <img src="/img/case/img_dummy.png" alt="" width="400" height="260" loading="lazy" />
+            <img src={withBase("/img/case/img_dummy.png")} alt="" width="400" height="260" loading="lazy" />
             <p class="case-index__name">K-smart 参考プラン</p>
           </a>
         </li>
         <li>
-          <a href="/case/detail" class="case-index__card">
+          <a href={withBase("/case/detail")} class="case-index__card">
             <span class="case-index__label">APARTMENT</span>
-            <img src="/img/case/img_dummy.png" alt="" width="400" height="260" loading="lazy" />
+            <img src={withBase("/img/case/img_dummy.png")} alt="" width="400" height="260" loading="lazy" />
             <p class="case-index__name">Plan 2</p>
           </a>
         </li>
         <li>
-          <a href="/case/detail" class="case-index__card">
+          <a href={withBase("/case/detail")} class="case-index__card">
             <span class="case-index__label">APARTMENT</span>
-            <img src="/img/case/img_dummy.png" alt="" width="400" height="260" loading="lazy" />
+            <img src={withBase("/img/case/img_dummy.png")} alt="" width="400" height="260" loading="lazy" />
             <p class="case-index__name">Plan 3</p>
           </a>
         </li>

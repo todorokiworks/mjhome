@@ -8,6 +8,7 @@ import OtherProducts from "./OtherProducts.astro";
 import type { BreadcrumbItem } from "../types/nav";
 import { otherProductsExcept } from "../data/productLineup";
 import type { ProductSlug } from "../data/productLineup";
+import { withBase } from "../utils/withBase";
 
 interface Props {
   title: string;
@@ -65,7 +66,7 @@ const otherItems = otherProductsExcept(excludeSlug);
           <div class="product-brand__logo-wrap">
             <img
               class="product-brand__logo"
-              src={introLogo}
+              src={withBase(introLogo)}
               alt={introLogoAlt || brandName}
               width="320"
               height="120"

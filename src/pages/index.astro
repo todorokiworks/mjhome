@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { productLineup } from "../data/productLineup";
+import { withBase } from "../utils/withBase";
 ---
 
 <Layout title="トップ" description="資産価値を守り、賃貸経営を強くする建築を。株式会社エム・ジェイホーム">
@@ -9,7 +10,7 @@ import { productLineup } from "../data/productLineup";
     <div class="top-mv__image-wrap">
       <img
         class="top-mv__image"
-        src="/img/top/img_mv.png"
+        src={withBase("/img/top/img_mv.png")}
         alt=""
         width="1920"
         height="800"
@@ -41,11 +42,11 @@ import { productLineup } from "../data/productLineup";
           <p class="top-about__paragraph">
             木造・収益物件の企画に強みを持ち、地域に根ざした提案で「建てて終わり」ではない伴走型のサービスを大切にしています。
           </p>
-          <a href="/beginner" class="top-about__button">はじめての方へ</a>
+          <a href={withBase("/beginner")} class="top-about__button">はじめての方へ</a>
         </div>
         <div class="top-about__media">
           <img
-            src="/img/top/img_intro.png"
+            src={withBase("/img/top/img_intro.png")}
             alt="現場で打ち合わせをする様子"
             width="560"
             height="420"
@@ -67,9 +68,9 @@ import { productLineup } from "../data/productLineup";
         {
           productLineup.map((product) => (
             <li class="top-products__item">
-              <a href={product.href} class="top-products__link">
+              <a href={withBase(product.href)} class="top-products__link">
                 <img
-                  src={product.src}
+                  src={withBase(product.src)}
                   alt={product.alt}
                   width="280"
                   height="120"
@@ -92,10 +93,10 @@ import { productLineup } from "../data/productLineup";
       />
       <ul class="top-case__grid">
         <li class="top-case__item">
-          <a href="/case/detail" class="top-case__card">
+          <a href={withBase("/case/detail")} class="top-case__card">
             <span class="top-case__label">APARTMENT</span>
             <img
-              src="/img/case/img_dummy.png"
+              src={withBase("/img/case/img_dummy.png")}
               alt="施工事例"
               width="400"
               height="260"
@@ -105,10 +106,10 @@ import { productLineup } from "../data/productLineup";
           </a>
         </li>
         <li class="top-case__item">
-          <a href="/case/detail" class="top-case__card">
+          <a href={withBase("/case/detail")} class="top-case__card">
             <span class="top-case__label">APARTMENT</span>
             <img
-              src="/img/case/img_dummy.png"
+              src={withBase("/img/case/img_dummy.png")}
               alt="施工事例"
               width="400"
               height="260"
@@ -118,10 +119,10 @@ import { productLineup } from "../data/productLineup";
           </a>
         </li>
         <li class="top-case__item">
-          <a href="/case/detail" class="top-case__card">
+          <a href={withBase("/case/detail")} class="top-case__card">
             <span class="top-case__label">APARTMENT</span>
             <img
-              src="/img/case/img_dummy.png"
+              src={withBase("/img/case/img_dummy.png")}
               alt="施工事例"
               width="400"
               height="260"
@@ -132,7 +133,7 @@ import { productLineup } from "../data/productLineup";
         </li>
       </ul>
       <div class="top-case__action">
-        <a href="/case" class="top-case__button">一覧を見る</a>
+        <a href={withBase("/case")} class="top-case__button">一覧を見る</a>
       </div>
     </div>
   </section>
@@ -168,7 +169,7 @@ import { productLineup } from "../data/productLineup";
         </li>
       </ul>
       <div class="top-reason__action">
-        <a href="/reason" class="top-reason__button">詳しく見る</a>
+        <a href={withBase("/reason")} class="top-reason__button">詳しく見る</a>
       </div>
     </div>
   </section>

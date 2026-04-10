@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import { withBase } from "../utils/withBase";
 ---
 
 <Layout title="会社概要" description="株式会社エム・ジェイホームの会社概要。">
@@ -40,7 +41,7 @@ import SectionHeading from "../components/SectionHeading.astro";
       </dl>
       <img
         class="company-page__map"
-        src="/img/company/img_access.png"
+        src={withBase("/img/company/img_access.png")}
         alt="アクセスマップ"
         width="1000"
         height="560"

@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/withBase";
+
 interface Props {
   imageSrc: string;
   imageAlt: string;
@@ -13,7 +15,7 @@ const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
   <div class="page-hero__image-wrap">
     <img
       class="page-hero__image"
-      src={imageSrc}
+      src={withBase(imageSrc)}
       alt={imageAlt}
       width="1200"
       height="480"

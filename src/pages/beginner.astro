@@ -4,6 +4,7 @@ import PageHero from "../components/PageHero.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import ImageGrid from "../components/ImageGrid.astro";
+import { withBase } from "../utils/withBase";
 ---
 
 <Layout title="はじめての方へ" description="MJ Homeが初めての方へ。">
@@ -44,17 +45,17 @@ import ImageGrid from "../components/ImageGrid.astro";
       />
       <ul class="beginner__strengths">
         <li class="beginner__strength">
-          <img src="/img/beginner/img_strength01.png" alt="" width="400" height="240" loading="lazy" />
+          <img src={withBase("/img/beginner/img_strength01.png")} alt="" width="400" height="240" loading="lazy" />
           <h3 class="beginner__strength-title">収益を最大化する設計</h3>
           <p class="beginner__strength-text">市場と土地条件に合わせたボリュームと仕様で、収益性を高めます。</p>
         </li>
         <li class="beginner__strength">
-          <img src="/img/beginner/img_strength02.png" alt="" width="400" height="240" loading="lazy" />
+          <img src={withBase("/img/beginner/img_strength02.png")} alt="" width="400" height="240" loading="lazy" />
           <h3 class="beginner__strength-title">品質とコストのバランス</h3>
           <p class="beginner__strength-text">標準化とパートナー連携で、適正コストを実現します。</p>
         </li>
         <li class="beginner__strength">
-          <img src="/img/beginner/img_strength03.png" alt="" width="400" height="240" loading="lazy" />
+          <img src={withBase("/img/beginner/img_strength03.png")} alt="" width="400" height="240" loading="lazy" />
           <h3 class="beginner__strength-title">運用まで見据えた提案</h3>
           <p class="beginner__strength-text">建後の管理・修��まで含めた長期視点を大切にします。</p>
         </li>

@@ -1,5 +1,6 @@
 ---
 import type { BreadcrumbItem } from "../types/nav";
+import { withBase } from "../utils/withBase";
 
 interface Props {
   items: BreadcrumbItem[];
@@ -14,7 +15,7 @@ const { items } = Astro.props;
       items.map((item, index) => (
         <li class="breadcrumbs__item">
           {item.href && index < items.length - 1 ? (
-            <a href={item.href} class="breadcrumbs__link">
+            <a href={withBase(item.href)} class="breadcrumbs__link">
               {item.label}
             </a>
           ) : (

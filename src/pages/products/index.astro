@@ -4,6 +4,7 @@ import PageHero from "../../components/PageHero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { productLineup } from "../../data/productLineup";
+import { withBase } from "../../utils/withBase";
 ---
 
 <Layout title="商品一覧" description="MJ Homeの商品ブランド一覧。">
@@ -29,9 +30,9 @@ import { productLineup } from "../../data/productLineup";
         {
           productLineup.map((product) => (
             <li class="products-index__item">
-              <a href={product.href} class="products-index__link">
+              <a href={withBase(product.href)} class="products-index__link">
                 <img
-                  src={product.src}
+                  src={withBase(product.src)}
                   alt={product.alt}
                   width="280"
                   height="120"
