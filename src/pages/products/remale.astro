@@ -1,45 +1,244 @@
 ---
-import ProductBrandPage from "../../components/ProductBrandPage.astro";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import OtherProducts from "../../components/OtherProducts.astro";
+import { withBase } from "../../utils/withBase";
 
 const base = "/img/product/remale";
 ---
 
-<ProductBrandPage
+<Layout
   title="REMALE"
-  description="REMALE brand rental housing by MJ Home."
-  brandName="REMALE"
-  heroTitle="REMALE"
-  heroImage={`${base}/img_header.png`}
-  breadcrumbs={[
-    { label: "TOP", href: "/" },
-    { label: "商品一覧", href: "/products" },
-    { label: "REMALE" },
-  ]}
-  introLead="Added value for rental assets with resale perspective."
-  introLogo={`${base}/img_logo.png`}
-  introLogoAlt="REMALE"
-  splits={[
-    {
-      title: "Exterior design",
-      body: "Timeless massing and materials aligned with local rent levels.",
-      image: `${base}/img_house01.png`,
-      imageAlt: "REMALE exterior",
-    },
-    {
-      title: "Operational interiors",
-      body: "Specifications that simplify turnover and restoration work.",
-      image: `${base}/img_house02.png`,
-      imageAlt: "REMALE interior",
-      reverse: true,
-    },
-  ]}
-  gallery={[
-    { src: `${base}/img_house03.png`, alt: "" },
-    { src: `${base}/img_house04.png`, alt: "" },
-    { src: `${base}/img_house05.png`, alt: "" },
-    { src: `${base}/img_house06.png`, alt: "" },
-    { src: `${base}/img_house07.png`, alt: "" },
-    { src: `${base}/img_house08.png`, alt: "" },
-  ]}
-  excludeSlug="remale"
-/>
+  description="REMALE（リマール）— 利回りと品質を両立する賃貸住宅。株式会社エム・ジェイホーム。"
+>
+  <PageHero
+    imageSrc={`${base}/img_header.png`}
+    imageAlt=""
+    title="REMALE リマール"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/", useHomeIcon: true },
+      { label: "商品一覧", href: "/products" },
+      { label: "REMALE" },
+    ]}
+  />
+
+  <section class="products-intro" aria-labelledby="products-intro-heading">
+    <p class="products-intro__bar" id="products-intro-heading">
+      利回り高水準を実現する賃貸アパート
+    </p>
+    <div class="products-intro__brand">
+      <div class="products-intro__brand-inner">
+        <img
+          class="products-intro__mark"
+          src={withBase(`${base}/img_logo.png`)}
+          alt="REMALE リマール"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="products-main section">
+    <div class="section__inner">
+      <div class="intro">
+        <div class="intro__image">
+          <img
+            src={withBase(`${base}/img_house01.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__text">
+          <h2 class="intro__title">
+            品質も利回りも妥協しない。<br />そんなあなたに、リマール。
+          </h2>
+          <p class="intro__body">
+            賃貸アパートに、安定経営の切り札はないとお考えでは、ありませんか。私たちは、その概念を一新できる規格住宅「REMALE」を創造しました。一切妥協しない品質、そして安心経営を支えるメンテナンスコスト。商品力こそ、アパート経営を成功に導く鍵です。
+          </p>
+        </div>
+      </div>
+
+      <article
+        class="products-plan products-plan--1"
+        aria-labelledby="remale-plan1-title"
+      >
+        <div class="products-plan__content">
+          <p class="products-plan__label">PLAN 1</p>
+          <div class="products-plan__text products-plan__text--r1">
+            <h2 class="products-plan__title" id="remale-plan1-title">
+              昼はシャープに、夜は印象深く<br />優れたデザイン性を演出。
+            </h2>
+            <p class="products-plan__body">
+              シンプルであることは、流行に左右されないこと。優れたデザイン性や高い基本性能も、決して色褪せることがありません。<br
+              />
+              更に外壁を変えることで、雰囲気も違った顔を演出します。
+            </p>
+          </div>
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house02.png`)}
+              alt="REMALE 外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="products-plan__gallery products-plan__gallery--1">
+          <div class="products-plan__gallery-col products-plan__gallery-col--left">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house03.png`)}
+                alt="室内"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <div class="products-plan__gallery-row">
+              <figure class="products-plan__gallery-item">
+                <img
+                  src={withBase(`${base}/img_house05.png`)}
+                  alt="居室"
+                  width="320"
+                  height="280"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="products-plan__gallery-col products-plan__gallery-col--right">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house04.png`)}
+                alt="リビング"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <p class="products-plan__body">
+              多くの人が憧れる戸建住宅。そのニーズに応えた「メゾネットタイプの賃貸＝リマール」は、相場より20～30％高い家賃設定が可能で、人気・長期入居が期待できる理想の住まいです。<br
+              />
+              1. 選ばれる理由は「デザイン力と住み心地」<br /> 2. コストも、スピードも、家賃戦略も◎<br
+              />
+              3. トラブル回避のメンテナンス設計
+            </p>
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house06.png`)}
+                alt="水回り"
+                width="320"
+                height="280"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="products-plan products-plan--2"
+        aria-labelledby="remale-plan2-title"
+      >
+        <div class="products-plan__content">
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house07.png`)}
+              alt="外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+          <div class="products-plan__text products-plan__text--r1">
+            <p class="products-plan__label">PLAN 2</p>
+            <h2 class="products-plan__title" id="remale-plan2-title">
+              より柔軟に、より美しく。<br />リマールが、次のステージへ。
+            </h2>
+            <p class="products-plan__body">
+              REMALEの本質はそのままに。建物形状を正方形型へと進化させることで、土地対応力とデザイン性をさらにアップグレード。ミニマルな形状の中に、<br
+              />REMALEが培ってきた戸建て感覚の暮らしやすさ、高い入居率と長期安定経営の仕組みを凝縮。<br
+              />
+              正方形のような形がもたらす新しい選択肢。それが進化したリマール。
+            </p>
+          </div>
+        </div>
+        <div class="products-plan__gallery products-plan__gallery--2">
+          <div class="products-plan__gallery-col products-plan__gallery-col--left">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house11.png`)}
+                alt="リビング・キッチン"
+                width="800"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house12.png`)}
+                alt="洗面・トイレ"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+          <div class="products-plan__gallery-col products-plan__gallery-col--right">
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house08.png`)}
+                alt="玄関・廊下"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </figure>
+            <p class="products-plan__body">
+              室内は、2LDKのゆったりとした間取りに、生活動線を意識したレイアウトで設計。<br
+                class="pc"
+              />家族でもカップルでも、一人でも贅沢に使える空間です。<br
+                class="pc"
+              />
+              さらに、シンプルで飽きのこないデザインと高い基本性能で、長く住みたくなる<br
+                class="pc"
+              />住まいを提供します。<br class="pc" />
+              住む人を惹きつける、外の中もスタイリッシュ。“見た目”だけでなく、“居心地の良さ”<br
+                class="pc"
+              />にもこだわった一棟です。<br class="pc" />
+            </p>
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house10.png`)}
+                alt="居室"
+                width="480"
+                height="720"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <OtherProducts />
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../../styles/variables" as *;
+  @use "../../styles/products-plan-layout" as *;
+</style>

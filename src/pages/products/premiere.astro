@@ -1,45 +1,190 @@
 ---
-import ProductBrandPage from "../../components/ProductBrandPage.astro";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import OtherProducts from "../../components/OtherProducts.astro";
+import { withBase } from "../../utils/withBase";
 
 const base = "/img/product/premiere";
 ---
 
-<ProductBrandPage
+<Layout
   title="Premiere"
-  description="Premiere designer apartments by MJ Home."
-  brandName="Premiere"
-  heroTitle="Premiere"
-  heroImage={`${base}/img_header.png`}
-  breadcrumbs={[
-    { label: "TOP", href: "/" },
-    { label: "商品一覧", href: "/products" },
-    { label: "Premiere" },
-  ]}
-  introLead="Design-first apartments with refined exteriors and interiors."
-  introLogo={`${base}/img_logo.png`}
-  introLogoAlt="Premiere"
-  splits={[
-    {
-      title: "Modern exterior",
-      body: "Materiality and shadow play for a dignified street presence.",
-      image: `${base}/img_house01.png`,
-      imageAlt: "Premiere exterior",
-    },
-    {
-      title: "Interior quality",
-      body: "Shared and private spaces tuned for tenant satisfaction.",
-      image: `${base}/img_house02.png`,
-      imageAlt: "Premiere interior",
-      reverse: true,
-    },
-  ]}
-  gallery={[
-    { src: `${base}/img_house03.png`, alt: "" },
-    { src: `${base}/img_house04.png`, alt: "" },
-    { src: `${base}/img_house05.png`, alt: "" },
-    { src: `${base}/img_house06.png`, alt: "" },
-    { src: `${base}/img_house07.png`, alt: "" },
-    { src: `${base}/img_house08.png`, alt: "" },
-  ]}
-  excludeSlug="premiere"
-/>
+  description="Premiere — 高級感と重厚感を備えた洗練された賃貸デザイン。株式会社エム・ジェイホーム。"
+>
+  <PageHero imageSrc={`${base}/img_header.png`} imageAlt="" title="Premiere" />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/", useHomeIcon: true },
+      { label: "商品一覧", href: "/products" },
+      { label: "Premiere" },
+    ]}
+  />
+
+  <section class="products-intro" aria-labelledby="products-intro-heading">
+    <p class="products-intro__bar" id="products-intro-heading">
+      「デザインからアプローチできるアパート ＝ デザイナーズアパート」 建築
+    </p>
+    <div class="products-intro__brand">
+      <div class="products-intro__brand-inner">
+        <img
+          class="products-intro__mark"
+          src={withBase(`${base}/img_logo.png`)}
+          alt="Premiere ロゴ"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="products-main section">
+    <div class="section__inner">
+      <div class="intro">
+        <div class="intro__image">
+          <img
+            src={withBase(`${base}/img_house01.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__text">
+          <h2 class="intro__title">
+            高級感と重厚感ある佇まい、<br />洋風＆モダンな洗練された建築デザイン
+          </h2>
+          <p class="intro__body">
+            土地の魅力を最大限に引き出す新築建設を通して、未来へ受け継がれる価値ある佇まいを創り出します。重厚感と品格を兼ね備えた外観デザインに加え、年月を経ても美しさを保ち続ける素材と構造を採用。洋風の趣にモダンな要素を巧みに融合させ、日々の暮らしが誇らしくなるような、上質で洗練された空間をご提案します。
+          </p>
+        </div>
+      </div>
+
+      <div class="intro__gallery">
+        <div class="intro__gallery-item">
+          <img
+            src={withBase(`${base}/img_house02.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__gallery-item">
+          <img
+            src={withBase(`${base}/img_house03.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__gallery-item">
+          <img
+            src={withBase(`${base}/img_house04.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="section__inner">
+      <article
+        class="products-plan products-plan--1"
+        aria-labelledby="premiere-plan1-title"
+      >
+        <div class="products-plan__content">
+          <div class="products-plan__text products-plan__text--r1">
+            <h2 class="products-plan__title" id="premiere-plan1-title">
+              外観の重厚感と、<br />内観の軽やかさが織りなす空間
+            </h2>
+            <p class="products-plan__body">
+              壁紙やアクセントクロス、床材などのインテリア要素によって、空間の印象は自在に変化します。色合いや素材の組み合わせ次第で、シンプルでモダンな雰囲気にも、温もりあるナチュラルな空間にも、あるいは優雅でクラシックな趣にも仕上げることができる柔軟性を備えています。<br
+                住まう人のライフスタイルや美意識に寄り添いながら、“自分らしさ”がにじみ出る住まいへと育てていけるのが大きな魅力です。<br
+              />
+              こうした快適性を兼ね備えた設計は、居住者の満足度にもつながり、投資物件としても高い魅力を発揮します。
+            </p>
+          </div>
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house05.png`)}
+              alt="外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="products-plan__gallery products-plan__gallery--1">
+          <div
+            class="products-plan__gallery-col products-plan__gallery-col--left"
+          >
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house06.png`)}
+                alt="室内"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <div class="products-plan__gallery-row">
+              <figure class="products-plan__gallery-item">
+                <img
+                  src={withBase(`${base}/img_house08.png`)}
+                  alt="居室"
+                  width="320"
+                  height="280"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div
+            class="products-plan__gallery-col products-plan__gallery-col--right"
+          >
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house07.png`)}
+                alt="リビング"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <p class="products-plan__body">
+              華やかさより品のある強さを。<br /><br />
+              重厚感のある外観デザインから一歩足を踏み入れると、<br
+              />そこには想像を超える開放的で暮らしやすい空間が広がります。<br />
+              天井高や自然光の取り込み方、動線の工夫など、<br
+              />住まいとしての快適性を追求した内装設計が魅力です。
+            </p>
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house09.png`)}
+                alt="水回り"
+                width="320"
+                height="280"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <OtherProducts />
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../../styles/variables" as *;
+  @use "../../styles/products-plan-layout" as *;
+
+  .products-main {
+    .intro__title {
+      font-size: 32px;
+      font-weight: $fw-bold;
+      margin-bottom: $spacing-md;
+    }
+  }
+</style>

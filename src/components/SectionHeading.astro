@@ -4,6 +4,8 @@ interface Props {
   titleEnglish: string;
   headingLevel?: "h2" | "h3";
   align?: "left" | "center";
+  textAlign?: "left" | "center";
+  titleJapaneseColor?: "default" | "white";
 }
 
 const {
@@ -11,29 +13,35 @@ const {
   titleEnglish,
   headingLevel = "h2",
   align = "center",
+  textAlign,
+  titleJapaneseColor = "default",
 } = Astro.props;
 
 const HeadingTag = headingLevel;
+const resolvedTextAlign = textAlign ?? align;
 ---
 
 <div
-  class:list={[
-    "section-heading",
-    align === "center" && "section-heading--center",
-    align === "left" && "section-heading--left",
-  ]}
+  class:list={["section-heading", align === "left" && "section-heading--left"]}
 >
   <p class="section-heading__background" aria-hidden="true">{titleEnglish}</p>
-  <HeadingTag class="section-heading__title">{titleJapanese}</HeadingTag>
+  <HeadingTag
+    class:list={[
+      "section-heading__title",
+      resolvedTextAlign === "left" && "section-heading__title--align-left",
+      resolvedTextAlign === "center" && "section-heading__title--align-center",
+      titleJapaneseColor === "white" && "section-heading__title--white",
+    ]}
+    set:html={titleJapanese}
+  />
 </div>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../styles/variables" as *;
 
   .section-heading {
     position: relative;
     margin-bottom: $spacing-lg;
-    padding-top: $spacing-md;
 
     @media (max-width: $breakpoint-sp) {
       margin-bottom: $spacing-md;
@@ -42,11 +50,11 @@ const HeadingTag = headingLevel;
 
     .section-heading__background {
       position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
+      left: 60%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       font-family: $font-filmotype-lucky;
-      font-size: 72px;
+      font-size: 93px;
       line-height: 1;
       color: rgba($color-primary, 0.2);
       white-space: nowrap;
@@ -67,11 +75,22 @@ const HeadingTag = headingLevel;
       line-height: 1.5;
       color: $color-text;
       margin: 0;
-      padding-top: $spacing-lg;
 
       @media (max-width: $breakpoint-sp) {
         font-size: 22px;
         padding-top: $spacing-md;
+      }
+
+      &.section-heading__title--white {
+        color: $color-white;
+      }
+
+      &.section-heading__title--align-left {
+        text-align: left;
+      }
+
+      &.section-heading__title--align-center {
+        text-align: center;
       }
     }
 
@@ -79,16 +98,6 @@ const HeadingTag = headingLevel;
       .section-heading__background {
         left: 0;
         transform: none;
-      }
-
-      .section-heading__title {
-        text-align: left;
-      }
-    }
-
-    &.section-heading--center {
-      .section-heading__title {
-        text-align: center;
       }
     }
   }

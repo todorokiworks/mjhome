@@ -15,8 +15,25 @@ const { items } = Astro.props;
       items.map((item, index) => (
         <li class="breadcrumbs__item">
           {item.href && index < items.length - 1 ? (
-            <a href={withBase(item.href)} class="breadcrumbs__link">
-              {item.label}
+            <a
+              href={withBase(item.href)}
+              class:list={[
+                "breadcrumbs__link",
+                item.useHomeIcon && "breadcrumbs__link--home-icon",
+              ]}
+              aria-label={item.useHomeIcon ? "トップページへ" : undefined}
+            >
+              {item.useHomeIcon ? (
+                <img
+                  src={withBase("/img/common/icon_home.png")}
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="eager"
+                />
+              ) : (
+                item.label
+              )}
             </a>
           ) : (
             <span class="breadcrumbs__current">{item.label}</span>
@@ -33,12 +50,12 @@ const { items } = Astro.props;
   </ol>
 </nav>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../styles/variables" as *;
 
   .breadcrumbs {
-    padding: $spacing-sm $spacing-md;
-    max-width: $content-max-width;
+    padding: $spacing-sm $spacing-md $spacing-lg;
+    max-width: 1680px;
     margin: 0 auto;
 
     @media (max-width: $breakpoint-sp) {
@@ -54,8 +71,7 @@ const { items } = Astro.props;
       padding: 0;
       font-family: $noto-sans-jp;
       font-size: 13px;
-      color: rgba($color-text, 0.65);
-
+      color: #808080;
       @media (max-width: $breakpoint-sp) {
         font-size: 12px;
       }
@@ -75,10 +91,34 @@ const { items } = Astro.props;
         color: $color-primary;
         opacity: 1;
       }
+
+      &.breadcrumbs__link--home-icon {
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+
+        img {
+          display: block;
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          img {
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        &:hover img {
+          opacity: 0.75;
+        }
+      }
     }
 
     .breadcrumbs__current {
-      color: $color-text;
+      color: #808080;
       font-weight: $fw-medium;
     }
 

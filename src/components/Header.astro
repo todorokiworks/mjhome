@@ -20,7 +20,9 @@ import { withBase } from "../utils/withBase";
           <a href={withBase("/")} class="header__nav-link">トップ</a>
         </li>
         <li class="header__nav-item">
-          <a href={withBase("/beginner")} class="header__nav-link">はじめての方へ</a>
+          <a href={withBase("/beginner")} class="header__nav-link"
+            >はじめての方へ</a
+          >
         </li>
         <li class="header__nav-item">
           <a href={withBase("/products")} class="header__nav-link">商品一覧</a>
@@ -29,7 +31,8 @@ import { withBase } from "../utils/withBase";
           <a href={withBase("/case")} class="header__nav-link">施工事例</a>
         </li>
         <li class="header__nav-item">
-          <a href={withBase("/reason")} class="header__nav-link">選ばれる理由</a>
+          <a href={withBase("/reason")} class="header__nav-link">選ばれる理由</a
+          >
         </li>
         <li class="header__nav-item">
           <a href={withBase("/company")} class="header__nav-link">会社概要</a>
@@ -37,7 +40,9 @@ import { withBase } from "../utils/withBase";
       </ul>
     </nav>
     <div class="header__button">
-      <a href={withBase("/contact")} class="header__contact-button">お問い合わせ</a>
+      <a href={withBase("/contact")} class="header__contact-button"
+        >お問い合わせ</a
+      >
     </div>
     <button
       class="header__menu-toggle"
@@ -87,27 +92,41 @@ import { withBase } from "../utils/withBase";
             <a href={withBase("/")} class="header__menu-nav-link">トップ</a>
           </li>
           <li class="header__menu-nav-item">
-            <a href={withBase("/beginner")} class="header__menu-nav-link">はじめての方へ</a>
+            <a href={withBase("/beginner")} class="header__menu-nav-link"
+              >はじめての方へ</a
+            >
           </li>
           <li class="header__menu-nav-item">
-            <a href={withBase("/products")} class="header__menu-nav-link">商品一覧</a>
+            <a href={withBase("/products")} class="header__menu-nav-link"
+              >商品一覧</a
+            >
           </li>
           <li class="header__menu-nav-item">
-            <a href={withBase("/case")} class="header__menu-nav-link">施工事例</a>
+            <a href={withBase("/case")} class="header__menu-nav-link"
+              >施工事例</a
+            >
           </li>
           <li class="header__menu-nav-item">
-            <a href={withBase("/reason")} class="header__menu-nav-link">選ばれる理由</a>
+            <a href={withBase("/reason")} class="header__menu-nav-link"
+              >選ばれる理由</a
+            >
           </li>
           <li class="header__menu-nav-item">
-            <a href={withBase("/company")} class="header__menu-nav-link">会社概要</a>
+            <a href={withBase("/company")} class="header__menu-nav-link"
+              >会社概要</a
+            >
           </li>
           <li class="header__menu-nav-item">
-            <a href={withBase("/contact")} class="header__menu-nav-link">お問い合わせ</a>
+            <a href={withBase("/contact")} class="header__menu-nav-link"
+              >お問い合わせ</a
+            >
           </li>
         </ul>
       </nav>
       <div class="header__menu-button">
-        <a href={withBase("/contact")} class="header__contact-button header__contact-button--block"
+        <a
+          href={withBase("/contact")}
+          class="header__contact-button header__contact-button--block"
           >お問い合わせ</a
         >
       </div>
@@ -155,7 +174,7 @@ import { withBase } from "../utils/withBase";
   @use "../styles/variables" as *;
 
   .header {
-    background-color: $color-white;
+    background-color: rgba($color-white, 0.8);
     position: fixed;
     width: 100%;
     left: 0;
@@ -164,9 +183,9 @@ import { withBase } from "../utils/withBase";
     border-bottom: 1px solid rgba($color-text, 0.08);
 
     .header__inner {
-      max-width: $content-wrapper-width;
+      max-width: 1680px;
       margin: 0 auto;
-      padding: 20px $spacing-md;
+      padding: 20px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;

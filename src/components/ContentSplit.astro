@@ -7,9 +7,10 @@ interface Props {
   imageSrc: string;
   imageAlt: string;
   reverse?: boolean;
+  eyebrow?: string;
 }
 
-const { title, body, imageSrc, imageAlt, reverse = false } = Astro.props;
+const { title, body, imageSrc, imageAlt, reverse = false, eyebrow } = Astro.props;
 ---
 
 <div class:list={["content-split", reverse && "content-split--reverse"]}>
@@ -24,6 +25,7 @@ const { title, body, imageSrc, imageAlt, reverse = false } = Astro.props;
     />
   </div>
   <div class="content-split__text">
+    {eyebrow && <p class="content-split__eyebrow">{eyebrow}</p>}
     <h3 class="content-split__title">{title}</h3>
     <p class="content-split__body" set:html={body} />
   </div>
@@ -50,6 +52,25 @@ const { title, body, imageSrc, imageAlt, reverse = false } = Astro.props;
       height: auto;
       display: block;
       border-radius: 4px;
+    }
+
+    .content-split__eyebrow {
+      display: inline-block;
+      margin: 0 0 $spacing-sm;
+      padding: 5px 14px;
+      font-family: $noto-sans-jp;
+      font-size: 12px;
+      font-weight: $fw-bold;
+      line-height: 1.3;
+      letter-spacing: 0.06em;
+      color: $color-white;
+      background: $color-primary;
+      border-radius: 2px;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 11px;
+        padding: 4px 12px;
+      }
     }
 
     .content-split__title {

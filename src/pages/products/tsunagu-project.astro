@@ -1,45 +1,174 @@
 ---
-import ProductBrandPage from "../../components/ProductBrandPage.astro";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import OtherProducts from "../../components/OtherProducts.astro";
+import { withBase } from "../../utils/withBase";
 
 const base = "/img/product/tsukuba";
 ---
 
-<ProductBrandPage
-  title="Tsunagu Project"
-  description="Regional partnership project by MJ Home."
-  brandName="Tsunagu Project"
-  heroTitle="Tsunagu Project"
-  heroImage={`${base}/img_header.png`}
-  breadcrumbs={[
-    { label: "TOP", href: "/" },
-    { label: "商品一覧", href: "/products" },
-    { label: "つなぐPROJECT" },
-  ]}
-  introLead="Connecting communities through redevelopment and housing."
-  introLogo={`${base}/img_logo.png`}
-  introLogoAlt="Tsunagu Project"
-  splits={[
-    {
-      title: "Town contribution",
-      body: "From cleared sites to sustainable neighborhood fabric.",
-      image: `${base}/img_house01.png`,
-      imageAlt: "Project exterior",
-    },
-    {
-      title: "Senior-ready housing",
-      body: "Safe systems and spatial planning for specialized needs.",
-      image: `${base}/img_house02.png`,
-      imageAlt: "Interior",
-      reverse: true,
-    },
-  ]}
-  gallery={[
-    { src: `${base}/img_house03.png`, alt: "" },
-    { src: `${base}/img_house04.png`, alt: "" },
-    { src: `${base}/img_house05.png`, alt: "" },
-    { src: `${base}/img_house06.png`, alt: "" },
-    { src: `${base}/img_house07.png`, alt: "" },
-    { src: `${base}/img_house08.png`, alt: "" },
-  ]}
-  excludeSlug="tsunagu-project"
-/>
+<Layout
+  title="つなぐPROJECT"
+  description="つなぐPROJECT — 地域貢献と障がい者グループホーム。株式会社エム・ジェイホーム。"
+>
+  <PageHero
+    imageSrc={`${base}/img_header.png`}
+    imageAlt=""
+    title="つなぐPROJECT"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/", useHomeIcon: true },
+      { label: "商品一覧", href: "/products" },
+      { label: "つなぐPROJECT" },
+    ]}
+  />
+
+  <section class="products-intro" aria-labelledby="products-intro-heading">
+    <p class="products-intro__bar" id="products-intro-heading">
+      各分野の専門性が一体になり <br
+      />「地域貢献」「さまざまな社会課題解決」への<br />
+      取り組みを弊社が連携をとり行うプロジェクトです。
+    </p>
+    <div class="products-intro__brand">
+      <div class="products-intro__brand-inner">
+        <img
+          class="products-intro__mark"
+          src={withBase(`${base}/img_logo.png`)}
+          alt="つなぐPROJECT ロゴ"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="products-main section">
+    <div class="section__inner">
+      <div class="intro">
+        <div class="intro__image">
+          <img
+            src={withBase(`${base}/img_house01.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__text">
+          <h2 class="intro__title">運営事業者にて25年〜一括借り上げ</h2>
+          <p class="intro__sub-title">障がい者専用グループホーム</p>
+          <p class="intro__body">
+            ・人口減少の中、障がい者入口は増えている
+            ・全国の障がい者グループホーム入居率98%<br
+            />・退去率が低く、長期安定経営が可能<br
+            />・20年以上の長期一括借上げで退去者が出ても定額収入<br
+            />・オーナーとしての緊急対応一切なし<br
+            />・老朽・経年劣化による家賃下落がほとんどない<br
+            />・入居者入替時、現状回復費用や仲介手数料なし
+          </p>
+        </div>
+      </div>
+
+      <div class="intro__gallery">
+        <div class="intro__gallery-item">
+          <img
+            src={withBase(`${base}/img_house02.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__gallery-item">
+          <img
+            src={withBase(`${base}/img_house03.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__gallery-item">
+          <img
+            src={withBase(`${base}/img_house04.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="section__inner">
+      <article
+        class="products-plan products-plan--1"
+        aria-labelledby="tsunagu-plan1-title"
+      >
+        <div class="products-plan__content">
+          <div class="products-plan__text products-plan__text--r1">
+            <h2 class="products-plan__title" id="tsunagu-plan1-title">
+              運営事業者にて25年〜一括借り上げ
+            </h2>
+            <p class="products-plan__body">
+              ・人口減少の中、障がい者入口は増えている<br />
+              ・全国の障がい者グループホーム入居率98%<br
+              />・退去率が低く、長期安定経営が可能<br
+              />・20年以上の長期一括借上げで退去者が出ても定額収入<br
+              />・オーナーとしての緊急対応一切なし<br
+              />・老朽・経年劣化による家賃下落がほとんどない<br
+              />・入居者入替時、現状回復費用や仲介手数料なし
+            </p>
+          </div>
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house05.png`)}
+              alt="外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="products-plan__gallery products-plan__gallery--wide">
+          <div class="products-plan__gallery-item">
+            <img
+              src={withBase(`${base}/img_house02.png`)}
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="products-plan__gallery-item">
+            <img
+              src={withBase(`${base}/img_house03.png`)}
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="products-plan__gallery-item">
+            <img
+              src={withBase(`${base}/img_house04.png`)}
+              alt=""
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <OtherProducts />
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../../styles/variables" as *;
+  @use "../../styles/products-plan-layout" as *;
+
+  .products-main {
+    .intro__title {
+      font-size: 32px;
+      font-weight: $fw-bold;
+      margin-bottom: $spacing-md;
+    }
+
+    .intro__sub-title {
+      font-size: 24px;
+      font-weight: $fw-bold;
+      margin-bottom: $spacing-md;
+    }
+  }
+</style>

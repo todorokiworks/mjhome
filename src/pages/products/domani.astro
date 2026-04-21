@@ -1,45 +1,322 @@
 ---
-import ProductBrandPage from "../../components/ProductBrandPage.astro";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import OtherProducts from "../../components/OtherProducts.astro";
+import { withBase } from "../../utils/withBase";
 
 const base = "/img/product/domani";
 ---
 
-<ProductBrandPage
-  title="Domani"
-  description="Domani brand rental housing by MJ Home."
-  brandName="Domani"
-  heroTitle="Domani"
-  heroImage={`${base}/img_header.png`}
-  breadcrumbs={[
-    { label: "TOP", href: "/" },
-    { label: "商品一覧", href: "/products" },
-    { label: "Domani" },
-  ]}
-  introLead="Design-led flagship brand balancing yield and aesthetics."
-  introLogo={`${base}/img_logo.png`}
-  introLogoAlt="Domani"
-  splits={[
-    {
-      title: "Exterior and plans",
-      body: "Facades that fit the streetscape and floor plans built for long-term occupancy and owner-friendly operations.",
-      image: `${base}/img_house01.png`,
-      imageAlt: "Domani exterior",
-    },
-    {
-      title: "Interior and specifications",
-      body: "Durable, maintainable finishes and equipment selected to support stable leasing.",
-      image: `${base}/img_house02.png`,
-      imageAlt: "Domani interior",
-      reverse: true,
-    },
-  ]}
-  gallery={[
-    { src: `${base}/img_house03.png`, alt: "" },
-    { src: `${base}/img_house04.png`, alt: "" },
-    { src: `${base}/img_house05.png`, alt: "" },
-    { src: `${base}/img_house06.png`, alt: "" },
-    { src: `${base}/img_house07.png`, alt: "" },
-    { src: `${base}/img_house08.png`, alt: "" },
-  ]}
-  excludeSlug="domani"
-/>
+<Layout
+  title="ドマーニ"
+  description="Domani（ドマーニ）— 暮らしにフィットする賃貸住宅ブランド。株式会社エム・ジェイホーム。"
+>
+  <PageHero
+    imageSrc={`${base}/img_header.png`}
+    imageAlt=""
+    title="Domani ドマーニ"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/", useHomeIcon: true },
+      { label: "商品一覧", href: "/products" },
+      { label: "Domani" },
+    ]}
+  />
+
+  <section class="products-intro" aria-labelledby="products-intro-heading">
+    <p class="products-intro__bar" id="products-intro-heading">
+      Domaniシリーズは立地・規模・ターゲットに合わせて選べる3タイプ
+    </p>
+    <div class="products-intro__brand">
+      <div class="products-intro__brand-inner">
+        <img
+          class="products-intro__mark"
+          src={withBase(`${base}/img_logo.png`)}
+          alt=""
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="products-main section">
+    <div class="section__inner">
+      <div class="intro">
+        <div class="intro__image">
+          <img
+            src={withBase(`${base}/img_house01.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__text">
+          <h2 class="intro__title">暮らしにフィットする、新しい日常。</h2>
+          <p class="intro__body">
+            「明日をもっと自由に、もっと快適に。」<br />
+            それが、私たちが考える“ドマーニ”のかたちです。<br />
+            変わりゆく暮らしに、柔軟に寄り添うこと。<br />
+            使いやすさだけでなく、日々がちょっと楽しくなる空間であること。<br />
+            そして、限られた広さの中にも、自分らしい暮らしを描ける自由があること。<br
+            />
+            ドマーニは、そんな住まいを目指して生まれました。
+          </p>
+        </div>
+      </div>
+
+      <article
+        class="products-plan products-plan--1"
+        aria-labelledby="products-plan1-title"
+      >
+        <div class="products-plan__content">
+          <p class="products-plan__label">PLAN 1</p>
+          <div class="products-plan__text products-plan__text--r1">
+            <h2 class="products-plan__title" id="products-plan1-title">
+              コンパクトな敷地でも、確かな収益性を実現。<br
+              />1K×6戸で叶える、バランスの良い賃貸プラン。
+            </h2>
+            <p class="products-plan__body">
+              限られた敷地を有効活用しつつ、大きく構えることができる外観。<br />
+              賃貸住宅としての価値をしっかり確保したのがこちらのプラン。<br />
+              単身者のニーズを反映した機能的で快適な居住空間を実現し、立地や敷地条件を問わず導入しやすい、汎用性の高いベーシックモデルです。
+            </p>
+          </div>
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house02.png`)}
+              alt="PLAN1 外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="products-plan__gallery products-plan__gallery--1">
+          <div class="products-plan__gallery-col products-plan__gallery-col--left">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house03.png`)}
+                alt="玄関アプローチ"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <div class="products-plan__gallery-row">
+              <figure class="products-plan__gallery-item">
+                <img
+                  src={withBase(`${base}/img_house05.png`)}
+                  alt="階段"
+                  width="320"
+                  height="280"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="products-plan__gallery-col products-plan__gallery-col--right">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house04.png`)}
+                alt="居室と建具"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <p class="products-plan__body">
+              賃貸経営のファーストステップに最適な商品プランです。<br />
+              設計・施工・管理のノウハウを結集し「入居者に選ばれる理由」「長期安定経営」<br
+                class="pc"
+              />を両立するベースモデル。<br />
+              戸数が少ない分、管理費・修繕負担も抑えやすく、収支計画が立てやすくなって<br
+                class="pc"
+              />います。
+            </p>
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house06.png`)}
+                alt="室内"
+                width="320"
+                height="280"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="products-plan products-plan--2"
+        aria-labelledby="products-plan2-title"
+      >
+        <div class="products-plan__content">
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house07.png`)}
+              alt="外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+          <div class="products-plan__text products-plan__text--r1">
+            <p class="products-plan__label">PLAN 2</p>
+            <h2 class="products-plan__title" id="products-plan2-title">
+              変形地・奥行きのある敷地・角地など<br
+              />整形地でなくても魅力的な建築ができるドマーニ
+            </h2>
+            <p class="products-plan__body">
+              全戸が専用玄関＋専用アプローチ付きで、戸建て感覚の住まい心地。<br
+              />防犯対策としても入居者に人気の高い賃貸物件。安定した入居率と収益確保に繋がる一棟です。<br
+              /><br />長屋構造の魅力が光る、選ばれる賃貸住宅。<br
+              />敷地の形状や周辺環境に柔軟にフィットできる長屋タイプ。<br
+              />限られたスペースでもゆとりある暮らしを実現し、賃貸経営の新しいスタイルとして注目を集めています。
+            </p>
+          </div>
+        </div>
+        <div class="products-plan__gallery products-plan__gallery--2">
+          <div class="products-plan__gallery-col products-plan__gallery-col--left">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house08.png`)}
+                alt="リビング・キッチン"
+                width="800"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house10.png`)}
+                alt="水回り"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+          <div class="products-plan__gallery-col products-plan__gallery-col--right">
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house09.png`)}
+                alt="共用部"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </figure>
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house11.png`)}
+                alt="室内"
+                width="480"
+                height="720"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="products-plan products-plan--3"
+        aria-labelledby="products-plan3-title"
+      >
+        <div class="products-plan__content">
+          <p class="products-plan__label">PLAN 3</p>
+          <div class="products-plan__text products-plan__text--r1">
+            <h2 class="products-plan__title" id="products-plan3-title">
+              収益性・デザイン・住みやすさ<br
+              />すべてをバランスよく叶えたい。<br />1K×12戸プラン｜ドマーニ
+              ボリュームのプラン
+            </h2>
+            <p class="products-plan__body">
+              ドマーニ12戸タイプはプラン2同様、オートロックと共用アプローチを採用。
+              プラン3は建物全体に重厚感があり、佇まいも美しく、豊富なデザインバリエーションが魅力です。また、室内空間も他プランとは異なる見え方や工夫が施されており、入居者から高評価を得ている商品です。
+            </p>
+          </div>
+          <div class="products-plan__figure products-plan__figure--r1">
+            <img
+              src={withBase(`${base}/img_house12.png`)}
+              alt="外観"
+              width="800"
+              height="520"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="products-plan__gallery products-plan__gallery--3">
+          <div class="products-plan__gallery-col products-plan__gallery-col--left">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house13.png`)}
+                alt="室内"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <div class="products-plan__gallery-row">
+              <figure class="products-plan__gallery-item">
+                <img
+                  src={withBase(`${base}/img_house15.png`)}
+                  alt="共用部"
+                  width="320"
+                  height="280"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="products-plan__gallery-col products-plan__gallery-col--right">
+            <figure
+              class="products-plan__gallery-item products-plan__gallery-item--main"
+            >
+              <img
+                src={withBase(`${base}/img_house14.png`)}
+                alt="リビング"
+                width="640"
+                height="520"
+                loading="lazy"
+              />
+            </figure>
+            <p class="products-plan__body">
+              経営効率と意匠性の両立を図りながら、ドマーニらしい品のある存在感を発揮します。<br
+              />
+              「共用アプローチ」「オートロック」「見栄えの良い佇まい」「室内の差別化」⸺
+            </p>
+            <figure class="products-plan__gallery-item">
+              <img
+                src={withBase(`${base}/img_house16.png`)}
+                alt="水回り"
+                width="320"
+                height="280"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <OtherProducts />
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../../styles/variables" as *;
+  @use "../../styles/products-plan-layout" as *;
+</style>

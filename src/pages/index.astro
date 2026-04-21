@@ -1,11 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PillCtaLink from "../components/PillCtaLink.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { productLineup } from "../data/productLineup";
 import { withBase } from "../utils/withBase";
 ---
 
-<Layout title="トップ" description="資産価値を守り、賃貸経営を強くする建築を。株式会社エム・ジェイホーム">
+<Layout
+  title="トップ"
+  description="資産価値を守り、賃貸経営を強くする建築を。株式会社エム・ジェイホーム"
+>
   <section class="top-mv">
     <div class="top-mv__image-wrap">
       <img
@@ -15,34 +19,49 @@ import { withBase } from "../utils/withBase";
         width="1920"
         height="800"
       />
-      <div class="top-mv__overlay" aria-hidden="true" />
+      <div class="top-mv__overlay" aria-hidden="true"></div>
     </div>
     <div class="top-mv__inner section__inner">
       <p class="top-mv__lead">
-        資産価値を守り、賃貸経営を強くする建築を。
-      </p>
-      <p class="top-mv__sub">
-        オーナー様の視点に立った建築サービスをご提供します。
+        <picture>
+          <source
+            srcset={withBase("/img/top/img_mv_lead-sp.png")}
+            media="(max-width: 768px)"
+          />
+          <img
+            src={withBase("/img/top/img_mv_lead.png")}
+            alt="資産価値を守り、賃貸経営を強くする建築を。長期的な収益と建物維持を考えた、オーナー様視点の建築サービスをご提供します。"
+          />
+        </picture>
       </p>
     </div>
   </section>
 
   <section class="top-about section">
     <div class="section__inner">
-      <SectionHeading
-        titleJapanese="頼れるパートナーとして"
-        titleEnglish="be partner"
-        align="center"
-      />
       <div class="top-about__row">
         <div class="top-about__text">
+          <SectionHeading
+            titleJapanese="賃貸経営を支える、<br>頼れるパートナーとして"
+            titleEnglish="reliable partner"
+            textAlign="left"
+          />
           <p class="top-about__paragraph">
-            私たちは、土地活用から設計・施工、賃貸運営の視点までを一貫してサポートし、お客様の資産形成を支えるパートナーを目指しています。
+            オーナー様の資産を守りながら、安定した賃貸経営を支えるため、定期的な巡回点検や清掃を行い快適な住環境を提供します。<br
+            />
+            空室対策として、ターゲット層に合わせたリノベーションや原状回復工事を提案し、早期入居を実現。<br
+            />
+            さらに、老朽化対策や漏水トラブルにも迅速に対応し、物件の価値を保ちます。<br
+            />
+            そして、エム・ジェイホームの強みとして、社内で新築アパートの施工管理を行っています。未活用の土地や投資家様のご要望に応じ、新築提案を行い、収益の高い物件を提供します。
           </p>
-          <p class="top-about__paragraph">
-            木造・収益物件の企画に強みを持ち、地域に根ざした提案で「建てて終わり」ではない伴走型のサービスを大切にしています。
-          </p>
-          <a href={withBase("/beginner")} class="top-about__button">はじめての方へ</a>
+          <div class="top-about__cta">
+            <PillCtaLink
+              href={withBase("/beginner")}
+              label="はじめての方へ"
+              width="base"
+            />
+          </div>
         </div>
         <div class="top-about__media">
           <img
@@ -64,6 +83,8 @@ import { withBase } from "../utils/withBase";
         titleEnglish="Products"
         align="center"
       />
+    </div>
+    <div class="top-products__band">
       <ul class="top-products__grid">
         {
           productLineup.map((product) => (
@@ -93,47 +114,138 @@ import { withBase } from "../utils/withBase";
       />
       <ul class="top-case__grid">
         <li class="top-case__item">
+          <span class="top-case__badge">アパート・マンション</span>
           <a href={withBase("/case/detail")} class="top-case__card">
-            <span class="top-case__label">APARTMENT</span>
-            <img
-              src={withBase("/img/case/img_dummy.png")}
-              alt="施工事例"
-              width="400"
-              height="260"
-              loading="lazy"
-            />
-            <p class="top-case__name">K-smart 参考プラン</p>
+            <div class="top-case__media">
+              <img
+                src={withBase("/img/case/img_dummy.png")}
+                alt="施工事例"
+                width="400"
+                height="260"
+                loading="lazy"
+              />
+            </div>
+            <div class="top-case__body">
+              <p class="top-case__name">滋賀県XX市・商品名（見出し）</p>
+              <ul class="top-case__tags">
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+              </ul>
+            </div>
           </a>
         </li>
         <li class="top-case__item">
+          <span class="top-case__badge">アパート・マンション</span>
           <a href={withBase("/case/detail")} class="top-case__card">
-            <span class="top-case__label">APARTMENT</span>
-            <img
-              src={withBase("/img/case/img_dummy.png")}
-              alt="施工事例"
-              width="400"
-              height="260"
-              loading="lazy"
-            />
-            <p class="top-case__name">Plan 2</p>
+            <div class="top-case__media">
+              <img
+                src={withBase("/img/case/img_dummy.png")}
+                alt="施工事例"
+                width="400"
+                height="260"
+                loading="lazy"
+              />
+            </div>
+            <div class="top-case__body">
+              <p class="top-case__name">K-smart 参考プラン</p>
+              <ul class="top-case__tags">
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+              </ul>
+            </div>
           </a>
         </li>
         <li class="top-case__item">
+          <span class="top-case__badge">アパート・マンション</span>
           <a href={withBase("/case/detail")} class="top-case__card">
-            <span class="top-case__label">APARTMENT</span>
-            <img
-              src={withBase("/img/case/img_dummy.png")}
-              alt="施工事例"
-              width="400"
-              height="260"
-              loading="lazy"
-            />
-            <p class="top-case__name">Plan 3</p>
+            <div class="top-case__media">
+              <img
+                src={withBase("/img/case/img_dummy.png")}
+                alt="施工事例"
+                width="400"
+                height="260"
+                loading="lazy"
+              />
+            </div>
+            <div class="top-case__body">
+              <p class="top-case__name">Plan 3</p>
+              <ul class="top-case__tags">
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+              </ul>
+            </div>
+          </a>
+        </li>
+        <li class="top-case__item">
+          <span class="top-case__badge">アパート・マンション</span>
+          <a href={withBase("/case/detail")} class="top-case__card">
+            <div class="top-case__media">
+              <img
+                src={withBase("/img/case/img_dummy.png")}
+                alt="施工事例"
+                width="400"
+                height="260"
+                loading="lazy"
+              />
+            </div>
+            <div class="top-case__body">
+              <p class="top-case__name">滋賀県XX市・商品名（見出し）</p>
+              <ul class="top-case__tags">
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+              </ul>
+            </div>
+          </a>
+        </li>
+        <li class="top-case__item">
+          <span class="top-case__badge">アパート・マンション</span>
+          <a href={withBase("/case/detail")} class="top-case__card">
+            <div class="top-case__media">
+              <img
+                src={withBase("/img/case/img_dummy.png")}
+                alt="施工事例"
+                width="400"
+                height="260"
+                loading="lazy"
+              />
+            </div>
+            <div class="top-case__body">
+              <p class="top-case__name">K-smart 参考プラン</p>
+              <ul class="top-case__tags">
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+              </ul>
+            </div>
+          </a>
+        </li>
+        <li class="top-case__item">
+          <span class="top-case__badge">アパート・マンション</span>
+          <a href={withBase("/case/detail")} class="top-case__card">
+            <div class="top-case__media">
+              <img
+                src={withBase("/img/case/img_dummy.png")}
+                alt="施工事例"
+                width="400"
+                height="260"
+                loading="lazy"
+              />
+            </div>
+            <div class="top-case__body">
+              <p class="top-case__name">Plan 3</p>
+              <ul class="top-case__tags">
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+                <li><span class="top-case__tag">タグ</span></li>
+              </ul>
+            </div>
           </a>
         </li>
       </ul>
       <div class="top-case__action">
-        <a href={withBase("/case")} class="top-case__button">一覧を見る</a>
+        <PillCtaLink href={withBase("/case")} label="もっと見る" width="base" />
       </div>
     </div>
   </section>
@@ -148,35 +260,44 @@ import { withBase } from "../utils/withBase";
       <ul class="top-reason__list">
         <li class="top-reason__item">
           <span class="top-reason__num">01</span>
-          <h3 class="top-reason__title">低コスト管理</h3>
-          <p class="top-reason__text">
-            長期的な修繕計画と標準仕様の最適化で維持コストを抑えた運用をサポートします。
-          </p>
+          <div class="top-reason__body">
+            <h3 class="top-reason__title">低コスト実現</h3>
+            <p class="top-reason__text">
+              建物重量が軽く、基礎や地盤改良費まで抑えられるため、初期コストを軽減でき、無理のない賃貸経営をスタートできます。
+            </p>
+          </div>
         </li>
         <li class="top-reason__item">
           <span class="top-reason__num">02</span>
-          <h3 class="top-reason__title">短工期</h3>
-          <p class="top-reason__text">
-            工程管理とパートナー連携により、着工から竣工までの期間を短縮します。
-          </p>
+          <div class="top-reason__body">
+            <h3 class="top-reason__title">短工期</h3>
+            <p class="top-reason__text">
+              資材調達がスムーズなため、鉄骨造に比べて工期短縮ができ、早期の収益化が可能です。
+            </p>
+          </div>
         </li>
         <li class="top-reason__item">
           <span class="top-reason__num">03</span>
-          <h3 class="top-reason__title">2×4工法</h3>
-          <p class="top-reason__text">
-            2×4工法のメリットを活かし、快適性とコストのバランスを取ります。
-          </p>
+          <div class="top-reason__body">
+            <h3 class="top-reason__title">2×4工法</h3>
+            <p class="top-reason__text">
+              耐震性・耐火性に配慮しやすく、賃貸住宅の長期運用に適した木造工法です。
+            </p>
+          </div>
         </li>
       </ul>
       <div class="top-reason__action">
-        <a href={withBase("/reason")} class="top-reason__button">詳しく見る</a>
+        <PillCtaLink
+          href={withBase("/reason")}
+          label="もっと見る"
+          width="base"
+        />
       </div>
     </div>
   </section>
 </Layout>
 
-
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../styles/variables" as *;
 
   .top-mv {
@@ -193,7 +314,7 @@ import { withBase } from "../utils/withBase";
 
     .top-mv__image {
       width: 100%;
-      height: 520px;
+      height: 850px;
       object-fit: cover;
       display: block;
 
@@ -202,23 +323,15 @@ import { withBase } from "../utils/withBase";
       }
     }
 
-    .top-mv__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0.25) 100%
-      );
-    }
-
     .top-mv__inner {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 1;
-      padding-bottom: $spacing-xxl;
+      max-width: 1200px;
+      width: 100%;
+      padding: 0;
 
       @media (max-width: $breakpoint-sp) {
         padding-bottom: $spacing-xl;
@@ -226,18 +339,7 @@ import { withBase } from "../utils/withBase";
     }
 
     .top-mv__lead {
-      font-family: $noto-sans-jp;
-      font-size: 32px;
-      font-weight: $fw-bold;
-      color: $color-white;
-      line-height: 1.5;
-      margin: 0 0 $spacing-sm;
-      max-width: 640px;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-
-      @media (max-width: $breakpoint-sp) {
-        font-size: 22px;
-      }
+      max-width: 700px;
     }
 
     .top-mv__sub {
@@ -255,11 +357,19 @@ import { withBase } from "../utils/withBase";
   }
 
   .top-about {
+    @media (min-width: #{$breakpoint-sp + 1px}) {
+      overflow-x: visible;
+    }
+
     .top-about__row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: $spacing-xl;
       align-items: center;
+
+      @media (min-width: #{$breakpoint-sp + 1px}) {
+        overflow: visible;
+      }
 
       @media (max-width: $breakpoint-sp) {
         grid-template-columns: 1fr;
@@ -276,48 +386,88 @@ import { withBase } from "../utils/withBase";
       }
     }
 
-    .top-about__button {
-      display: inline-block;
+    .top-about__cta {
       margin-top: $spacing-sm;
-      padding: 14px 32px;
-      font-size: 15px;
-      font-weight: $fw-medium;
-      color: $color-white;
-      background: $button-gradient;
-      border-radius: 999px;
-      text-decoration: none;
-
-      &:hover {
-        opacity: 0.9;
-      }
     }
 
     .top-about__media {
+      @media (min-width: #{$breakpoint-sp + 1px}) {
+        width: calc(
+          100% +
+            max(
+              0px,
+              (
+                  min(100vw, #{$content-visual-max-width}) -
+                    #{$content-max-width}
+                ) /
+                2
+            )
+        );
+        margin-right: calc(
+          -1 *
+            max(
+              0px,
+              (
+                  min(100vw, #{$content-visual-max-width}) -
+                    #{$content-max-width}
+                ) /
+                2
+            )
+        );
+      }
+
       img {
         width: 100%;
         height: auto;
-        border-radius: 4px;
+        display: block;
       }
     }
   }
 
   .top-products {
-    background-color: $color-secondary;
+    .top-products__band {
+      width: 100%;
+      max-width: $content-visual-max-width;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+      padding-left: $spacing-md;
+      padding-right: $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        padding-left: $spacing-sm;
+        padding-right: $spacing-sm;
+      }
+    }
 
     .top-products__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: $spacing-md;
       list-style: none;
       margin: 0;
       padding: 0;
 
+      @media (min-width: #{$breakpoint-tb + 1px}) {
+        grid-template-columns: repeat(12, 1fr);
+
+        .top-products__item:nth-child(-n + 4) {
+          grid-column: span 3;
+        }
+
+        .top-products__item:nth-child(n + 5) {
+          grid-column: span 4;
+        }
+      }
+
       @media (max-width: $breakpoint-tb) {
         grid-template-columns: repeat(2, 1fr);
+
+        .top-products__item {
+          grid-column: auto;
+        }
       }
 
       @media (max-width: $breakpoint-sp) {
-        grid-template-columns: repeat(2, 1fr);
         gap: $spacing-sm;
       }
     }
@@ -326,20 +476,16 @@ import { withBase } from "../utils/withBase";
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100px;
-      padding: $spacing-sm;
-      background: $color-white;
-      border-radius: 4px;
-      border: 1px solid rgba($color-text, 0.06);
+      transition: transform 0.35s ease;
 
       &:hover {
-        opacity: 1;
-        border-color: rgba($color-primary, 0.35);
+        opacity: 0.9;
+        transform: scale(1.02);
       }
 
       img {
         max-width: 100%;
-        max-height: 64px;
+
         width: auto;
         height: auto;
         object-fit: contain;
@@ -351,7 +497,7 @@ import { withBase } from "../utils/withBase";
     .top-case__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-md;
+      gap: $spacing-xl $spacing-md;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -361,51 +507,112 @@ import { withBase } from "../utils/withBase";
       }
     }
 
-    .top-case__card {
+    .top-case__item {
       position: relative;
-      display: block;
-      color: inherit;
-      text-decoration: none;
+    }
 
-      &:hover {
-        opacity: 1;
+    .top-case__badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      max-width: 75%;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: $fw-bold;
+      line-height: 1.35;
+      color: $color-white;
+      text-align: right;
+      background:
+        repeating-linear-gradient(
+          -36deg,
+          rgba($color-white, 0.14) 0,
+          rgba($color-white, 0.14) 1px,
+          transparent 1px,
+          transparent 5px
+        ),
+        $color-primary;
 
-        img {
-          transform: scale(1.02);
-        }
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 4px;
-        transition: transform 0.35s ease;
+      @media (max-width: $breakpoint-sp) {
+        padding: 8px 12px;
+        font-size: 11px;
       }
     }
 
-    .top-case__label {
-      position: absolute;
-      top: $spacing-sm;
-      right: $spacing-sm;
-      z-index: 1;
-      background: $color-primary;
-      color: $color-white;
-      font-size: 11px;
-      font-weight: $fw-bold;
-      padding: 6px 10px;
-      border-radius: 2px;
+    .top-case__card {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      overflow: hidden;
+      color: inherit;
+      padding: 36px $spacing-md 24px;
+      text-decoration: none;
+      background: $color-white;
+      box-shadow: 0 4px 20px rgba($color-text, 0.2);
+      transition: box-shadow 0.25s ease;
+
+      &:hover {
+        box-shadow: 0 8px 28px rgba($color-text, 0.12);
+      }
+    }
+
+    .top-case__media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .top-case__body {
+      flex: 1 1 auto;
+      padding: $spacing-md 0;
     }
 
     .top-case__name {
-      margin: $spacing-sm 0 0;
-      font-size: 16px;
+      margin: 0;
+      font-size: 20px;
       font-weight: $fw-bold;
+      line-height: 1.5;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 15px;
+      }
+    }
+
+    .top-case__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+      margin: $spacing-sm 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .top-case__tag {
+      display: inline-block;
+      padding: 7px 14px;
+      font-size: 14px;
+      font-weight: $fw-medium;
+      line-height: 1.3;
+      color: $color-primary;
+      background: $color-secondary;
+      border: 1px solid $color-primary;
+      border-radius: 999px;
     }
 
     .top-case__action {
       text-align: center;
-      margin-top: $spacing-xl;
+      margin: $spacing-xl auto;
+      display: flex;
+      justify-content: center;
     }
 
     .top-case__button {
@@ -428,47 +635,89 @@ import { withBase } from "../utils/withBase";
     .top-reason__list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-lg;
+      gap: $spacing-md;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: $spacing-lg 0 0;
+      overflow: visible;
 
       @media (max-width: $breakpoint-sp) {
         grid-template-columns: 1fr;
+        gap: $spacing-lg;
+        padding-top: $spacing-md;
       }
     }
 
     .top-reason__item {
-      padding: $spacing-md;
-      border: 1px solid rgba($color-primary, 0.25);
-      border-radius: 8px;
+      position: relative;
+      overflow: visible;
+      margin: 0;
+      padding: 0;
       background: $color-white;
+      box-shadow: 3px 3px 10px rgba($color-text, 0.2);
     }
 
     .top-reason__num {
-      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
       font-family: $font-filmotype-lucky;
-      font-size: 36px;
-      color: rgba($color-primary, 0.45);
-      line-height: 1;
-      margin-bottom: $spacing-sm;
+      font-size: 78px;
+      font-style: italic;
+      font-weight: $fw-regular;
+      line-height: 0.85;
+      color: $color-primary;
+      pointer-events: none;
+      transform: translate(-10%, -42%);
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 48px;
+        left: $spacing-sm;
+        transform: translate(-6%, -40%);
+      }
+    }
+
+    .top-reason__body {
+      padding: $spacing-xl $spacing-md $spacing-xl;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-lg $spacing-sm $spacing-sm;
+      }
     }
 
     .top-reason__title {
-      font-size: 18px;
-      font-weight: $fw-bold;
       margin: 0 0 $spacing-sm;
+      font-size: 28px;
+      font-weight: $fw-bold;
+      line-height: 1.45;
+      color: $color-text;
+      text-align: center;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 18px;
+      }
     }
 
     .top-reason__text {
-      font-size: 14px;
-      line-height: 1.8;
       margin: 0;
+      font-size: 16px;
+      font-weight: $fw-regular;
+      line-height: 2;
+      color: $color-text;
+      text-align: left;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 13px;
+        line-height: 1.7;
+      }
     }
 
     .top-reason__action {
       text-align: center;
       margin-top: $spacing-xl;
+      display: flex;
+      justify-content: center;
     }
 
     .top-reason__button {

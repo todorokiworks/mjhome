@@ -1,45 +1,212 @@
 ---
-import ProductBrandPage from "../../components/ProductBrandPage.astro";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import OtherProducts from "../../components/OtherProducts.astro";
+import { withBase } from "../../utils/withBase";
 
 const base = "/img/product/urbangarage";
 ---
 
-<ProductBrandPage
+<Layout
   title="URBAN GARAGE"
-  description="URBAN GARAGE inner-garage urban housing by MJ Home."
-  brandName="URBAN GARAGE"
-  heroTitle="URBAN GARAGE"
-  heroImage={`${base}/img_header.png`}
-  breadcrumbs={[
-    { label: "TOP", href: "/" },
-    { label: "商品一覧", href: "/products" },
-    { label: "URBAN GARAGE" },
-  ]}
-  introLead="Urban style with integrated garage space."
-  introLogo={`${base}/img_logo.png`}
-  introLogoAlt="URBAN GARAGE"
-  splits={[
-    {
-      title: "Location and facade",
-      body: "Efficient use of the site with a form that fits the neighborhood.",
-      image: `${base}/img_house01.png`,
-      imageAlt: "URBAN GARAGE exterior",
-    },
-    {
-      title: "Garage volume",
-      body: "Generous garage planning for vehicles, hobbies, or workspace.",
-      image: `${base}/img_house02.png`,
-      imageAlt: "Garage",
-      reverse: true,
-    },
-  ]}
-  gallery={[
-    { src: `${base}/img_house03.png`, alt: "" },
-    { src: `${base}/img_house04.png`, alt: "" },
-    { src: `${base}/img_house05.png`, alt: "" },
-    { src: `${base}/img_house06.png`, alt: "" },
-    { src: `${base}/img_house07.png`, alt: "" },
-    { src: `${base}/img_house08.png`, alt: "" },
-  ]}
-  excludeSlug="urban-garage"
-/>
+  description="URBAN GARAGE — インナーガレージで狭い土地も有効活用。株式会社エム・ジェイホーム。"
+>
+  <PageHero
+    imageSrc={`${base}/img_header.png`}
+    imageAlt=""
+    title="URBAN GARAGE"
+  />
+  <Breadcrumbs
+    items={[
+      { label: "TOP", href: "/", useHomeIcon: true },
+      { label: "商品一覧", href: "/products" },
+      { label: "URBAN GARAGE" },
+    ]}
+  />
+
+  <section class="products-intro" aria-labelledby="products-intro-heading">
+    <p class="products-intro__bar" id="products-intro-heading">
+      希少な「インナーガレージ」で狭い土地も有効活用
+    </p>
+    <div class="products-intro__brand">
+      <div class="products-intro__brand-inner">
+        <img
+          class="products-intro__mark"
+          src={withBase(`${base}/img_logo.png`)}
+          alt="URBAN GARAGE"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="products-main section">
+    <div class="section__inner">
+      <div class="intro">
+        <div class="intro__image">
+          <img
+            src={withBase(`${base}/img_house01.png`)}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="intro__text">
+          <h2 class="intro__title">
+            希少な「インナーガレージ」で、<br />狭い土地も有効活用
+          </h2>
+          <p class="intro__body">
+            利便性が良く限られた敷地条件でも、土地を高度利用することでプライバシー性の高い住環境を確保し、こだわりのあるライフスタイルを実現しました。<br
+            />ブルックリンの古アパートや倉庫を思わせるような空間を演出し、車や趣味の道具を室内に近い安心感で収納できるインナーガレージが、暮らしの満足度を大きく押し上げます。<br
+            />
+          </p>
+        </div>
+      </div>
+
+      <div class="intro__gallery_type2">
+        <div class="intro__gallery-item">
+          <div class="intro__gallery-item-content">
+            <img
+              src={withBase(`${base}/img_house02.png`)}
+              alt=""
+              loading="lazy"
+            />
+            <p class="intro__gallery-item-title">
+              エイジング加工でこだわりの<br />ライフスタイルを再現
+            </p>
+            <p class="intro__gallery-item-body">
+              ガレージ内はレンガ調のサイディングの「エイジング加工」を施すことも可能です。落ち着いた大人の雰囲気を演出。<br
+              />
+              自転車や釣り、バイク、DIYまでこだわりのライフスタイルに馴染む唯一無二の空間を創出できます。
+            </p>
+          </div>
+        </div>
+        <div class="intro__gallery-item">
+          <div class="intro__gallery-item-content">
+            <img
+              src={withBase(`${base}/img_house03.png`)}
+              alt=""
+              loading="lazy"
+            />
+            <p class="intro__gallery-item-title">
+              大型輸入車も入庫可能な<br />充実のガレージ空間
+            </p>
+            <p class="intro__gallery-item-body">
+              電動シャッターや電気自動車の充電コンセントなどを完備したガレージは、車以外でも様々な用途に対応できるマルチスペース。<br
+              />マリンスポーツやアウトドア用品の収納スペースとしても活用できます。また、ガレージから玄関に直接つながる動線設計で雨の日でも安心です。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__inner">
+        <article
+          class="products-plan products-plan--1"
+          aria-labelledby="urban-plan1-title"
+        >
+          <div class="products-plan__content">
+            <div class="products-plan__text products-plan__text--r1">
+              <h2 class="products-plan__title" id="urban-plan1-title">
+                インナーガレージと住空間を、<br />一体で設計する
+              </h2>
+              <p class="products-plan__body">
+                ガレージを建物内部に取り込むことで、路上からの視線を遮りながら車両の出し入れをスムーズに。<br
+                />
+                1階のボリュームを活かした開放的なLDKや、趣味・在宅ワークに使えるスペースとも連動しやすいプランを組み立てます。<br
+                />
+                外観はモダンでありながら倉庫やロフトを連想させるマテリアル感で、ブランドとしての統一感を出します。
+              </p>
+            </div>
+            <div class="products-plan__figure products-plan__figure--r1">
+              <img
+                src={withBase(`${base}/img_house04.png`)}
+                alt="外観"
+                width="800"
+                height="520"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class="products-plan__gallery products-plan__gallery--1">
+            <div
+              class="products-plan__gallery-col products-plan__gallery-col--left"
+            >
+              <figure
+                class="products-plan__gallery-item products-plan__gallery-item--main"
+              >
+                <img
+                  src={withBase(`${base}/img_house05.png`)}
+                  alt="室内"
+                  width="640"
+                  height="520"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="products-plan__gallery-row">
+                <figure class="products-plan__gallery-item">
+                  <img
+                    src={withBase(`${base}/img_house07.png`)}
+                    alt="居室"
+                    width="320"
+                    height="280"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </div>
+            <div
+              class="products-plan__gallery-col products-plan__gallery-col--right"
+            >
+              <figure
+                class="products-plan__gallery-item products-plan__gallery-item--main"
+              >
+                <img
+                  src={withBase(`${base}/img_house06.png`)}
+                  alt="リビング"
+                  width="640"
+                  height="520"
+                  loading="lazy"
+                />
+              </figure>
+              <p class="products-plan__body">
+                フローリング：アーバンガレージに採用したのは、耐衝撃性、耐熱性、<br
+                />耐摩耗性、耐化学薬品性、耐光性に優れたラミネートフローリング。、<br
+                />傷やタバコの焦げもつきにくく、手入れのしやすさも特長です。<br
+                />
+                クロス：クロス表面にフィルム層を形成しメンテナンス効果を高めています。、<br
+                />水を含ませた布などで拭き取るだけで、汚れが簡単に落ちます。油性の汚れは、<br
+                />中性洗剤やシンナーを含ませた布で拭くと効果的です。<br
+                />汚れの激しい壁面や、清潔さを要求する場所にもおすすめします。
+              </p>
+              <figure class="products-plan__gallery-item">
+                <img
+                  src={withBase(`${base}/img_house08.png`)}
+                  alt="水回り"
+                  width="320"
+                  height="280"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <OtherProducts />
+  </section>
+
+  <style lang="scss" is:global>
+    @use "../../styles/variables" as *;
+    @use "../../styles/products-plan-layout" as *;
+
+    .products-main {
+      .intro__title {
+        font-size: 32px;
+        font-weight: $fw-bold;
+        margin-bottom: $spacing-md;
+      }
+    }
+  </style>
+</Layout>

@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/PageHero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import SectionHeading from "../../components/SectionHeading.astro";
+import PillCtaLink from "../../components/PillCtaLink.astro";
 import { productLineup } from "../../data/productLineup";
 import { withBase } from "../../utils/withBase";
 ---
@@ -15,30 +15,45 @@ import { withBase } from "../../utils/withBase";
   />
   <Breadcrumbs
     items={[
-      { label: "TOP", href: "/" },
+      { label: "TOP", href: "/", useHomeIcon: true },
       { label: "商品一覧" },
     ]}
   />
   <section class="products-index section">
     <div class="section__inner">
-      <SectionHeading
-        titleJapanese="ブランドラインアップ"
-        titleEnglish="Lineup"
-        align="center"
-      />
-      <ul class="products-index__grid">
+      <ul class="products-index__list">
         {
           productLineup.map((product) => (
             <li class="products-index__item">
-              <a href={withBase(product.href)} class="products-index__link">
-                <img
-                  src={withBase(product.src)}
-                  alt={product.alt}
-                  width="280"
-                  height="120"
-                  loading="lazy"
-                />
-              </a>
+              <div class="products-index__card">
+                <div
+                  href={withBase(product.href)}
+                  class="products-index__hit"
+                  aria-label={`${product.alt}の詳細へ`}
+                >
+                  <div class="products-index__logo">
+                    <img
+                      src={withBase(product.src)}
+                      alt={product.alt}
+                      width="280"
+                      height="120"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="products-index__body">
+                    <h2 class="products-index__catch">{product.title}</h2>
+                    <p class="products-index__desc">{product.description}</p>
+                    <div class="products-index__cta-wrap">
+                      <PillCtaLink
+                        href={withBase(product.href)}
+                        label="詳しく見る"
+                        width="base"
+                        class="products-index__pill"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
           ))
         }
@@ -47,49 +62,137 @@ import { withBase } from "../../utils/withBase";
   </section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../../styles/variables" as *;
 
   .products-index {
-    .products-index__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .products-index__list {
+      display: flex;
+      flex-direction: column;
       gap: $spacing-md;
       list-style: none;
       margin: 0;
       padding: 0;
 
-      @media (max-width: $breakpoint-tb) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       @media (max-width: $breakpoint-sp) {
-        grid-template-columns: repeat(2, 1fr);
         gap: $spacing-sm;
       }
     }
 
-    .products-index__link {
+    .products-index__item {
+      margin: 0;
+    }
+
+    .products-index__card {
+      display: grid;
+      grid-template-columns: minmax(0, 32%) minmax(0, 1fr);
+
+      align-items: stretch;
+      gap: 0 $spacing-md;
+      box-sizing: border-box;
+
+      background: $color-white;
+      border: 1px solid rgba($color-text, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba($color-text, 0.07);
+      transition: box-shadow 0.25s ease;
+
+      &:hover {
+        box-shadow: 0 8px 28px rgba($color-text, 0.1);
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: $spacing-md;
+        padding: $spacing-md;
+      }
+    }
+
+    .products-index__hit {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      grid-template-columns: minmax(0, 32%) minmax(0, 1fr);
+      align-items: center;
+      column-gap: $spacing-xl;
+      text-decoration: none;
+      color: inherit;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+        row-gap: $spacing-md;
+      }
+    }
+
+    .products-index__logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 120px;
-      padding: $spacing-md;
-      background: $color-white;
-      border: 1px solid rgba($color-text, 0.08);
-      border-radius: 4px;
-
-      &:hover {
-        opacity: 1;
-        border-color: rgba($color-primary, 0.35);
-      }
 
       img {
         max-width: 100%;
-        max-height: 72px;
+
         width: auto;
         height: auto;
         object-fit: contain;
+      }
+    }
+
+    .products-index__body {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      padding: $spacing-lg $spacing-xl $spacing-lg 0;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-md;
+      }
+    }
+
+    .products-index__catch {
+      margin: 0 0 $spacing-sm;
+      font-family: $noto-sans-jp;
+      font-size: 32px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 17px;
+      }
+    }
+
+    .products-index__desc {
+      flex: 1 1 auto;
+      margin: 0 0 $spacing-md;
+      font-family: $noto-sans-jp;
+      font-size: 16px;
+      font-weight: $fw-regular;
+      line-height: 1.75;
+      color: rgba($color-text, 0.88);
+      white-space: pre-line;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+    }
+
+    .products-index__cta-wrap {
+      display: flex;
+      grid-column: 2;
+      grid-row: 2;
+      flex-shrink: 0;
+      justify-content: flex-end;
+      align-self: end;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .products-index__pill.pill-cta-link {
       }
     }
   }
