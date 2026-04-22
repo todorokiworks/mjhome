@@ -20,7 +20,7 @@
   padding: $spacing-xxl 0;
 
   @media (max-width: $breakpoint-sp) {
-    padding: $spacing-xl 0;
+    padding: 0 0 $spacing-xl ;
   }
 }
 

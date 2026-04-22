@@ -1,5 +1,7 @@
 ---
 import { withBase } from "../utils/withBase";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 interface Props {
   imageSrc: string;
@@ -9,17 +11,37 @@ interface Props {
 }
 
 const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
+
+const commonSpImageSrc = "/img/common/img_header-sp.png";
+const productBrandMatch = imageSrc.match(/^\/img\/product\/([^/]+)\//);
+const sectionMatch = imageSrc.match(/^\/img\/([^/]+)\//);
+const candidateSpImageSrc = productBrandMatch
+  ? `/img/product/${productBrandMatch[1]}/img_header-sp.png`
+  : sectionMatch
+    ? `/img/${sectionMatch[1]}/img_header-sp.png`
+    : commonSpImageSrc;
+const candidateSpImagePath = join(
+  process.cwd(),
+  "public",
+  candidateSpImageSrc.replace(/^\//, ""),
+);
+const spImageSrc = existsSync(candidateSpImagePath)
+  ? candidateSpImageSrc
+  : commonSpImageSrc;
 ---
 
 <section class="page-hero">
   <div class="page-hero__image-wrap">
-    <img
-      class="page-hero__image"
-      src={withBase(imageSrc)}
-      alt={imageAlt}
-      width="1200"
-      height="480"
-    />
+    <picture>
+      <source media="(max-width: 768px)" srcset={withBase(spImageSrc)} />
+      <img
+        class="page-hero__image"
+        src={withBase(imageSrc)}
+        alt={imageAlt}
+        width="1200"
+        height="480"
+      />
+    </picture>
     {overlay && <div class="page-hero__overlay" aria-hidden="true" />}
   </div>
   <div class="page-hero__inner">
@@ -27,7 +49,7 @@ const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
   </div>
 </section>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../styles/variables" as *;
 
   .page-hero {
@@ -45,7 +67,7 @@ const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
       overflow: hidden;
 
       @media (max-width: $breakpoint-sp) {
-        max-height: 280px;
+        max-height: 200px;
       }
     }
 
@@ -56,7 +78,7 @@ const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
       display: block;
 
       @media (max-width: $breakpoint-sp) {
-        height: 280px;
+        height: 140px;
       }
     }
 
@@ -79,6 +101,12 @@ const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
       max-width: $content-max-width;
       padding: 0;
       z-index: 2;
+
+      @media (max-width: $breakpoint-sp) {
+        max-width: 100%;
+        padding: 0 $spacing-sm;
+        top: 50%;
+      }
     }
 
     .page-hero__title {
@@ -92,7 +120,8 @@ const { imageSrc, imageAlt, title, overlay = true } = Astro.props;
       padding-left: $spacing-lg;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 32px;
+        font-size: 28px;
+        padding-left: $spacing-sm;
       }
 
       &::before {

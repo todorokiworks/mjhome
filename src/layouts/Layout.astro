@@ -8,12 +8,14 @@ export interface Props {
   title: string;
   description?: string;
   mainClass?: string;
+  disableSpHeaderOffset?: boolean;
 }
 
 const {
   title,
   description = "株式会社エム・ジェイホームの公式サイトです。",
   mainClass = "",
+  disableSpHeaderOffset = false,
 } = Astro.props;
 ---
 
@@ -35,7 +37,13 @@ const {
   </head>
   <body>
     <Header />
-    <main class:list={["main", mainClass]}>
+    <main
+      class:list={[
+        "main",
+        disableSpHeaderOffset && "main--no-sp-header-offset",
+        mainClass,
+      ]}
+    >
       <slot />
     </main>
     <Footer />
@@ -51,7 +59,13 @@ const {
     background-color: $color-white;
 
     @media (max-width: $breakpoint-sp) {
-      padding-top: 60px;
+      padding-top: 120px;
+    }
+
+    &.main--no-sp-header-offset {
+      @media (max-width: $breakpoint-sp) {
+        padding-top: 0;
+      }
     }
   }
 
