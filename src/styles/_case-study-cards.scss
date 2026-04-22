@@ -1,0 +1,139 @@
+@use "./variables" as *;
+
+.top-case {
+  .top-case__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-xl $spacing-md;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: $breakpoint-sp) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .top-case__item {
+    position: relative;
+  }
+
+  .top-case__badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 75%;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: $fw-bold;
+    line-height: 1.35;
+    color: $color-white;
+    text-align: right;
+    background:
+      repeating-linear-gradient(
+        -36deg,
+        rgba($color-white, 0.14) 0,
+        rgba($color-white, 0.14) 1px,
+        transparent 1px,
+        transparent 5px
+      ),
+      $color-primary;
+
+    @media (max-width: $breakpoint-sp) {
+      padding: 8px 12px;
+      font-size: 11px;
+    }
+  }
+
+  .top-case__card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    color: inherit;
+    padding: 36px $spacing-md 24px;
+    text-decoration: none;
+    background: $color-white;
+    box-shadow: 0 4px 20px rgba($color-text, 0.2);
+    transition: box-shadow 0.25s ease;
+
+    &:hover {
+      box-shadow: 0 8px 28px rgba($color-text, 0.12);
+    }
+  }
+
+  .top-case__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .top-case__body {
+    flex: 1 1 auto;
+    padding: $spacing-md 0;
+  }
+
+  .top-case__name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: $fw-bold;
+    line-height: 1.5;
+    color: $color-text;
+
+    @media (max-width: $breakpoint-sp) {
+      font-size: 15px;
+    }
+  }
+
+  .top-case__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin: $spacing-sm 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .top-case__tag {
+    display: inline-block;
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: $fw-medium;
+    line-height: 1.3;
+    color: $color-primary;
+    background: $color-secondary;
+    border: 1px dashed $color-primary;
+    border-radius: 999px;
+  }
+
+  .top-case__action {
+    text-align: center;
+    margin: $spacing-xl auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .top-case__button {
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 15px;
+    font-weight: $fw-medium;
+    color: $color-white;
+    background: $button-gradient;
+    border-radius: 999px;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

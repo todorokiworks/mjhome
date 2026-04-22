@@ -1,34 +1,509 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionHeading from "../components/SectionHeading.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { withBase } from "../utils/withBase";
+
+const arrowIcon = withBase("/img/common/icon_arrow_white.png");
 ---
 
-<Layout title="お問い合わせ" description="お問い合わせフォーム（プレースホルダー）。">
+<Layout
+  title="お問い合わせ"
+  description="お問い合わせフォーム（プレースホルダー）。"
+>
+  <PageHero
+    imageSrc="/img/company/img_header.png"
+    imageAlt=""
+    title="お問い合わせ"
+  />
+  <Breadcrumbs
+    items={[{ label: "TOP", href: "/" }, { label: "お問い合わせ" }]}
+  />
   <section class="contact-page section">
-    <div class="section__inner">
-      <SectionHeading
-        titleJapanese="お問い合わせ"
-        titleEnglish="Contact"
-        align="center"
-      />
-      <p class="contact-page__note">
-        フォーム実装は別途接続してください。電話でのお問い合わせは
-        <a href="tel:0749655940">0749-65-5940</a>
-        まで。
-      </p>
+    <div class="section__inner contact-page__inner">
+      <form class="contact-form" method="post" action="#">
+        <div class="contact-form__intro">
+          <p>
+            エム・ジェイホームの木造建築にご興味をお持ちいただき、ありがとうございます。
+          </p>
+          <p>
+            お問い合わせ・無料相談につきましては、下記のフォームから承ります。
+          </p>
+          <p>
+            以下フォームに必要事項をご入力の上、「上記の内容で送信する」ボタンを押してください。
+          </p>
+          <p>3営業日以内に担当よりご連絡いたします。</p>
+        </div>
+
+        <p class="contact-form__legend">
+          <span class="contact-form__badge contact-form__badge--required"
+            >必須</span
+          >
+          <span class="contact-form__legend-text"
+            >は必須項目です。お問い合わせの際は、プライバシーポリシーを必ずお読みください。</span
+          >
+        </p>
+
+        <div class="contact-form__row">
+          <div class="contact-form__label-cell">
+            <span class="contact-form__label">お名前</span>
+            <span class="contact-form__badge contact-form__badge--required"
+              >必須</span
+            >
+          </div>
+          <div class="contact-form__field-cell">
+            <input
+              type="text"
+              name="name"
+              class="contact-form__control"
+              placeholder="山田太郎"
+              autocomplete="name"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="contact-form__row">
+          <div class="contact-form__label-cell">
+            <span class="contact-form__label">メールアドレス</span>
+            <span class="contact-form__badge contact-form__badge--required"
+              >必須</span
+            >
+          </div>
+          <div class="contact-form__field-cell">
+            <input
+              type="email"
+              name="email"
+              class="contact-form__control"
+              placeholder="info@xxxx.co.jp"
+              autocomplete="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="contact-form__row">
+          <div class="contact-form__label-cell">
+            <span class="contact-form__label">お電話番号</span>
+            <span class="contact-form__badge contact-form__badge--optional"
+              >任意</span
+            >
+          </div>
+          <div class="contact-form__field-cell">
+            <input
+              type="tel"
+              name="tel"
+              class="contact-form__control"
+              placeholder="012-345-9789"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="contact-form__row contact-form__row--textarea">
+          <div class="contact-form__label-cell">
+            <span class="contact-form__label">お問い合わせ内容</span>
+            <span class="contact-form__badge contact-form__badge--required"
+              >必須</span
+            >
+          </div>
+          <div class="contact-form__field-cell">
+            <textarea
+              name="message"
+              class="contact-form__control contact-form__control--textarea"
+              rows="8"
+              placeholder="ご質問等ご用件をご自由にお書きください。"
+              required></textarea>
+          </div>
+        </div>
+
+        <div class="contact-form__policy">
+          <div class="contact-form__policy-box">
+            <p class="contact-form__policy-title">
+              お問い合わせにおける個人情報の取扱いについて
+            </p>
+            <p class="contact-form__policy-body">
+              お問い合わせにおける個人情報の取扱いについて<br />
+              （１）事業者の氏名または名称 株式会社エム・ジェイホーム<br />
+              （２）個人情報保護管理者（若しくはその代理人）の氏名又は職名、所属及び連絡先<br
+              />
+              個人情報保護管理者：葛川 睦 メール： kuzukawa@chintai-siga.com<br
+              />
+              電話番号：0749-65-5940 <br />（３）個人情報の利用目的<br />
+              お問い合わせいただいた内容に回答するため<br />
+              （４）個人情報の第三者提供について<br />
+              取得した個人情報は法令等による場合を除いて第三者に提供することはありません。
+              （５）個人情報の取扱いの委託について<br />
+              取得した個人情報の取扱いの全部又は、一部を委託することがあります。<br
+              />
+              （６）個人情報を与えなかった場合に生じる結果<br />
+              個人情報を与えることは任意です。個人情報に関する情報の一部をご提供いただけない場合は、お問い合わせ内容に回答できない可能性があります。<br
+              />
+              （７）保有個人データの開示等および問い合わせ窓口について<br />
+              ご本人からの求めにより、当社が保有する保有個人データに関する開示、利用目的の通知、内容の訂正・追加または削除、利用停止、消去および第三者提供の停止、第三者への提供記録の開示(以下、開示等という)に応じます。開示等に応ずる窓口は、下記「当社の個人情報の取扱いに関する苦情、相談等の問合せ先」を
+              参照してください。<br />
+              （８）本人が容易に認識できない方法による個人情報の取得<br />
+              クッキーやウェブビーコン等を用いるなどして、本人が容易に認識できない方法による個人情報の取得を行っておりません。<br
+              />
+              （９）個人情報の安全管理措置について<br />
+              取得した個人情報については、漏洩、減失またはき損の防止と是正、その他個人情報の安全管理のために必要かつ適切な措置を講じます。
+              お問合せへの回答後、取得した個人情報は当社内において削除致します。<br
+              />
+              （10）個人情報保護方針<br />
+              当社ホームページの個人情報保護方針をご覧下さい。<br />
+              （11）当社の個人情報の取扱いに関する苦情、相談等の問合せ先 <br />
+              担当個人情報相談窓口 住所 〒526-0831　滋賀県長浜市宮司町1126-2 <br
+              />
+              TEL / FAX TEL：0749-65-5940 / FAX：0749-65-5950 メール<br />
+              info2@chintai-siga.com
+            </p>
+          </div>
+          <div class="contact-form__consent">
+            <span class="contact-form__badge contact-form__badge--required"
+              >必須</span
+            >
+            <label class="contact-form__consent-label">
+              <input
+                type="checkbox"
+                name="privacy"
+                class="contact-form__checkbox"
+                value="1"
+                required
+              />
+              <span>上記プライバシーポリシーに同意する</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="contact-form__actions">
+          <button type="submit" class="contact-form__submit">
+            <span class="contact-form__submit-label">上記の内容で送信する</span>
+            <span class="contact-form__submit-icon" aria-hidden="true">
+              <img
+                src={arrowIcon}
+                alt=""
+                width="12"
+                height="12"
+                loading="lazy"
+              />
+            </span>
+          </button>
+        </div>
+      </form>
     </div>
   </section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
+  @use "sass:color";
   @use "../styles/variables" as *;
 
   .contact-page {
-    .contact-page__note {
-      text-align: center;
+    .contact-page__inner {
+      max-width: $content-max-width;
+      margin: 0 auto;
+      padding: 0 $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-xl $spacing-sm;
+      }
+    }
+
+    .contact-form {
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-form__intro {
+      margin: 0 0 $spacing-lg;
       font-size: 15px;
       line-height: 1.85;
+
+      p {
+        margin: 0 0 0.85em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+        margin-bottom: $spacing-md;
+      }
+    }
+
+    .contact-form__legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $spacing-xs;
+      margin: 0 0 $spacing-xl;
+      font-size: 14px;
+      line-height: 1.65;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+        font-size: 13px;
+      }
+    }
+
+    .contact-form__legend-text {
+      flex: 1 1 200px;
+      min-width: 0;
+    }
+
+    .contact-form__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-width: 44px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: $fw-bold;
+      line-height: 1.3;
+      color: $color-white;
+      border-radius: 2px;
+
+      @media (max-width: $breakpoint-sp) {
+        min-width: 40px;
+        padding: 3px 8px;
+        font-size: 11px;
+      }
+    }
+
+    .contact-form__badge--required {
+      background: #d32f2f;
+    }
+
+    .contact-form__badge--optional {
+      background: #{color.mix($color-white, $color-text, 48%)};
+    }
+
+    .contact-form__row {
+      display: grid;
+      grid-template-columns: minmax(180px, 260px) 1fr;
+      gap: $spacing-sm $spacing-sm;
+      align-items: center;
+      margin: 0 0 $spacing-lg;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+        gap: $spacing-xs;
+        margin-bottom: $spacing-md;
+      }
+
+      &.contact-form__row--textarea {
+        align-items: start;
+
+        @media (max-width: $breakpoint-sp) {
+          align-items: stretch;
+        }
+      }
+    }
+
+    .contact-form__label-cell {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-xs;
+    }
+
+    .contact-form__label {
+      font-size: 15px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+
+    .contact-form__field-cell {
+      min-width: 0;
+    }
+
+    .contact-form__control {
+      box-sizing: border-box;
+      width: 100%;
       margin: 0;
+      padding: 14px $spacing-sm;
+      font-family: $noto-sans-jp;
+      font-size: 15px;
+      font-weight: $fw-regular;
+      line-height: 1.5;
+      color: $color-text;
+      background: rgb(241.68, 241.8, 241.74);
+      border: 1px solid #{color.mix($color-white, $color-text, 78%)};
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba($color-text, 0.12);
+
+      &::placeholder {
+        color: #{color.mix($color-white, $color-text, 55%)};
+      }
+
+      &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        padding: 12px $spacing-sm;
+        font-size: 14px;
+      }
+    }
+
+    .contact-form__control--textarea {
+      display: block;
+      min-height: 200px;
+      resize: vertical;
+    }
+
+    .contact-form__policy {
+      margin: $spacing-xl 0 $spacing-lg;
+
+      @media (max-width: $breakpoint-sp) {
+        margin: $spacing-lg 0;
+      }
+    }
+
+    .contact-form__policy-box {
+      margin: 0 auto $spacing-lg;
+      padding: $spacing-md;
+      background: #{color.mix($color-white, $color-text, 94%)};
+      border: 1px solid #{color.mix($color-white, $color-text, 82%)};
+      height: 120px;
+      width: 600px;
+      overflow: scroll;
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-sm;
+      }
+    }
+
+    .contact-form__policy-title {
+      margin: 0 0 $spacing-sm;
+      font-size: 15px;
+      font-weight: $fw-bold;
+      line-height: 1.55;
+      color: $color-text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-sm;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+
+    .contact-form__policy-body {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 13px;
+      }
+    }
+
+    .contact-form__consent {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $spacing-sm;
+      justify-content: center;
+    }
+
+    .contact-form__consent-label {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-sm;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+
+      cursor: pointer;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 13px;
+      }
+    }
+
+    .contact-form__checkbox {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      accent-color: $color-primary;
+      cursor: pointer;
+    }
+
+    .contact-form__actions {
+      display: flex;
+      justify-content: center;
+      margin: $spacing-xl 0 0;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-top: $spacing-lg;
+      }
+    }
+
+    .contact-form__submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-md;
+      box-sizing: border-box;
+      width: fit-content;
+      margin: 0;
+      padding: 22px 28px;
+      font-family: $noto-sans-jp;
+      font-size: 16px;
+      font-weight: $fw-bold;
+      line-height: 1.3;
+      cursor: pointer;
+      color: $color-white;
+      background: $color-primary;
+      border: none;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba($color-text, 0.25);
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.92;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-white;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        max-width: none;
+        padding: 16px 22px;
+        font-size: 14px;
+      }
+    }
+
+    .contact-form__submit-label {
+      flex: 1 1 auto;
+      text-align: left;
+    }
+
+    .contact-form__submit-icon {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        display: block;
+        width: 12px;
+        height: auto;
+      }
     }
   }
 </style>

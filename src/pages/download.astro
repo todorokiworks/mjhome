@@ -1,32 +1,579 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionHeading from "../components/SectionHeading.astro";
+import PageHero from "../components/PageHero.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { withBase } from "../utils/withBase";
+
+const arrowIcon = withBase("/img/common/icon_arrow_white.png");
 ---
 
-<Layout title="資料ダウン��ード" description="Document download placeholder.">
+<Layout
+  title="資料ダウンロード"
+  description="資料ダウンロードのお申し込みフォーム。"
+>
+  <PageHero
+    imageSrc="/img/company/img_header.png"
+    imageAlt=""
+    title="資料ダウンロード"
+  />
+  <Breadcrumbs
+    items={[{ label: "TOP", href: "/" }, { label: "資料ダウンロード" }]}
+  />
   <section class="download-page section">
-    <div class="section__inner">
-      <SectionHeading
-        titleJapanese="資料ダウン��ード"
-        titleEnglish="Download"
-        align="center"
-      />
-      <p class="download-page__note">
-        Placeholder page. Connect file hosting and forms as needed.
-      </p>
+    <div class="section__inner download-page__inner">
+      <form class="download-form" method="post" action="#">
+        <div class="download-form__intro">
+          <p>木造建築をご検討中の方向けに、資料をご用意しております。</p>
+          <p>
+            下記フォームに必要事項をご入力のうえ、「上記の内容で送信する」ボタンを押してください。
+          </p>
+          <p>入力完了後、資料をダウンロードいただけます。</p>
+        </div>
+
+        <ul class="download-form__notes">
+          <li>
+            ご入力いただいた情報は、資料送付およびご連絡の目的以外には使用いたしません。
+          </li>
+          <li>
+            無理な営業や突然のお電話は行っておりませんので、ご安心ください。
+          </li>
+          <li>
+            内容を確認のうえ、必要に応じて担当者よりご連絡させていただく場合がございます。
+          </li>
+        </ul>
+
+        <p class="download-form__legend">
+          <span class="download-form__badge download-form__badge--required"
+            >必須</span
+          >
+          <span class="download-form__legend-text"
+            >は必須項目です。お問い合わせの際は、プライバシーポリシーを必ずお読みください。</span
+          >
+        </p>
+
+        <div class="download-form__row">
+          <div class="download-form__label-cell">
+            <span class="download-form__label">お名前</span>
+            <span class="download-form__badge download-form__badge--required"
+              >必須</span
+            >
+          </div>
+          <div class="download-form__field-cell">
+            <input
+              type="text"
+              name="name"
+              class="download-form__control"
+              placeholder="山田太郎"
+              autocomplete="name"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="download-form__row">
+          <div class="download-form__label-cell">
+            <span class="download-form__label">メールアドレス</span>
+            <span class="download-form__badge download-form__badge--required"
+              >必須</span
+            >
+          </div>
+          <div class="download-form__field-cell">
+            <input
+              type="email"
+              name="email"
+              class="download-form__control"
+              placeholder="info@xxxx.co.jp"
+              autocomplete="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="download-form__row">
+          <div class="download-form__label-cell">
+            <span class="download-form__label">お電話番号</span>
+            <span class="download-form__badge download-form__badge--optional"
+              >任意</span
+            >
+          </div>
+          <div class="download-form__field-cell">
+            <input
+              type="tel"
+              name="tel"
+              class="download-form__control"
+              placeholder="012-345-9789"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="download-form__row">
+          <div class="download-form__label-cell">
+            <span class="download-form__label">ご検討状況</span>
+            <span class="download-form__badge download-form__badge--required"
+              >必須</span
+            >
+          </div>
+          <div class="download-form__field-cell">
+            <select
+              name="status"
+              class="download-form__control download-form__control--select"
+              required
+            >
+              <option value="" disabled selected>
+                ▼こちらからお選びください▼
+              </option>
+              <option value="research">情報収集中</option>
+              <option value="estimate">見積もり検討中</option>
+              <option value="compare">他社比較中</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="download-form__row download-form__row--textarea">
+          <div class="download-form__label-cell">
+            <span class="download-form__label">ご相談内容</span>
+            <span class="download-form__badge download-form__badge--optional"
+              >任意</span
+            >
+          </div>
+          <div class="download-form__field-cell">
+            <textarea
+              name="message"
+              class="download-form__control download-form__control--textarea"
+              rows="6"
+              placeholder="ご質問やご相談があればご記入ください"></textarea>
+          </div>
+        </div>
+
+        <div class="download-form__policy">
+          <div class="download-form__policy-box">
+            <p class="download-form__policy-title">
+              お問い合わせにおける個人情報の取扱いについて
+            </p>
+            <p class="download-form__policy-body">
+              （１）事業者の氏名または名称 株式会社エム・ジェイホーム<br />
+              （２）個人情報保護管理者（若しくはその代理人）の氏名又は職名、所属及び連絡先<br
+              />
+              個人情報保護管理者：葛川 睦 メール： kuzukawa@chintai-siga.com 電話番号：0749-65-5940
+              （３）個人情報の利用目的<br />
+              お問い合わせいただいた内容に回答するため<br />
+              （４）個人情報の第三者提供について<br />
+              取得した個人情報は法令等による場合を除いて第三者に提供することはありません。
+              （５）個人情報の取扱いの委託について<br />
+              取得した個人情報の取扱いの全部又は、一部を委託することがあります。 （６）個人情報を与えなかった場合に生じる結果<br
+              />
+              個人情報を与えることは任意です。個人情報に関する情報の一部をご提供いただけない場合は、お問い合わせ内容に回答できない可能性があります。<br
+              />
+              （７）保有個人データの開示等および問い合わせ窓口について<br />
+              ご本人からの求めにより、当社が保有する保有個人データに関する開示、利用目的の通知、内容の訂正・追加または削除、利用停止、消去および第三者提供の停止、第三者への提供記録の開示(以下、開示等という)に応じます。開示等に応ずる窓口は、下記「当社の個人情報の取扱いに関する苦情、相談等の問合せ先」を
+              参照してください。<br />
+              （８）本人が容易に認識できない方法による個人情報の取得<br />
+              クッキーやウェブビーコン等を用いるなどして、本人が容易に認識できない方法による個人情報の取得を行っておりません。<br
+              />
+              （９）個人情報の安全管理措置について<br />
+              取得した個人情報については、漏洩、減失またはき損の防止と是正、その他個人情報の安全管理のために必要かつ適切な措置を講じます。<br
+              />
+              お問合せへの回答後、取得した個人情報は当社内において削除致します。<br
+              />
+              （10）個人情報保護方針<br />
+              当社ホームページの個人情報保護方針をご覧下さい。<br />
+              （11）当社の個人情報の取扱いに関する苦情、相談等の問合せ先 <br />
+              担当個人情報相談窓口 住所 〒526-0831　滋賀県長浜市宮司町1126-2 TEL /
+              個人情報相談窓口 住所 〒526-0831　滋賀県長浜市宮司町1126-2 TEL / FAX
+              TEL：0749-65-5940 / FAX：0749-65-5950 メール<br />
+              info2@chintai-siga.com
+            </p>
+          </div>
+          <div class="download-form__consent">
+            <span class="download-form__badge download-form__badge--required"
+              >必須</span
+            >
+            <label class="download-form__consent-label">
+              <input
+                type="checkbox"
+                name="privacy"
+                class="download-form__checkbox"
+                value="1"
+                required
+              />
+              <span>上記プライバシーポリシーに同意する</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="download-form__actions">
+          <button type="submit" class="download-form__submit">
+            <span class="download-form__submit-label">上記の内容で送信する</span
+            >
+            <span class="download-form__submit-icon" aria-hidden="true">
+              <img
+                src={arrowIcon}
+                alt=""
+                width="12"
+                height="12"
+                loading="lazy"
+              />
+            </span>
+          </button>
+        </div>
+      </form>
     </div>
   </section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
+  @use "sass:color";
   @use "../styles/variables" as *;
 
   .download-page {
-    .download-page__note {
-      text-align: center;
+    background: $color-white;
+
+    .download-page__inner {
+      max-width: $content-max-width;
+      margin: 0 auto;
+      padding: 0 $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-xl $spacing-sm;
+      }
+    }
+
+    .download-form {
+      margin: 0;
+      padding: 0;
+    }
+
+    .download-form__intro {
+      margin: 0 0 $spacing-lg;
       font-size: 15px;
       line-height: 1.85;
+
+      p {
+        margin: 0 0 0.85em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+        margin-bottom: $spacing-md;
+      }
+    }
+
+    .download-form__notes {
+      margin: 0 0 $spacing-xl;
+      padding: 0 0 0 1.1em;
+      font-size: 14px;
+      line-height: 1.75;
+      color: $color-text;
+
+      li {
+        margin: 0 0 0.65em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+        font-size: 13px;
+      }
+    }
+
+    .download-form__legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $spacing-xs;
+      margin: 0 0 $spacing-xl;
+      font-size: 14px;
+      line-height: 1.65;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+        font-size: 13px;
+      }
+    }
+
+    .download-form__legend-text {
+      flex: 1 1 200px;
+      min-width: 0;
+    }
+
+    .download-form__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-width: 44px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: $fw-bold;
+      line-height: 1.3;
+      color: $color-white;
+      border-radius: 2px;
+
+      @media (max-width: $breakpoint-sp) {
+        min-width: 40px;
+        padding: 3px 8px;
+        font-size: 11px;
+      }
+    }
+
+    .download-form__badge--required {
+      background: #d32f2f;
+    }
+
+    .download-form__badge--optional {
+      background: #{color.mix($color-white, $color-text, 48%)};
+    }
+
+    .download-form__row {
+      display: grid;
+      grid-template-columns: minmax(180px, 260px) 1fr;
+      gap: $spacing-sm $spacing-sm;
+      align-items: center;
+      margin: 0 0 $spacing-lg;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 1fr;
+        gap: $spacing-xs;
+        margin-bottom: $spacing-md;
+      }
+
+      &.download-form__row--textarea {
+        align-items: start;
+
+        @media (max-width: $breakpoint-sp) {
+          align-items: stretch;
+        }
+      }
+    }
+
+    .download-form__label-cell {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-xs;
+    }
+
+    .download-form__label {
+      font-size: 15px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+
+    .download-form__field-cell {
+      min-width: 0;
+    }
+
+    .download-form__control {
+      box-sizing: border-box;
+      width: 100%;
       margin: 0;
+      padding: 14px $spacing-sm;
+      font-family: $noto-sans-jp;
+      font-size: 15px;
+      font-weight: $fw-regular;
+      line-height: 1.5;
+      color: $color-text;
+      background: rgb(241.68, 241.8, 241.74);
+      border: 1px solid #{color.mix($color-white, $color-text, 78%)};
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba($color-text, 0.12);
+
+      &::placeholder {
+        color: #{color.mix($color-white, $color-text, 55%)};
+      }
+
+      &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        padding: 12px $spacing-sm;
+        font-size: 14px;
+      }
+    }
+
+    .download-form__control--select {
+      appearance: none;
+      padding-right: 40px;
+      background-color: rgb(241.68, 241.8, 241.74);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23212322' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
+
+      &:invalid {
+        color: #{color.mix($color-white, $color-text, 55%)};
+      }
+
+      option {
+        color: $color-text;
+      }
+    }
+
+    .download-form__control--textarea {
+      display: block;
+      min-height: 200px;
+      resize: vertical;
+    }
+
+    .download-form__policy {
+      margin: $spacing-xl 0 $spacing-lg;
+
+      @media (max-width: $breakpoint-sp) {
+        margin: $spacing-lg 0;
+      }
+    }
+
+    .download-form__policy-box {
+      margin: 0 auto $spacing-lg;
+      padding: $spacing-md;
+      background: #{color.mix($color-white, $color-text, 94%)};
+      border: 1px solid #{color.mix($color-white, $color-text, 82%)};
+      height: 120px;
+      width: 600px;
+      overflow: scroll;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-sm;
+      }
+    }
+
+    .download-form__policy-title {
+      margin: 0 0 $spacing-sm;
+      font-size: 15px;
+      font-weight: $fw-bold;
+      line-height: 1.55;
+      color: $color-text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-sm;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
+    }
+
+    .download-form__policy-body {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 13px;
+      }
+    }
+
+    .download-form__consent {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $spacing-sm;
+      justify-content: center;
+    }
+
+    .download-form__consent-label {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-sm;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 13px;
+      }
+    }
+
+    .download-form__checkbox {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      accent-color: $color-primary;
+      cursor: pointer;
+    }
+
+    .download-form__actions {
+      display: flex;
+      justify-content: center;
+      margin: $spacing-xl 0 0;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-top: $spacing-lg;
+      }
+    }
+
+    .download-form__submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-md;
+      box-sizing: border-box;
+      width: fit-content;
+      margin: 0;
+      padding: 22px 28px;
+      font-family: $noto-sans-jp;
+      font-size: 16px;
+      font-weight: $fw-bold;
+      line-height: 1.3;
+      cursor: pointer;
+      color: $color-white;
+      background: $color-primary;
+      border: none;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba($color-text, 0.25);
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.92;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-white;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        max-width: none;
+        padding: 16px 22px;
+        font-size: 14px;
+      }
+    }
+
+    .download-form__submit-label {
+      flex: 1 1 auto;
+      text-align: left;
+    }
+
+    .download-form__submit-icon {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        display: block;
+        width: 12px;
+        height: auto;
+      }
     }
   }
 </style>

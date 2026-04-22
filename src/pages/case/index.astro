@@ -4,102 +4,383 @@ import PageHero from "../../components/PageHero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import { withBase } from "../../utils/withBase";
+
+const base = "/img/case";
+
+const caseTabs = [
+  { id: "all", label: "すべて" },
+  { id: "apartment", label: "アパート・マンション" },
+  { id: "welfare", label: "介護施設・福祉施設" },
+  { id: "office", label: "事務所" },
+] as const;
+
+type CaseCategory = "apartment" | "welfare" | "office";
+
+type CaseItem = {
+  category: CaseCategory;
+  badge: string;
+  image: string;
+  title: string;
+  tags: string[];
+};
+
+const cases: CaseItem[] = [
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy.png`,
+    title: "滋賀県XX市・商品名（見出し）",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy_lg.png`,
+    title: "K-smart 参考プラン",
+    tags: ["タグ", "タグ"],
+  },
+  {
+    category: "welfare",
+    badge: "介護施設・福祉施設",
+    image: `${base}/img_dummy.png`,
+    title: "Plan 3",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy_lg.png`,
+    title: "滋賀県XX市・商品名（見出し）",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "office",
+    badge: "事務所",
+    image: `${base}/img_dummy.png`,
+    title: "K-smart 参考プラン",
+    tags: ["タグ", "タグ"],
+  },
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy_lg.png`,
+    title: "Plan 3",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "welfare",
+    badge: "介護施設・福祉施設",
+    image: `${base}/img_dummy.png`,
+    title: "滋賀県XX市・商品名（見出し）",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy_lg.png`,
+    title: "K-smart 参考プラン",
+    tags: ["タグ", "タグ"],
+  },
+  {
+    category: "office",
+    badge: "事務所",
+    image: `${base}/img_dummy.png`,
+    title: "Plan 3",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy_lg.png`,
+    title: "滋賀県XX市・商品名（見出し）",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+  {
+    category: "welfare",
+    badge: "介護施設・福祉施設",
+    image: `${base}/img_dummy.png`,
+    title: "K-smart 参考プラン",
+    tags: ["タグ", "タグ"],
+  },
+  {
+    category: "apartment",
+    badge: "アパート・マンション",
+    image: `${base}/img_dummy_lg.png`,
+    title: "Plan 3",
+    tags: ["タグ", "タグ", "タグ"],
+  },
+];
 ---
 
 <Layout title="施工事例" description="MJ Homeの施工事例一覧。">
-  <PageHero
-    imageSrc="/img/case/img_header.png"
-    imageAlt=""
-    title="施工事例"
-  />
-  <Breadcrumbs
-    items={[
-      { label: "TOP", href: "/" },
-      { label: "施工事例" },
-    ]}
-  />
-  <section class="case-index section">
-    <div class="section__inner">
-      <SectionHeading
-        titleJapanese="事例一覧"
-        titleEnglish="WORKS"
-        align="center"
-      />
-      <ul class="case-index__grid">
-        <li>
-          <a href={withBase("/case/detail")} class="case-index__card">
-            <span class="case-index__label">APARTMENT</span>
-            <img src={withBase("/img/case/img_dummy.png")} alt="" width="400" height="260" loading="lazy" />
-            <p class="case-index__name">K-smart 参考プラン</p>
-          </a>
-        </li>
-        <li>
-          <a href={withBase("/case/detail")} class="case-index__card">
-            <span class="case-index__label">APARTMENT</span>
-            <img src={withBase("/img/case/img_dummy.png")} alt="" width="400" height="260" loading="lazy" />
-            <p class="case-index__name">Plan 2</p>
-          </a>
-        </li>
-        <li>
-          <a href={withBase("/case/detail")} class="case-index__card">
-            <span class="case-index__label">APARTMENT</span>
-            <img src={withBase("/img/case/img_dummy.png")} alt="" width="400" height="260" loading="lazy" />
-            <p class="case-index__name">Plan 3</p>
-          </a>
-        </li>
-      </ul>
+  <PageHero imageSrc="/img/case/img_header.png" imageAlt="" title="施工事例" />
+  <Breadcrumbs items={[{ label: "TOP", href: "/" }, { label: "施工事例" }]} />
+  <section class="case-index section" data-case-index>
+    <div class="section__inner case-index__inner">
+      <div class="case-index__header">
+        <p class="case-index__header-title">物件種類</p>
+        <div
+          class="case-index__tabs"
+          role="tablist"
+          aria-label="物件種類で絞り込み"
+        >
+          {
+            caseTabs.map((tab, i) => (
+              <button
+                type="button"
+                class:list={["case-index__tab", i === 0 && "is-active"]}
+                role="tab"
+                aria-selected={i === 0 ? "true" : "false"}
+                data-case-filter={tab.id}
+                id={`case-tab-${tab.id}`}
+              >
+                {tab.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+      <div class="top-case case-index__case-wrap">
+        <ul class="top-case__grid">
+          {
+            cases.map((c) => (
+              <li class="top-case__item" data-category={c.category}>
+                <span class="top-case__badge">{c.badge}</span>
+                <a href={withBase("/case/detail")} class="top-case__card">
+                  <div class="top-case__media">
+                    <img
+                      src={withBase(c.image)}
+                      alt=""
+                      width="400"
+                      height="300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="top-case__body">
+                    <p class="top-case__name">{c.title}</p>
+                    <ul class="top-case__tags">
+                      {c.tags.map((t) => (
+                        <li>
+                          <span class="top-case__tag">{t}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <nav class="case-index__pager" aria-label="ページ送り">
+        <a
+          class="case-index__pager-btn"
+          href={withBase("/case")}
+          aria-label="前のページ"
+        >
+          ‹
+        </a>
+        <a
+          class="case-index__pager-num is-current"
+          href={withBase("/case")}
+          aria-current="page"
+        >
+          1
+        </a>
+        <a class="case-index__pager-num" href={withBase("/case?page=2")}> 2 </a>
+        <a class="case-index__pager-num" href={withBase("/case?page=3")}> 3 </a>
+        <a
+          class="case-index__pager-btn"
+          href={withBase("/case?page=2")}
+          aria-label="次のページ"
+        >
+          ›
+        </a>
+      </nav>
     </div>
   </section>
 </Layout>
 
-<style lang="scss">
+<script is:inline>
+  (function () {
+    var root = document.querySelector("[data-case-index]");
+    if (!root) return;
+    var tabs = root.querySelectorAll("[data-case-filter]");
+    var items = root.querySelectorAll(".top-case__item[data-category]");
+
+    function setActive(tab) {
+      var f = tab.getAttribute("data-case-filter");
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      items.forEach(function (li) {
+        var c = li.getAttribute("data-category");
+        var show = f === "all" || f === c;
+        li.hidden = !show;
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        setActive(tab);
+      });
+    });
+  })();
+</script>
+
+<style lang="scss" is:global>
   @use "../../styles/variables" as *;
+  @use "../../styles/case-study-cards";
 
   .case-index {
-    .case-index__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-md;
-      list-style: none;
-      margin: 0;
+    background: $color-white;
+
+    .case-index__inner {
+      max-width: $content-max-width;
+      margin: 0 auto;
       padding: 0;
 
       @media (max-width: $breakpoint-sp) {
-        grid-template-columns: 1fr;
+        padding: $spacing-xl 0;
       }
     }
 
-    .case-index__card {
-      position: relative;
-      display: block;
-      color: inherit;
-      text-decoration: none;
-
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
-        display: block;
-      }
+    .case-index__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-sm;
+      margin: 0 0 $spacing-xxl;
+      padding: 0;
     }
 
-    .case-index__label {
-      position: absolute;
-      top: $spacing-sm;
-      right: $spacing-sm;
-      z-index: 1;
-      background: $color-primary;
-      color: $color-white;
-      font-size: 11px;
-      font-weight: $fw-bold;
-      padding: 6px 10px;
-      border-radius: 2px;
-    }
-
-    .case-index__name {
-      margin: $spacing-sm 0 0;
+    .case-index__header-title {
       font-size: 16px;
       font-weight: $fw-bold;
+      line-height: 1.35;
+      color: $color-text;
+    }
+
+    .case-index__tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: $spacing-sm;
+      padding: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+        gap: $spacing-xs;
+      }
+    }
+
+    .case-index__tab {
+      margin: 0;
+      min-height: 48px;
+      padding: 12px 22px;
+      font-family: $noto-sans-jp;
+      font-size: 14px;
+      font-weight: $fw-bold;
+      line-height: 1.35;
+      text-align: center;
+      color: $color-text;
+      cursor: pointer;
+      background: $color-white;
+      box-shadow: 0 5px 6px 1px rgba($color-text, 0.1);
+      border-radius: 0;
+      box-sizing: border-box;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+
+      @media (max-width: $breakpoint-sp) {
+        flex: 1 1 auto;
+        min-width: calc(50% - #{$spacing-xs} / 2);
+        padding: 10px 8px;
+        font-size: 12px;
+        min-height: 44px;
+      }
+
+      &.is-active {
+        color: $color-white;
+        border-color: $color-primary;
+        background:
+          repeating-linear-gradient(
+            -36deg,
+            rgba($color-white, 0.14) 0,
+            rgba($color-white, 0.14) 1px,
+            transparent 1px,
+            transparent 5px
+          ),
+          $color-primary;
+      }
+
+      &:hover:not(.is-active) {
+        opacity: 0.88;
+      }
+    }
+
+    .case-index__case-wrap {
+      margin-bottom: $spacing-xl;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+      }
+    }
+
+    .case-index__pager {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-xs;
+      margin: 0;
+      padding: 0;
+    }
+
+    .case-index__pager-btn,
+    .case-index__pager-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 10px;
+      font-family: $noto-sans-jp;
+      font-size: 15px;
+      font-weight: $fw-bold;
+      line-height: 1;
+      color: $color-text;
+      text-decoration: none;
+      background: $color-white;
+      box-shadow: 0 5px 6px 1px rgba($color-text, 0.1);
+      box-sizing: border-box;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+      @media (max-width: $breakpoint-sp) {
+        min-width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+
+      &:hover {
+        opacity: 0.88;
+      }
+    }
+
+    .case-index__pager-num.is-current {
+      color: $color-white;
+      background: $color-primary;
+      border-color: $color-primary;
+      pointer-events: none;
     }
   }
 </style>

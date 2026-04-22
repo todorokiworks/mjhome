@@ -4,6 +4,8 @@ import PageHero from "../components/PageHero.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { withBase } from "../utils/withBase";
+
+const base = "/img/reason";
 ---
 
 <Layout title="選ばれる理由" description="MJ Homeが選ばれる理由。">
@@ -13,69 +15,310 @@ import { withBase } from "../utils/withBase";
     title="選ばれる理由"
   />
   <Breadcrumbs
-    items={[
-      { label: "TOP", href: "/" },
-      { label: "選ばれる理由" },
-    ]}
+    items={[{ label: "TOP", href: "/" }, { label: "選ばれる理由" }]}
   />
   <section class="reason-page section">
-    <div class="section__inner">
+    <div class="section__inner reason-page__inner">
       <SectionHeading
-        titleJapanese="選ばれる理由"
-        titleEnglish="Why us"
+        titleJapanese="エム・ジェイホームが選ばれる理由"
+        titleEnglish="Reasons"
         align="center"
       />
-      <ul class="reason-page__list">
-        <li class="reason-page__item">
-          <img src={withBase("/img/reason/img_reason01.png")} alt="" width="600" height="360" loading="lazy" />
-          <h3 class="reason-page__title">低コスト運用</h3>
-          <p class="reason-page__body">修��計画と標準仕様の最適化で、��持コストを抑えます。</p>
-        </li>
-        <li class="reason-page__item">
-          <img src={withBase("/img/reason/img_reason02.png")} alt="" width="600" height="360" loading="lazy" />
-          <h3 class="reason-page__title">短工期</h3>
-          <p class="reason-page__body">工程管理と協力会社連携で、工期短��に取り組みます。</p>
-        </li>
-      </ul>
+      <div class="reason-page__content">
+        <section class="reason-section" aria-labelledby="reason-s01-title">
+          <h2 class="reason-section__title" id="reason-s01-title">
+            <span class="reason-section__num">01</span>
+            <span class="reason-section__sep" aria-hidden="true">|</span>
+            <span class="reason-section__name">低コスト実現</span>
+          </h2>
+          <div class="reason-section__prose">
+            <p>
+              木造建築は、鉄骨造（S造）や鉄筋コンクリート造（RC造）と比べ、材料が軽量であることから基礎工事や地盤改良の規模を抑えやすく、建築コストを低く抑えやすい構造です。
+            </p>
+            <p>
+              躯体が軽くなることで基礎にかかる荷重が小さくなり、基礎スラブや杭の本数・断面を最適化しやすくなります。その結果、初期投資のうち占める比率の高い土建費を効率的に圧縮できる場合があります。
+            </p>
+            <p>
+              また、工期の短縮が見込みやすいため、仮設費や現場管理費といった間接費の抑制にもつながります。
+            </p>
+            <p>
+              エム・ジェイホームでは、土地条件・用途・賃貸需要を踏まえ、コストと品質のバランスが取れた構造・工法をご提案します。
+            </p>
+          </div>
+          <figure class="reason-section__figure">
+            <img
+              src={withBase(`${base}/img_reason01.png`)}
+              alt="木造とS造・RC造のコスト比較チャートと削減事例"
+              width="1200"
+              height="680"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <p class="reason-section__note">
+            2階建て事務所（約12×18m、延床面積430㎡）におけるシミュレーション／（一社）中大規模木造プレカット協会資料による
+          </p>
+        </section>
+
+        <section class="reason-section" aria-labelledby="reason-s02-title">
+          <h2 class="reason-section__title" id="reason-s02-title">
+            <span class="reason-section__num">02</span>
+            <span class="reason-section__sep" aria-hidden="true">|</span>
+            <span class="reason-section__name">短工期</span>
+          </h2>
+          <div class="reason-section__prose">
+            <p>
+              敷地が狭小である場合の施工性と工期を重視した構造方式の比較検討によると（令和7年（公財）日本住宅・木材技術センター調べ）、RC造と比較してCLTによる木造は、全体工期および建て方工期の両面で大幅な短縮が可能であることが確認されています。
+            </p>
+            <p>
+              RC造では、基礎工事における土留め対応や、上部躯体施工時の近隣対策、安全管理に多くの工程とコストを要しますが、木造では建物重量が軽いため、これらの負担を抑えた施工が可能となります。
+            </p>
+            <p>
+              また、木造は構造体が軽量であることから基礎規模を合理化でき、地盤改良や掘削、残土処分量の縮減にもつながります。
+            </p>
+            <p>
+              さらに、モジュール化されたCLTパネル工法を採用することで施工効率が向上し、小規模集合住宅においてはRC造に対して工期・コストの両面で優位性が認められます。
+            </p>
+            <p>
+              このように、木造は短工期での建築を実現しやすく、施工条件が限られる敷地においても有効な構造方式といえます。
+            </p>
+          </div>
+          <figure class="reason-section__figure">
+            <img
+              src={withBase(`${base}/img_reason02.png`)}
+              alt="RC造と木造CLTの工期比較"
+              width="1200"
+              height="520"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </section>
+
+        <section class="reason-section" aria-labelledby="reason-s03-title">
+          <h2 class="reason-section__title" id="reason-s03-title">
+            <span class="reason-section__num">03</span>
+            <span class="reason-section__sep" aria-hidden="true">|</span>
+            <span class="reason-section__name">2×4工法</span>
+          </h2>
+          <p class="reason-section__intro">
+            ツーバイフォー工法は、面で建物を支える構造が特長の木造工法です。
+          </p>
+          <ul class="reason-section__twoby-list">
+            <li class="reason-section__twoby-item">
+              <span class="reason-section__twoby-head">・耐震性・耐風性に優れる</span>
+              <span class="reason-section__twoby-desc">
+                壁・床・天井を「面」で支えるため、地震や台風の力を分散しやすい構造です。
+              </span>
+            </li>
+            <li class="reason-section__twoby-item">
+              <span class="reason-section__twoby-head">・耐火性が高い</span>
+              <span class="reason-section__twoby-desc">
+                木材が一定時間燃え進みにくい構造で、省令準耐火構造に対応しやすいのが特長です。
+              </span>
+            </li>
+            <li class="reason-section__twoby-item">
+              <span class="reason-section__twoby-head">・品質が安定しやすい</span>
+              <span class="reason-section__twoby-desc">
+                規格化された部材と工法により、施工品質のバラつきが出にくい点もメリットです。
+              </span>
+            </li>
+            <li class="reason-section__twoby-item">
+              <span class="reason-section__twoby-head">・遮音性・気密性に配慮しやすい</span>
+              <span class="reason-section__twoby-desc">
+                壁構造が厚く、賃貸住宅でも入居者満足度につながりやすい性能を確保できます。
+              </span>
+            </li>
+            <li class="reason-section__twoby-item">
+              <span class="reason-section__twoby-head">・長期的な資産運用に向いている</span>
+              <span class="reason-section__twoby-desc">
+                安定した構造性能により、賃貸経営を前提とした建物計画と相性が良い工法です。
+              </span>
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
   </section>
 </Layout>
 
 <style lang="scss">
+  @use "sass:color";
   @use "../styles/variables" as *;
 
   .reason-page {
-    .reason-page__list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: $spacing-xl;
+    .reason-page__inner {
+      max-width: $content-max-width;
+      margin: 0 auto;
+      padding: $spacing-xxl 0;
+      background: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        gap: $spacing-lg;
+        padding: $spacing-xl 0;
       }
     }
 
-    .reason-page__item {
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
+    .reason-page__content {
+      margin-top: $spacing-xl;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-top: $spacing-lg;
+      }
+    }
+
+    .reason-section {
+      margin: 0 0 $spacing-xxl;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-xl;
+      }
+    }
+
+    .reason-section__title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0 $spacing-sm;
+      margin: 0 0 $spacing-lg;
+      font-size: 28px;
+      font-weight: $fw-bold;
+      line-height: 1.35;
+      color: $color-primary;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 22px;
         margin-bottom: $spacing-md;
       }
     }
 
-    .reason-page__title {
-      font-size: 22px;
-      font-weight: $fw-bold;
-      margin: 0 0 $spacing-sm;
+    .reason-section__num {
+      font-family: $helvetica;
+      letter-spacing: 0.02em;
     }
 
-    .reason-page__body {
-      font-size: 15px;
-      line-height: 1.85;
+    .reason-section__sep {
+      font-weight: $fw-bold;
+      color: $color-primary;
+    }
+
+    .reason-section__name {
+      font-weight: $fw-bold;
+    }
+
+    .reason-section__prose {
+      margin: 0 0 $spacing-xl;
+
+      p {
+        margin: 0 0 $spacing-md;
+        font-size: 15px;
+        font-weight: $fw-regular;
+        line-height: 1.9;
+        color: $color-text;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 14px;
+          margin-bottom: $spacing-sm;
+        }
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+      }
+    }
+
+    .reason-section__figure {
+      margin: 0 0 $spacing-md;
+      padding: 0;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    .reason-section__note {
       margin: 0;
+      font-size: 11px;
+      font-weight: $fw-regular;
+      line-height: 1.6;
+      color: #{color.mix($color-white, $color-text, 45%)};
+      text-align: right;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 10px;
+        text-align: left;
+      }
+    }
+
+    .reason-section__intro {
+      margin: 0 0 $spacing-lg;
+      font-size: 15px;
+      font-weight: $fw-regular;
+      line-height: 1.9;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+        margin-bottom: $spacing-md;
+      }
+    }
+
+    .reason-section__twoby-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .reason-section__twoby-item {
+      margin: 0 0 $spacing-lg;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-md;
+      }
+    }
+
+    .reason-section__twoby-head {
+      display: block;
+      margin-bottom: $spacing-xs;
+      font-size: 16px;
+      font-weight: $fw-bold;
+      line-height: 1.6;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 15px;
+      }
+    }
+
+    .reason-section__twoby-desc {
+      display: block;
+      padding-left: 0;
+      font-size: 15px;
+      font-weight: $fw-regular;
+      line-height: 1.85;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 14px;
+      }
     }
   }
 </style>

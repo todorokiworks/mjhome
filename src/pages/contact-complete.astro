@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import PillCtaLink from "../components/PillCtaLink.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { withBase } from "../utils/withBase";
+---
+
+<Layout title="お問い合わせ完了" description="お問い合わせを受け付けました。">
+    <PageHero
+        imageSrc="/img/company/img_header.png"
+        imageAlt=""
+        title="お問い合わせ"
+    />
+    <Breadcrumbs
+        items={[{ label: "TOP", href: "/" }, { label: "お問い合わせ" }]}
+    />
+    <section class="complete-page section">
+        <div class="section__inner complete-page__inner">
+            <h1 class="complete-page__title">
+                お問い合わせありがとうございます
+            </h1>
+            <div class="complete-page__body">
+                <p>
+                    このたびは、ホームページよりお問い合わせいただき、誠にありがとうございます。
+                </p>
+                <p>
+                    ご入力いただいた内容を確認のうえ、担当者より3営業日以内にご連絡いたします。内容によっては、少しお時間をいただく場合がございますが、あらかじめご了承ください。
+                </p>
+                <p>
+                    なお、ご入力いただいたメールアドレス宛に自動返信メールをお送りしております。届いていない場合は、迷惑メールフォルダもあわせてご確認ください。
+                </p>
+                <p>
+                    ご不明点やお急ぎの場合は、お電話またはメールにてお気軽にご連絡ください。
+                </p>
+                <p class="complete-page__tel">（TEL：0749-65-5940）</p>
+            </div>
+            <div class="complete-page__actions">
+                <PillCtaLink
+                    href={withBase("/")}
+                    label="トップページへ"
+                    width="base"
+                />
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style lang="scss">
+    @use "../styles/variables" as *;
+
+    .complete-page {
+        background: $color-white;
+
+        .complete-page__inner {
+            max-width: $content-max-width;
+            margin: 0 auto;
+            padding: 0 $spacing-md;
+
+            @media (max-width: $breakpoint-sp) {
+                padding: $spacing-xl $spacing-sm;
+            }
+        }
+
+        .complete-page__title {
+            margin: 0 0 $spacing-lg;
+            font-size: 28px;
+            font-weight: $fw-bold;
+            line-height: 1.45;
+            color: $color-text;
+            text-align: left;
+
+            @media (max-width: $breakpoint-sp) {
+                font-size: 22px;
+                margin-bottom: $spacing-md;
+            }
+        }
+
+        .complete-page__body {
+            margin: 0 0 $spacing-xxl;
+            font-size: 15px;
+            font-weight: $fw-regular;
+            line-height: 1.85;
+            color: $color-text;
+            text-align: left;
+
+            p {
+                margin: 0 0 1.1em;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            @media (max-width: $breakpoint-sp) {
+                margin-bottom: $spacing-xl;
+                font-size: 14px;
+            }
+        }
+
+        .complete-page__tel {
+            margin-top: $spacing-md;
+        }
+
+        .complete-page__actions {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0 0 $spacing-lg;
+
+            @media (max-width: $breakpoint-sp) {
+                padding-bottom: $spacing-md;
+            }
+        }
+    }
+</style>

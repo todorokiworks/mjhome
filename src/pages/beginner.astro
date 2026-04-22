@@ -14,63 +14,377 @@ import { withBase } from "../utils/withBase";
     title="はじめての方へ"
   />
   <Breadcrumbs
-    items={[
-      { label: "TOP", href: "/" },
-      { label: "はじめての方へ" },
-    ]}
+    items={[{ label: "TOP", href: "/" }, { label: "はじめての方へ" }]}
   />
   <section class="beginner section">
     <div class="section__inner">
-      <SectionHeading
-        titleJapanese="MJ Homeについて"
-        titleEnglish="About us"
-        align="center"
-      />
-      <p class="beginner__lead">
-        不動産のプロが創る、資産価値を高める土地活用・売買・リノベーションをご提案します。
-      </p>
-      <ImageGrid
-        images={[
-          { src: "/img/beginner/img_about01.png", alt: "" },
-          { src: "/img/beginner/img_about02.png", alt: "" },
-          { src: "/img/beginner/img_about03.png", alt: "" },
-          { src: "/img/beginner/img_about04.png", alt: "" },
-        ]}
-        columns={2}
-      />
-      <SectionHeading
-        titleJapanese="MJ Homeの強み"
-        titleEnglish="Strengths"
-        align="center"
-      />
-      <ul class="beginner__strengths">
-        <li class="beginner__strength">
-          <img src={withBase("/img/beginner/img_strength01.png")} alt="" width="400" height="240" loading="lazy" />
-          <h3 class="beginner__strength-title">収益を最大化する設計</h3>
-          <p class="beginner__strength-text">市場と土地条件に合わせたボリュームと仕様で、収益性を高めます。</p>
-        </li>
-        <li class="beginner__strength">
-          <img src={withBase("/img/beginner/img_strength02.png")} alt="" width="400" height="240" loading="lazy" />
-          <h3 class="beginner__strength-title">品質とコストのバランス</h3>
-          <p class="beginner__strength-text">標準化とパートナー連携で、適正コストを実現します。</p>
-        </li>
-        <li class="beginner__strength">
-          <img src={withBase("/img/beginner/img_strength03.png")} alt="" width="400" height="240" loading="lazy" />
-          <h3 class="beginner__strength-title">運用まで見据えた提案</h3>
-          <p class="beginner__strength-text">建後の管理・修��まで含めた長期視点を大切にします。</p>
-        </li>
-      </ul>
+      <section class="beginner__about">
+        <SectionHeading
+          titleJapanese="About MJ Home"
+          titleEnglish="About us"
+          align="center"
+        />
+        <p class="beginner__lead">
+          不動産のプロが考える、資産価値を高める<br />
+          最適な建築・修繕・リノベーションをご提案します
+        </p>
+        <p class="beginner__body">
+          エム・ジェイホームは、管理・仲介・売買部門と連携し、<br />
+          資産価値を高めるための最適な建築・リフォーム・リノベーションをご提案できるのが当社の強み。<br
+          />
+          「空室が埋まらない」「収益が下がっている」「土地を有効活用したい」<br
+          />そんなお悩みを、戦略的な建築プランで解決します。
+        </p>
+        <ImageGrid
+          images={[
+            { src: "/img/beginner/img_about01.png", alt: "" },
+            { src: "/img/beginner/img_about02.png", alt: "" },
+            { src: "/img/beginner/img_about03.png", alt: "" },
+            { src: "/img/beginner/img_about04.png", alt: "" },
+          ]}
+          columns={2}
+        />
+      </section>
+      <section class="beginner__strengths">
+        <SectionHeading
+          titleJapanese="MJ Homeの強み"
+          titleEnglish="Strengths"
+          align="center"
+        />
+        <ul class="beginner__strengths">
+          <li class="beginner__strength">
+            <img
+              src={withBase("/img/beginner/img_strength01.png")}
+              alt=""
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <h3 class="beginner__strength-title">収益を最大化する建築プラン</h3>
+            <p class="beginner__strength-text">
+              市場ニーズや資産価値を考えた建築プランをご提案いたします。管理部門との連携で入居率を高め、仲介部門と協力して空室リスクを軽減。将来的にも価値が落ちにくい建物を実現します。
+            </p>
+          </li>
+          <li class="beginner__strength">
+            <img
+              src={withBase("/img/beginner/img_strength02.png")}
+              alt=""
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <h3 class="beginner__strength-title">
+              コストを抑え品質を確保する施工
+            </h3>
+            <p class="beginner__strength-text">
+              下請けを介さない「分離発注」＋「自社施工」を採用することで、余分なコストを削減。適正価格で資産価値を維持しながら、無駄のない修繕・リノベーションを提供します。
+            </p>
+          </li>
+          <li class="beginner__strength">
+            <img
+              src={withBase("/img/beginner/img_strength03.png")}
+              alt=""
+              width="400"
+              height="240"
+              loading="lazy"
+            />
+            <h3 class="beginner__strength-title">管理×建築で資産価値アップ</h3>
+            <p class="beginner__strength-text">
+              長期的な運用を見据えた「管理目線の建築」を行っています。既存物件を家賃が下がりにくいリノベーションで収益化し、長期修繕計画を立てることで、将来の資産価値を維持します。
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="beginner__flow" aria-labelledby="beginner-flow-heading">
+        <header class="beginner__flow-header">
+          <p class="beginner__flow-deco" aria-hidden="true">Flow</p>
+          <h2 class="beginner__flow-title" id="beginner-flow-heading">
+            完成までの流れ
+          </h2>
+        </header>
+        <ol class="beginner__flow-list">
+          <li class="beginner__flow-item beginner__flow-item--1">
+            <div class="beginner__flow-badge">
+              <span class="beginner__flow-badge-label">STEP</span>
+              <span class="beginner__flow-badge-num">1</span>
+            </div>
+            <h3 class="beginner__flow-item-title">
+              お問い合わせ<br />相談・ヒアリング
+            </h3>
+            <p class="beginner__flow-item-body">
+              まずはフォームより無料相談のお問い合わせをお願いいたします。こちらからご連絡、本事業のご説明・お持ちの土地を活用可能かどうか、投資金額の上限等のヒアリングを行います。
+            </p>
+          </li>
+          <li class="beginner__flow-item beginner__flow-item--2">
+            <div class="beginner__flow-badge">
+              <span class="beginner__flow-badge-label">STEP</span>
+              <span class="beginner__flow-badge-num">2</span>
+            </div>
+            <h3 class="beginner__flow-item-title">土地の調査</h3>
+            <p class="beginner__flow-item-body">
+              ヒアリングを行った後、土地の調査を行います。<br />
+              お手元に測量図等がございましたらよりスムーズに進められるため可能であればご用意をお願いします。資料がない場合でも私たちで調査いたしますのでご安心ください。
+            </p>
+          </li>
+          <li class="beginner__flow-item beginner__flow-item--3">
+            <div class="beginner__flow-badge">
+              <span class="beginner__flow-badge-label">STEP</span>
+              <span class="beginner__flow-badge-num">3</span>
+            </div>
+            <h3 class="beginner__flow-item-title">市場調査</h3>
+            <p class="beginner__flow-item-body">
+              土地の現況が確認できたら、土地活用専門コンサルタントが周辺の家賃相場等を調査いたします。<br
+              />
+              2LDK等の家族向けにするのか、1Kの単身世帯向けにするのかの判断も合わせて行います。
+            </p>
+          </li>
+          <li class="beginner__flow-item beginner__flow-item--4">
+            <div class="beginner__flow-badge">
+              <span class="beginner__flow-badge-label">STEP</span>
+              <span class="beginner__flow-badge-num">4</span>
+            </div>
+            <h3 class="beginner__flow-item-title">事業計画・資金計画</h3>
+            <p class="beginner__flow-item-body">
+              調査した内容を踏まえ事業計画及び資金計画のご提案を行います。<br />
+              オーナー様のご納得ができましたら融資相談を行います。弊社から金融機関をご紹介することも可能です。融資のご相談・事業計画のご説明についてもお任せいただけます。
+            </p>
+          </li>
+          <li class="beginner__flow-item beginner__flow-item--5">
+            <div class="beginner__flow-badge">
+              <span class="beginner__flow-badge-label">STEP</span>
+              <span class="beginner__flow-badge-num">5</span>
+            </div>
+            <h3 class="beginner__flow-item-title">契約・建築施工</h3>
+            <p class="beginner__flow-item-body">
+              オーナー様がご納得いただき、融資承認も下りたら建築契約になります。<br
+              />
+              賃貸マンションを建てる場合は、建築中から入居者の募集を行います。お付き合いのある管理会社がある場合にはその会社にご相談もしくは弊社からご紹介も可能です。
+            </p>
+          </li>
+          <li class="beginner__flow-item beginner__flow-item--6">
+            <div class="beginner__flow-badge">
+              <span class="beginner__flow-badge-label">STEP</span>
+              <span class="beginner__flow-badge-num">6</span>
+            </div>
+            <h3 class="beginner__flow-item-title">竣工・引き渡し</h3>
+            <p class="beginner__flow-item-body">
+              建物が無事完成したら、弊社で最終チェックを行いお引渡しになります。<br
+              />
+              建物の不具合等がございましたら何なりとご相談ください。
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="beginner__faq" aria-labelledby="beginner-faq-heading">
+        <SectionHeading
+          titleJapanese="よくある質問"
+          titleEnglish="FAQ"
+          align="center"
+        />
+        <div class="beginner__faq-list">
+          <details class="beginner__faq-item">
+            <summary class="beginner__faq-summary">
+              <img
+                class="beginner__faq-q-icon"
+                src={withBase("/img/common/icon_q.png")}
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span class="beginner__faq-question">
+                賃貸経営って、本当に儲かるんでしょうか？
+              </span>
+              <span class="beginner__faq-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="beginner__faq-panel">
+              <div class="beginner__faq-answer">
+                <img
+                  class="beginner__faq-a-icon"
+                  src={withBase("/img/common/icon_a.png")}
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+                <div class="beginner__faq-answer-text">
+                  <p>
+                    賃貸経営は「必ず儲かる投資」ではありませんが、立地・建物・資金計画を正しく設計すれば、長期的に安定収益を得やすい投資です。特に木造建築は、
+                  </p>
+                  <p>
+                    ・初期投資を抑えやすい<br />
+                    ・減価償却のメリットが大きい
+                  </p>
+                  <p>
+                    といった特徴があり、最初の一棟目として選ばれることが多い構造です。当社では、利回りだけでなく「空室リスク」「将来の修繕」「出口（売却）」まで含めてご提案しています。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="beginner__faq-item">
+            <summary class="beginner__faq-summary">
+              <img
+                class="beginner__faq-q-icon"
+                src={withBase("/img/common/icon_q.png")}
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span class="beginner__faq-question">
+                空室が続いたらどうなるのか不安です。
+              </span>
+              <span class="beginner__faq-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="beginner__faq-panel">
+              <div class="beginner__faq-answer">
+                <img
+                  class="beginner__faq-a-icon"
+                  src={withBase("/img/common/icon_a.png")}
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+                <div class="beginner__faq-answer-text">
+                  <p>
+                    空室リスクは、はじめてのオーナー様が最も不安に感じる点です。ただし、
+                  </p>
+                  <p>
+                    ・入居ニーズのある立地選定<br />
+                    ・ターゲットを明確にした間取り・設備<br />
+                    ・管理会社との連携
+                  </p>
+                  <p>
+                    これらを最初から設計に組み込むことで、空室リスクは大きく抑えることが可能です。「建ててから考える」のではなく、建てる前に“住む人”を想定することが重要です。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="beginner__faq-item">
+            <summary class="beginner__faq-summary">
+              <img
+                class="beginner__faq-q-icon"
+                src={withBase("/img/common/icon_q.png")}
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span class="beginner__faq-question">
+                木造は老朽化が早く、修繕費がかかりませんか？
+              </span>
+              <span class="beginner__faq-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="beginner__faq-panel">
+              <div class="beginner__faq-answer">
+                <img
+                  class="beginner__faq-a-icon"
+                  src={withBase("/img/common/icon_a.png")}
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+                <div class="beginner__faq-answer-text">
+                  <p>
+                    木造＝劣化が早い、というイメージを持たれがちですが、現在の木造建築は適切な施工とメンテナンスで十分長持ちします。また木造は、
+                  </p>
+                  <p>
+                    ・修繕コストが比較的読みやすい<br />
+                    ・大規模修繕の金額がRCより抑えやすい
+                  </p>
+                  <p>
+                    というメリットもあります。当社では、将来の修繕を見据えた素材選定・構造設計を行っています。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="beginner__faq-item">
+            <summary class="beginner__faq-summary">
+              <img
+                class="beginner__faq-q-icon"
+                src={withBase("/img/common/icon_q.png")}
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span class="beginner__faq-question">
+                自己資金はいくらくらい必要ですか？
+              </span>
+              <span class="beginner__faq-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="beginner__faq-panel">
+              <div class="beginner__faq-answer">
+                <img
+                  class="beginner__faq-a-icon"
+                  src={withBase("/img/common/icon_a.png")}
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+                <div class="beginner__faq-answer-text">
+                  <p>
+                    物件規模や金融機関によって異なりますが、一般的には物件価格の1〜2割程度を想定される方が多いです。ただし、借入条件・返済期間・キャッシュフローによって最適な自己資金額は変わります。「できるだけ自己資金を抑えたい」「将来の余力を残したい」など、ご希望に応じた資金計画のご相談も可能です。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="beginner__faq-item">
+            <summary class="beginner__faq-summary">
+              <img
+                class="beginner__faq-q-icon"
+                src={withBase("/img/common/icon_q.png")}
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <span class="beginner__faq-question">
+                賃貸経営の知識がなくても始められますか？
+              </span>
+              <span class="beginner__faq-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="beginner__faq-panel">
+              <div class="beginner__faq-answer">
+                <img
+                  class="beginner__faq-a-icon"
+                  src={withBase("/img/common/icon_a.png")}
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+                <div class="beginner__faq-answer-text">
+                  <p>
+                    はい、多くのオーナー様が未経験からスタートされています。重要なのは、「信頼できるパートナーを選ぶこと」「数字やリスクをきちんと説明してもらうこと」です。当社では、「専門用語を使わずに説明すること」「メリットだけでなくデメリットも正直に伝えること」を大切にしています。はじめての方でも、納得したうえで進められる体制を整えています。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
     </div>
   </section>
 </Layout>
 
 <style lang="scss">
+  @use "sass:color";
   @use "../styles/variables" as *;
 
   .beginner {
     .beginner__lead {
       text-align: center;
-      font-size: 18px;
+      font-size: 28px;
       font-weight: $fw-bold;
       line-height: 1.8;
       margin: 0 0 $spacing-xl;
@@ -79,6 +393,12 @@ import { withBase } from "../utils/withBase";
       @media (max-width: $breakpoint-sp) {
         font-size: 16px;
       }
+    }
+
+    .beginner__body {
+      line-height: 1.8;
+      margin: 0 0 $spacing-xl;
+      text-align: center;
     }
 
     .beginner__strengths {
@@ -104,15 +424,439 @@ import { withBase } from "../utils/withBase";
     }
 
     .beginner__strength-title {
-      font-size: 18px;
+      font-size: 28px;
       font-weight: $fw-bold;
       margin: 0 0 $spacing-xs;
+      min-height: 100px;
     }
 
     .beginner__strength-text {
-      font-size: 14px;
       line-height: 1.8;
       margin: 0;
+    }
+
+    .beginner__flow {
+      position: relative;
+      margin-top: $spacing-xxl;
+      margin-bottom: $spacing-xxl;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: $spacing-xxl calc(50vw - 50%);
+      background: color.mix($color-white, $color-text, 96%);
+
+      @media (max-width: $breakpoint-sp) {
+        margin-top: $spacing-xl;
+        margin-bottom: $spacing-xl;
+        padding: $spacing-xl calc(50vw - 50%);
+      }
+    }
+
+    .beginner__flow-header {
+      position: relative;
+      margin: 0 0 $spacing-xl;
+      padding: $spacing-lg 0 $spacing-md;
+      text-align: center;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+        padding: $spacing-md 0;
+      }
+    }
+
+    .beginner__flow-deco {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 0;
+      margin: 0;
+      font-family: $font-filmotype-lucky;
+      font-size: clamp(3.5rem, 12vw, 7.5rem);
+      font-weight: $fw-regular;
+      line-height: 1;
+      color: $color-secondary;
+      opacity: 0.95;
+      pointer-events: none;
+      white-space: nowrap;
+      transform: translate(-50%, -52%);
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: clamp(2.75rem, 18vw, 4rem);
+        transform: translate(-50%, -48%);
+      }
+    }
+
+    .beginner__flow-title {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 32px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 22px;
+      }
+    }
+
+    .beginner__flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+      max-width: $content-max-width;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+    }
+
+    .beginner__flow-item {
+      --flow-accent: #{$color-primary};
+      display: grid;
+      grid-template-columns: 88px minmax(140px, 240px) 1fr;
+      align-items: stretch;
+      column-gap: $spacing-md;
+      padding: $spacing-md $spacing-lg $spacing-md;
+      background: $color-white;
+      border-radius: 4px;
+      box-shadow: 0 1px 6px rgba($color-text, 0.06);
+
+      @media (max-width: $breakpoint-sp) {
+        grid-template-columns: 56px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: $spacing-sm;
+        row-gap: $spacing-xs;
+        padding: $spacing-sm $spacing-sm $spacing-sm 0;
+      }
+
+      &.beginner__flow-item--1 {
+        --flow-accent: #{color.mix($color-white, $color-primary, 78%)};
+      }
+
+      &.beginner__flow-item--2 {
+        --flow-accent: #{color.mix($color-white, $color-primary, 64%)};
+      }
+
+      &.beginner__flow-item--3 {
+        --flow-accent: #{color.mix($color-white, $color-primary, 48%)};
+      }
+
+      &.beginner__flow-item--4 {
+        --flow-accent: #{color.mix($color-white, $color-primary, 32%)};
+      }
+
+      &.beginner__flow-item--5 {
+        --flow-accent: #{color.mix($color-white, $color-primary, 18%)};
+      }
+
+      &.beginner__flow-item--6 {
+        --flow-accent: #{color.mix($color-primary, $color-text, 88%)};
+      }
+    }
+
+    .beginner__flow-badge {
+      width: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      margin: (-$spacing-md) 0 (-$spacing-md) 0;
+      padding: $spacing-sm $spacing-xs calc(#{$spacing-sm} + 14px);
+      background: var(--flow-accent);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 14px),
+        50% 100%,
+        0 calc(100% - 14px)
+      );
+
+      @media (max-width: $breakpoint-sp) {
+        grid-row: 1 / span 2;
+        grid-column: 1;
+        margin: (-$spacing-sm) 0 (-$spacing-sm) 0;
+        padding: $spacing-xs $spacing-xs calc(#{$spacing-xs} + 12px);
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 12px),
+          50% 100%,
+          0 calc(100% - 12px)
+        );
+      }
+    }
+
+    .beginner__flow-item--6 .beginner__flow-badge {
+      padding: $spacing-sm $spacing-xs;
+      clip-path: none;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: $spacing-xs;
+      }
+    }
+
+    .beginner__flow-badge-label {
+      font-family: $helvetica;
+      font-size: 24px;
+      font-weight: $fw-bold;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: $color-white;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 9px;
+      }
+    }
+
+    .beginner__flow-badge-num {
+      font-family: $helvetica;
+      font-size: 50px;
+      font-weight: $fw-bold;
+      line-height: 1;
+      color: $color-white;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 28px;
+      }
+    }
+
+    .beginner__flow-item-title {
+      margin: 0;
+      padding: $spacing-xs 0 $spacing-sm $spacing-md;
+      font-size: 22px;
+      font-weight: $fw-bold;
+      line-height: 1.45;
+      color: $color-primary;
+      align-self: center;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        padding: 0;
+        font-size: 17px;
+      }
+    }
+
+    .beginner__flow-item-body {
+      margin: 0;
+      padding: $spacing-xs 0;
+      font-size: 15px;
+      font-weight: $fw-regular;
+      line-height: 1.85;
+      color: $color-text;
+      align-self: center;
+
+      @media (max-width: $breakpoint-sp) {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        padding: 0;
+        font-size: 14px;
+      }
+    }
+
+    .beginner__faq {
+      margin-top: $spacing-xxl;
+      margin-bottom: $spacing-xl;
+      padding: $spacing-xl 0 $spacing-xxl;
+      background: $color-white;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-top: $spacing-xl;
+        padding: $spacing-lg 0 $spacing-xl;
+      }
+    }
+
+    .beginner__faq-header {
+      position: relative;
+      margin: 0 0 $spacing-xl;
+      padding: $spacing-lg 0 $spacing-md;
+      text-align: center;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-lg;
+        padding: $spacing-md 0;
+      }
+    }
+
+    .beginner__faq-deco {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 0;
+      margin: 0;
+      font-family: $helvetica;
+      font-size: clamp(3rem, 11vw, 6.5rem);
+      font-weight: $fw-bold;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px $color-secondary;
+      pointer-events: none;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: clamp(2.25rem, 16vw, 3.5rem);
+        -webkit-text-stroke-width: 1.5px;
+      }
+    }
+
+    .beginner__faq-title {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 32px;
+      font-weight: $fw-bold;
+      line-height: 1.5;
+      color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 22px;
+      }
+    }
+
+    .beginner__faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+
+    .beginner__faq-item {
+      margin: 0;
+      background: $color-white;
+      box-shadow: 0 5px 6px 1px rgba($color-text, 0.1);
+    }
+
+    .beginner__faq-summary {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: $spacing-md;
+      padding: $spacing-md $spacing-md;
+      list-style: none;
+      cursor: pointer;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::marker {
+        content: "";
+      }
+
+      @media (max-width: $breakpoint-sp) {
+        gap: $spacing-sm;
+        padding: $spacing-sm;
+        align-items: flex-start;
+      }
+    }
+
+    .beginner__faq-q-icon {
+      flex-shrink: 0;
+      display: block;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+
+      @media (max-width: $breakpoint-sp) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .beginner__faq-question {
+      flex: 1;
+      margin: 0;
+      font-size: 20px;
+      font-weight: $fw-bold;
+      line-height: 1.6;
+      color: $color-text;
+      text-align: left;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 15px;
+      }
+    }
+
+    .beginner__faq-chevron {
+      flex-shrink: 0;
+      width: 12px;
+      height: 12px;
+      margin-top: 2px;
+      border-right: 3px solid $color-primary;
+      border-bottom: 3px solid $color-primary;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+
+      @media (max-width: $breakpoint-sp) {
+        width: 10px;
+        height: 10px;
+        border-right-width: 2px;
+        border-bottom-width: 2px;
+      }
+    }
+
+    .beginner__faq-item[open] .beginner__faq-chevron {
+      transform: rotate(-135deg);
+      margin-top: 8px;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-top: 6px;
+      }
+    }
+
+    .beginner__faq-panel {
+      padding: 0 $spacing-md $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        padding: 0 $spacing-sm $spacing-sm;
+      }
+    }
+
+    .beginner__faq-answer {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        gap: $spacing-sm;
+      }
+    }
+
+    .beginner__faq-a-icon {
+      flex-shrink: 0;
+      display: block;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+
+      @media (max-width: $breakpoint-sp) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .beginner__faq-answer-text {
+      flex: 1;
+      min-width: 0;
+
+      p {
+        margin: 0 0 $spacing-sm;
+        font-size: 15px;
+        font-weight: $fw-regular;
+        line-height: 1.85;
+        color: $color-text;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 14px;
+        }
+      }
     }
   }
 </style>

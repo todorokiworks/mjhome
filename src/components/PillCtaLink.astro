@@ -7,11 +7,22 @@ interface Props {
   /** 親幅いっぱい（text と矢印を両端寄せ）／内容に合わせた幅 */
   width?: "full" | "base";
   class?: string;
+  /** 右アイコン: 既定は白矢印、map は Google map 導線用（icon_dl.png） */
+  trailingIcon?: "arrow" | "map";
 }
 
-const { href, label, width = "full", class: className } = Astro.props;
+const {
+  href,
+  label,
+  width = "full",
+  class: className,
+  trailingIcon = "arrow",
+} = Astro.props;
 
-const iconSrc = withBase("/img/common/icon_arrow_white.png");
+const iconSrc =
+  trailingIcon === "map"
+    ? withBase("/img/common/icon_dl.png")
+    : withBase("/img/common/icon_arrow_white.png");
 ---
 
 <a
@@ -24,8 +35,14 @@ const iconSrc = withBase("/img/common/icon_arrow_white.png");
   ]}
 >
   <span class="pill-cta-link__label">{label}</span>
-  <span class="pill-cta-link__icon" aria-hidden="true">
-    <img src={iconSrc} alt="" width="20" height="12" loading="lazy" />
+  <span
+    class:list={[
+      "pill-cta-link__icon",
+      trailingIcon === "map" && "pill-cta-link__icon--map",
+    ]}
+    aria-hidden="true"
+  >
+    <img src={iconSrc} alt="" width="20" height="20" loading="lazy" />
   </span>
 </a>
 
@@ -49,7 +66,8 @@ const iconSrc = withBase("/img/common/icon_arrow_white.png");
     background: $color-primary;
     border-radius: 999px;
     transition: opacity 0.2s ease;
-    width: 230px;
+    min-width: 230px;
+    width: fit-content;
 
     &:hover {
       opacity: 0.9;
@@ -65,7 +83,11 @@ const iconSrc = withBase("/img/common/icon_arrow_white.png");
     }
 
     &.pill-cta-link--base {
-      width: 230px;
+      width: fit-content;
+    }
+
+    &:has(.pill-cta-link__icon--map) {
+      width: fit-content;
     }
 
     .pill-cta-link__label {
@@ -86,6 +108,17 @@ const iconSrc = withBase("/img/common/icon_arrow_white.png");
 
         @media (max-width: $breakpoint-sp) {
           width: 18px;
+        }
+      }
+
+      &.pill-cta-link__icon--map {
+        img {
+          width: 20px;
+          height: auto;
+
+          @media (max-width: $breakpoint-sp) {
+            width: 20px;
+          }
         }
       }
     }
