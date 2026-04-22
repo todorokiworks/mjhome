@@ -140,12 +140,16 @@ const mapSearchUrl =
       background: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-xl 0;
+        padding: $spacing-xl $spacing-sm $spacing-xxl;
       }
     }
 
     .company-page__dl {
       margin: 0 0 160px;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-xxl;
+      }
     }
 
     .company-page__row {

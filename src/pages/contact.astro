@@ -199,13 +199,15 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
   @use "../styles/variables" as *;
 
   .contact-page {
+    background: $color-white;
+
     .contact-page__inner {
       max-width: $content-max-width;
       margin: 0 auto;
-      padding: 0 $spacing-md;
+      padding: $spacing-xxl $spacing-md;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-xl $spacing-sm;
+        padding: $spacing-xl $spacing-sm $spacing-xxl;
       }
     }
 
@@ -218,6 +220,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       margin: 0 0 $spacing-lg;
       font-size: 15px;
       line-height: 1.85;
+      color: $color-text;
 
       p {
         margin: 0 0 0.85em;
@@ -241,6 +244,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       margin: 0 0 $spacing-xl;
       font-size: 14px;
       line-height: 1.65;
+      color: $color-text;
 
       @media (max-width: $breakpoint-sp) {
         margin-bottom: $spacing-lg;
@@ -309,6 +313,10 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       align-items: center;
       justify-content: space-between;
       gap: $spacing-xs;
+
+      @media (max-width: $breakpoint-sp) {
+        width: 100%;
+      }
     }
 
     .contact-form__label {
@@ -370,15 +378,20 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
     }
 
     .contact-form__policy-box {
+      box-sizing: border-box;
       margin: 0 auto $spacing-lg;
       padding: $spacing-md;
       background: #{color.mix($color-white, $color-text, 94%)};
       border: 1px solid #{color.mix($color-white, $color-text, 82%)};
       height: 120px;
-      width: 600px;
+      max-width: 600px;
+      width: 100%;
       overflow: scroll;
+
       @media (max-width: $breakpoint-sp) {
         padding: $spacing-sm;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 
@@ -415,6 +428,12 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       align-items: center;
       gap: $spacing-sm;
       justify-content: center;
+
+      @media (max-width: $breakpoint-sp) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-xs;
+      }
     }
 
     .contact-form__consent-label {
@@ -424,11 +443,12 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       margin: 0;
       font-size: 14px;
       line-height: 1.5;
-
+      color: $color-text;
       cursor: pointer;
 
       @media (max-width: $breakpoint-sp) {
         font-size: 13px;
+        align-items: flex-start;
       }
     }
 
@@ -448,6 +468,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
 
       @media (max-width: $breakpoint-sp) {
         margin-top: $spacing-lg;
+        width: 100%;
       }
     }
 
@@ -458,6 +479,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       gap: $spacing-md;
       box-sizing: border-box;
       width: fit-content;
+      max-width: 100%;
       margin: 0;
       padding: 22px 28px;
       font-family: $noto-sans-jp;
@@ -482,6 +504,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       }
 
       @media (max-width: $breakpoint-sp) {
+        width: 100%;
         max-width: none;
         padding: 16px 22px;
         font-size: 14px;

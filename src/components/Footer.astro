@@ -37,6 +37,41 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
   </div>
   <div class="footer__main">
     <div class="footer__inner">
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item">
+            <a href={withBase("/")} class="footer__nav-link">トップ</a>
+          </li>
+          <li class="footer__nav-item">
+            <a href={withBase("/beginner")} class="footer__nav-link"
+              >はじめての方へ</a
+            >
+          </li>
+          <li class="footer__nav-item">
+            <a href={withBase("/reason")} class="footer__nav-link"
+              >選ばれる理由</a
+            >
+          </li>
+          <li class="footer__nav-item">
+            <a href={withBase("/products")} class="footer__nav-link">商品一覧</a>
+          </li>
+          <li class="footer__nav-item">
+            <a href={withBase("/case")} class="footer__nav-link">施工事例</a>
+          </li>
+          <li class="footer__nav-item">
+            <a href={withBase("/company")} class="footer__nav-link">会社概要</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="footer__actions">
+        <a href={withBase("/contact")} class="footer__action-btn"
+          >お問い合わせ</a
+        >
+        <a href={withBase("/download")} class="footer__action-btn"
+          >資料ダウンロード</a
+        >
+      </div>
+      <a href="#" class="footer__privacy">プライバシーポリシー</a>
       <div class="footer__brand">
         <div class="footer__logo">
           <img
@@ -57,49 +92,12 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
           </p>
         </div>
       </div>
-      <nav class="footer__nav" aria-label="フッターナビゲーション">
-        <ul class="footer__nav-list">
-          <li class="footer__nav-item">
-            <a href={withBase("/")} class="footer__nav-link">トップ</a>
-          </li>
-          <li class="footer__nav-item">
-            <a href={withBase("/beginner")} class="footer__nav-link"
-              >はじめての方へ</a
-            >
-          </li>
-          <li class="footer__nav-item">
-            <a href={withBase("/reason")} class="footer__nav-link"
-              >選ばれる理由</a
-            >
-          </li>
-        </ul>
-        <ul class="footer__nav-list">
-          <li class="footer__nav-item">
-            <a href={withBase("/products")} class="footer__nav-link">商品一覧</a
-            >
-          </li>
-          <li class="footer__nav-item">
-            <a href={withBase("/case")} class="footer__nav-link">施工事例</a>
-          </li>
-          <li class="footer__nav-item">
-            <a href={withBase("/company")} class="footer__nav-link">会社概要</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="footer__actions">
-        <a href={withBase("/contact")} class="footer__action-btn"
-          >お問い合わせ</a
-        >
-        <a href={withBase("/download")} class="footer__action-btn"
-          >資料ダウンロード</a
-        >
-      </div>
     </div>
   </div>
   <div class="footer__legal">
     <a href="#" class="footer__legal-link">プライバシーポリシー</a>
     <p class="footer__legal-copy">
-      Copyright © 2025 MJ HOME Co., Ltd. All Rights Reserved.
+      Copyright © 2026 MJ HOME Co., Ltd. All Rights Reserved.
     </p>
   </div>
 </footer>
@@ -133,6 +131,10 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
       background-size: cover;
       background-position: center;
       transition: opacity 0.3s ease;
+
+      @media (max-width: $breakpoint-sp) {
+        min-height: 200px;
+      }
 
       &::after {
         content: "";
@@ -188,20 +190,45 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
     }
 
     .footer__inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 240px);
-      align-items: start;
-      gap: $spacing-xl $spacing-xxl;
       box-sizing: border-box;
       max-width: $content-max-width;
       margin: 0 auto;
 
+      @media (min-width: #{$breakpoint-tb + 1px}) {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 240px);
+        align-items: start;
+        gap: $spacing-xl $spacing-xxl;
+
+        .footer__brand {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .footer__nav {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        .footer__actions {
+          grid-column: 3;
+          grid-row: 1;
+        }
+      }
+
       @media (max-width: $breakpoint-tb) {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: $spacing-lg;
 
+        .footer__nav {
+          grid-column: 1 / -1;
+          grid-row: 1;
+        }
+
         .footer__actions {
           grid-column: 1 / -1;
+          grid-row: 2;
           flex-direction: row;
           justify-content: flex-start;
         }
@@ -210,10 +237,21 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
           flex: 1 1 auto;
           max-width: 280px;
         }
+
+        .footer__privacy {
+          grid-column: 1 / -1;
+          grid-row: 3;
+        }
+
+        .footer__brand {
+          grid-column: 1 / -1;
+          grid-row: 4;
+        }
       }
 
       @media (max-width: $breakpoint-sp) {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: $spacing-lg;
 
         .footer__actions {
@@ -222,6 +260,7 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
 
         .footer__action-btn {
           max-width: none;
+          width: 100%;
         }
       }
     }
@@ -286,31 +325,59 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
     }
 
     .footer__nav {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: center;
-      gap: $spacing-xl $spacing-xxl;
+      display: block;
 
       @media (max-width: $breakpoint-sp) {
-        justify-content: flex-start;
-        gap: $spacing-lg;
+        width: 100%;
       }
 
       .footer__nav-list {
         display: flex;
         flex-direction: column;
-        gap: $spacing-sm;
+        gap: 0;
         list-style: none;
         margin: 0;
         padding: 0;
+
+        @media (min-width: #{$breakpoint-sp + 1px}) {
+          gap: $spacing-sm;
+        }
+
+        @media (min-width: #{$breakpoint-tb + 1px}) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: $spacing-xl;
+          row-gap: $spacing-xs;
+        }
+
+        @media (min-width: #{$breakpoint-sp + 1px}) and (max-width: $breakpoint-tb) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: $spacing-xl;
+          row-gap: $spacing-xs;
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          border-top: 1px solid rgba($color-white, 0.35);
+          border-bottom: 1px solid rgba($color-white, 0.35);
+        }
       }
 
       .footer__nav-item {
         margin: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          border-bottom: 1px solid rgba($color-white, 0.35);
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
       }
 
       .footer__nav-link {
+        display: block;
+        padding: $spacing-sm 0;
         color: $color-white;
         text-decoration: none;
         font-family: $noto-sans-jp;
@@ -319,9 +386,37 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
         line-height: 1.5;
         transition: opacity 0.3s ease;
 
+        @media (max-width: $breakpoint-sp) {
+          padding: 14px 0;
+          font-size: 14px;
+        }
+
         &:hover {
           opacity: 0.7;
         }
+      }
+    }
+
+    .footer__privacy {
+      display: inline-block;
+      margin: 0;
+      font-family: $noto-sans-jp;
+      font-size: 12px;
+      font-weight: $fw-regular;
+      color: rgba($color-white, 0.9);
+      text-decoration: none;
+      text-align: left;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 12px;
+      }
+
+      &:hover {
+        opacity: 0.75;
+      }
+
+      @media (min-width: #{$breakpoint-sp + 1px}) {
+        display: none;
       }
     }
 
@@ -335,6 +430,7 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
     .footer__action-btn {
       display: block;
       box-sizing: border-box;
+      width: 100%;
       padding: 24px $spacing-md;
       font-family: $noto-sans-jp;
       font-size: 15px;
@@ -347,6 +443,11 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
       border-radius: 999px;
       transition: opacity 0.25s ease;
 
+      @media (max-width: $breakpoint-sp) {
+        padding: 18px $spacing-md;
+        font-size: 14px;
+      }
+
       &:hover {
         opacity: 0.9;
       }
@@ -354,10 +455,9 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
 
     .footer__legal {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: $spacing-sm $spacing-xxl;
+      gap: $spacing-xl;
       box-sizing: border-box;
       width: 100%;
       margin: 0;
@@ -366,12 +466,12 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
       color: rgba($color-text, 0.55);
 
       @media (max-width: $breakpoint-sp) {
-        flex-direction: column;
-        align-items: flex-start;
         padding: $spacing-sm $spacing-sm;
+        justify-content: center;
       }
 
       .footer__legal-link {
+        margin: 0;
         font-family: $noto-sans-jp;
         font-size: 12px;
         font-weight: $fw-regular;
@@ -380,6 +480,10 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
 
         &:hover {
           opacity: 0.75;
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          display: none;
         }
       }
 
@@ -390,11 +494,7 @@ const bnrContact = withBase("/img/common/img_bnr_contact_bg.png");
         font-weight: $fw-regular;
         line-height: 1.5;
         color: rgba($color-text, 0.55);
-        text-align: right;
-
-        @media (max-width: $breakpoint-sp) {
-          text-align: left;
-        }
+        text-align: center;
       }
     }
   }

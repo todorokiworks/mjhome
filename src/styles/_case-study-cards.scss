@@ -11,6 +11,7 @@
 
     @media (max-width: $breakpoint-sp) {
       grid-template-columns: 1fr;
+      gap: $spacing-lg $spacing-sm;
     }
   }
 
@@ -60,6 +61,10 @@
 
     &:hover {
       box-shadow: 0 8px 28px rgba($color-text, 0.12);
+    }
+
+    @media (max-width: $breakpoint-sp) {
+      padding: 32px $spacing-sm 20px;
     }
   }
 
@@ -113,6 +118,11 @@
     background: $color-secondary;
     border: 1px dashed $color-primary;
     border-radius: 999px;
+
+    @media (max-width: $breakpoint-sp) {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
   }
 
   .top-case__action {

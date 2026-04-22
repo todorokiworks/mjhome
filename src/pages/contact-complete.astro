@@ -55,10 +55,10 @@ import { withBase } from "../utils/withBase";
         .complete-page__inner {
             max-width: $content-max-width;
             margin: 0 auto;
-            padding: 0 $spacing-md;
+            padding: $spacing-xxl $spacing-md;
 
             @media (max-width: $breakpoint-sp) {
-                padding: $spacing-xl $spacing-sm;
+                padding: $spacing-xl $spacing-sm $spacing-xxl;
             }
         }
 
@@ -110,6 +110,13 @@ import { withBase } from "../utils/withBase";
 
             @media (max-width: $breakpoint-sp) {
                 padding-bottom: $spacing-md;
+                width: 100%;
+
+                :global(.pill-cta-link) {
+                    width: 100%;
+                    max-width: none;
+                    box-sizing: border-box;
+                }
             }
         }
     }

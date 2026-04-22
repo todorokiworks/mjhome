@@ -243,7 +243,7 @@ const cases: CaseItem[] = [
       padding: 0;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-xl 0;
+        padding: $spacing-xl $spacing-sm $spacing-xxl;
       }
     }
 
@@ -255,6 +255,13 @@ const cases: CaseItem[] = [
       gap: $spacing-sm;
       margin: 0 0 $spacing-xxl;
       padding: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: $spacing-xl;
+        gap: $spacing-md;
+      }
     }
 
     .case-index__header-title {
@@ -262,6 +269,10 @@ const cases: CaseItem[] = [
       font-weight: $fw-bold;
       line-height: 1.35;
       color: $color-text;
+
+      @media (max-width: $breakpoint-sp) {
+        text-align: center;
+      }
     }
 
     .case-index__tabs {
