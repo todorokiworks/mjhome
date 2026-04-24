@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import ImageGrid from "../components/ImageGrid.astro";
 import { withBase } from "../utils/withBase";
 ---
 
@@ -19,33 +18,76 @@ import { withBase } from "../utils/withBase";
   <section class="beginner section">
     <div class="section__inner">
       <section class="beginner__about">
-        <SectionHeading
-          titleJapanese="About MJ Home"
-          titleEnglish="About us"
-          align="center"
-        />
-        <p class="beginner__lead">
-          不動産のプロが考える、資産価値を高める<br />
-          最適な建築・修繕・リノベーションをご提案します
-        </p>
-        <p class="beginner__body">
-          エム・ジェイホームは、管理・仲介・売買部門と連携し、<br />
-          資産価値を高めるための最適な建築・リフォーム・リノベーションをご提案できるのが当社の強み。<br
-          />
-          「空室が埋まらない」「収益が下がっている」「土地を有効活用したい」<br
-          />そんなお悩みを、戦略的な建築プランで解決します。
-        </p>
-        <ImageGrid
-          images={[
-            { src: "/img/beginner/img_about01.png", alt: "" },
-            { src: "/img/beginner/img_about02.png", alt: "" },
-            { src: "/img/beginner/img_about03.png", alt: "" },
-            { src: "/img/beginner/img_about04.png", alt: "" },
-          ]}
-          columns={2}
-        />
+        <div class="beginner__about-bleed">
+          <div class="beginner__about-top">
+            <div class="beginner__about-side beginner__about-side--left">
+              <img
+                src={withBase("/img/beginner/img_about01.png")}
+                alt=""
+                width="640"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                class="beginner__about-img"
+              />
+            </div>
+            <div class="beginner__about-main">
+              <SectionHeading
+                titleJapanese="About MJ Home"
+                titleEnglish="About us"
+                align="center"
+              />
+              <p class="beginner__lead">
+                不動産のプロが考える、資産価値を高める<br />
+                最適な建築・修繕・リノベーションをご提案します
+              </p>
+              <p class="beginner__body">
+                エム・ジェイホームは、管理・仲介・売買部門と連携し、<br />
+                資産価値を高めるための最適な建築・リフォーム・リノベーションをご提案できるのが当社の強み。<br
+                />
+                「空室が埋まらない」「収益が下がっている」「土地を有効活用したい」<br
+                />そんなお悩みを、戦略的な建築プランで解決します。
+              </p>
+            </div>
+            <div class="beginner__about-side beginner__about-side--right">
+              <img
+                src={withBase("/img/beginner/img_about02.png")}
+                alt=""
+                width="540"
+                height="360"
+                loading="lazy"
+                decoding="async"
+                class="beginner__about-img"
+              />
+            </div>
+          </div>
+          <div class="beginner__about-bottom">
+            <div class="beginner__about-bottom-cell">
+              <img
+                src={withBase("/img/beginner/img_about03.png")}
+                alt=""
+                width="540"
+                height="360"
+                loading="lazy"
+                decoding="async"
+                class="beginner__about-img"
+              />
+            </div>
+            <div class="beginner__about-bottom-cell">
+              <img
+                src={withBase("/img/beginner/img_about04.png")}
+                alt=""
+                width="640"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                class="beginner__about-img"
+              />
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="beginner__strengths">
+      <section class="beginner__strength">
         <SectionHeading
           titleJapanese="MJ Homeの強み"
           titleEnglish="Strengths"
@@ -377,11 +419,152 @@ import { withBase } from "../utils/withBase";
   </section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "sass:color";
   @use "../styles/variables" as *;
 
   .beginner {
+    .beginner__about {
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-bottom: 160px;
+      padding-left: max(0, calc((100vw - #{$content-visual-max-width}) / 2));
+      padding-right: max(0, calc((100vw - #{$content-visual-max-width}) / 2));
+      box-sizing: border-box;
+
+      @media (max-width: $breakpoint-sp) {
+        margin-bottom: $spacing-xl;
+      }
+
+      .beginner__about-bleed {
+        max-width: $content-visual-max-width;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .beginner__about-top {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 720px) 1fr;
+        align-items: center;
+        gap: $spacing-lg;
+        margin-bottom: $spacing-xxl;
+
+        @media (max-width: $breakpoint-sp) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: $spacing-sm;
+          align-items: stretch;
+          padding-top: 30px;
+        }
+      }
+
+      .beginner__about-side {
+        min-width: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          width: 100%;
+          max-width: none;
+        }
+
+        .beginner__about-img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+
+      .beginner__about-main {
+        min-width: 0;
+
+        @media (max-width: $breakpoint-sp) {
+          width: 100%;
+          grid-column: 1 / -1;
+          grid-row: 2;
+        }
+
+        .beginner__lead {
+          margin-bottom: $spacing-lg;
+
+          @media (max-width: $breakpoint-sp) {
+            margin-bottom: $spacing-md;
+          }
+        }
+
+        .beginner__body {
+          margin-bottom: 0;
+        }
+      }
+
+      .beginner__about-side--left {
+        transform: translateY(-40px);
+        @media (max-width: $breakpoint-sp) {
+          transform: none;
+          grid-column: 1;
+          grid-row: 1;
+        }
+      }
+
+      .beginner__about-side--right {
+        transform: translateY(-120px);
+
+        @media (max-width: $breakpoint-sp) {
+          transform: translateY(-40px);
+          grid-column: 2;
+          grid-row: 1;
+        }
+      }
+
+      .beginner__about-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-xl;
+        margin-top: $spacing-xl;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+
+        @media (max-width: $breakpoint-sp) {
+          grid-template-columns: 160px 1fr;
+          gap: $spacing-sm;
+          margin-top: $spacing-lg;
+          width: 100%;
+          max-width: none;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .beginner__about-bottom-cell {
+          max-width: 510px;
+
+          @media (max-width: $breakpoint-sp) {
+            transform: none;
+          }
+
+          &:first-child {
+            transform: translateX(-40px);
+
+            @media (max-width: $breakpoint-sp) {
+              transform: translateY(-20px) translateX(0px);
+            }
+          }
+
+          &:last-child {
+            transform: translate(40px, 60px);
+
+            @media (max-width: $breakpoint-sp) {
+              transform: none;
+            }
+          }
+
+          .beginner__about-img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+      }
+    }
+
     .beginner__lead {
       text-align: center;
       font-size: 28px;
