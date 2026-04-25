@@ -20,7 +20,7 @@ const base = "/img/reason";
   <section class="reason-page section">
     <div class="section__inner reason-page__inner">
       <SectionHeading
-        titleJapanese="エム・ジェイホームが選ばれる理由"
+        titleJapanese=`エム・ジェイホームが<br class="sp">選ばれる理由`
         titleEnglish="Reasons"
         align="center"
       />
@@ -33,292 +33,302 @@ const base = "/img/reason";
           </h2>
           <div class="reason-section__prose">
             <p>
-              木造建築は、鉄骨造（S造）や鉄筋コンクリート造（RC造）と比べ、材料が軽量であることから基礎工事や地盤改良の規模を抑えやすく、建築コストを低く抑えやすい構造です。
-            </p>
-            <p>
-              躯体が軽くなることで基礎にかかる荷重が小さくなり、基礎スラブや杭の本数・断面を最適化しやすくなります。その結果、初期投資のうち占める比率の高い土建費を効率的に圧縮できる場合があります。
-            </p>
-            <p>
-              また、工期の短縮が見込みやすいため、仮設費や現場管理費といった間接費の抑制にもつながります。
-            </p>
-            <p>
-              エム・ジェイホームでは、土地条件・用途・賃貸需要を踏まえ、コストと品質のバランスが取れた構造・工法をご提案します。
+              木造は、鉄筋コンクリート造や鉄骨造の構造よりも建設コストが安いです。<br
+              />
+              木造と鉄骨造で使用する建材を部材ごとに比較しても、規格寸法があるアルミサッシなど、ほとんどの建材が木造の方が安くなります。<br
+              />
+              基礎の断面寸法が鉄骨造と比較してとても小さいことから、基礎工事の材料費、施工費、残土処分費なども大幅に軽減できます。<br
+              />
+              建物重量がとても軽くなることから、地盤改良コストも抑えることができます。
             </p>
           </div>
           <figure class="reason-section__figure">
-            <img
-              src={withBase(`${base}/img_reason01.png`)}
-              alt="木造とS造・RC造のコスト比較チャートと削減事例"
-              width="1200"
-              height="680"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source
+                srcset={withBase(`${base}/img_reason01-sp.png`)}
+                media="(max-width: 768px)"
+              />
+              <img
+                src={withBase(`${base}/img_reason01.png`)}
+                alt="木造とS造・RC造のコスト比較チャートと削減事例"
+              />
+            </picture>
+            <p class="reason-section__note">
+              2階建て事務所（約12×18m、延床面積430㎡）におけるシミュレーション／（一社）中大規模木造プレカット協会資料による
+            </p>
           </figure>
-          <p class="reason-section__note">
-            2階建て事務所（約12×18m、延床面積430㎡）におけるシミュレーション／（一社）中大規模木造プレカット協会資料による
-          </p>
-        </section>
 
-        <section class="reason-section" aria-labelledby="reason-s02-title">
-          <h2 class="reason-section__title" id="reason-s02-title">
-            <span class="reason-section__num">02</span>
-            <span class="reason-section__sep" aria-hidden="true">|</span>
-            <span class="reason-section__name">短工期</span>
-          </h2>
-          <div class="reason-section__prose">
-            <p>
-              敷地が狭小である場合の施工性と工期を重視した構造方式の比較検討によると（令和7年（公財）日本住宅・木材技術センター調べ）、RC造と比較してCLTによる木造は、全体工期および建て方工期の両面で大幅な短縮が可能であることが確認されています。
-            </p>
-            <p>
-              RC造では、基礎工事における土留め対応や、上部躯体施工時の近隣対策、安全管理に多くの工程とコストを要しますが、木造では建物重量が軽いため、これらの負担を抑えた施工が可能となります。
-            </p>
-            <p>
-              また、木造は構造体が軽量であることから基礎規模を合理化でき、地盤改良や掘削、残土処分量の縮減にもつながります。
-            </p>
-            <p>
-              さらに、モジュール化されたCLTパネル工法を採用することで施工効率が向上し、小規模集合住宅においてはRC造に対して工期・コストの両面で優位性が認められます。
-            </p>
-            <p>
-              このように、木造は短工期での建築を実現しやすく、施工条件が限られる敷地においても有効な構造方式といえます。
-            </p>
-          </div>
-          <figure class="reason-section__figure">
-            <img
-              src={withBase(`${base}/img_reason02.png`)}
-              alt="RC造と木造CLTの工期比較"
-              width="1200"
-              height="520"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-        </section>
+          <section class="reason-section" aria-labelledby="reason-s02-title">
+            <h2 class="reason-section__title" id="reason-s02-title">
+              <span class="reason-section__num">02</span>
+              <span class="reason-section__sep" aria-hidden="true">|</span>
+              <span class="reason-section__name">短工期</span>
+            </h2>
+            <div class="reason-section__prose">
+              <p>
+                敷地が狭小である場合の施工性と工期を重視した構造方式の比較検討によると（令和7年（公財）日本住宅・木材技術センター調べ）、RC造と比較してCLTによる木造は、全体工期および建て方工期の両面で大幅な短縮が可能であることが確認されています。<br
+                />
+                RC造では、基礎工事における土留め対応や、上部躯体施工時の近隣対策、安全管理に多くの工程とコストを要しますが、木造では建物重量が軽いため、これらの負担を抑えた施工が可能となります。<br
+                />
+                また、木造は構造体が軽量であることから基礎規模を合理化でき、地盤改良や掘削、残土処分量の縮減にもつながります。<br
+                />
+                さらに、モジュール化されたCLTパネル工法を採用することで施工効率が向上し、小規模集合住宅においてはRC造に対して工期・コストの両面で優位性が認められます。<br
+                />
+                このように、木造は短工期での建築を実現しやすく、施工条件が限られる敷地においても有効な構造方式といえます。
+              </p>
+            </div>
+            <figure class="reason-section__figure">
+              <img
+                src={withBase(`${base}/img_reason02.png`)}
+                alt="RC造と木造CLTの工期比較"
+                width="1200"
+                height="520"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
 
-        <section class="reason-section" aria-labelledby="reason-s03-title">
-          <h2 class="reason-section__title" id="reason-s03-title">
-            <span class="reason-section__num">03</span>
-            <span class="reason-section__sep" aria-hidden="true">|</span>
-            <span class="reason-section__name">2×4工法</span>
-          </h2>
-          <p class="reason-section__intro">
-            ツーバイフォー工法は、面で建物を支える構造が特長の木造工法です。
-          </p>
-          <ul class="reason-section__twoby-list">
-            <li class="reason-section__twoby-item">
-              <span class="reason-section__twoby-head">・耐震性・耐風性に優れる</span>
-              <span class="reason-section__twoby-desc">
-                壁・床・天井を「面」で支えるため、地震や台風の力を分散しやすい構造です。
-              </span>
-            </li>
-            <li class="reason-section__twoby-item">
-              <span class="reason-section__twoby-head">・耐火性が高い</span>
-              <span class="reason-section__twoby-desc">
-                木材が一定時間燃え進みにくい構造で、省令準耐火構造に対応しやすいのが特長です。
-              </span>
-            </li>
-            <li class="reason-section__twoby-item">
-              <span class="reason-section__twoby-head">・品質が安定しやすい</span>
-              <span class="reason-section__twoby-desc">
-                規格化された部材と工法により、施工品質のバラつきが出にくい点もメリットです。
-              </span>
-            </li>
-            <li class="reason-section__twoby-item">
-              <span class="reason-section__twoby-head">・遮音性・気密性に配慮しやすい</span>
-              <span class="reason-section__twoby-desc">
-                壁構造が厚く、賃貸住宅でも入居者満足度につながりやすい性能を確保できます。
-              </span>
-            </li>
-            <li class="reason-section__twoby-item">
-              <span class="reason-section__twoby-head">・長期的な資産運用に向いている</span>
-              <span class="reason-section__twoby-desc">
-                安定した構造性能により、賃貸経営を前提とした建物計画と相性が良い工法です。
-              </span>
-            </li>
-          </ul>
+          <section class="reason-section" aria-labelledby="reason-s03-title">
+            <h2 class="reason-section__title" id="reason-s03-title">
+              <span class="reason-section__num">03</span>
+              <span class="reason-section__sep" aria-hidden="true">|</span>
+              <span class="reason-section__name">2×4工法</span>
+            </h2>
+            <p class="reason-section__intro">
+              ツーバイフォー工法は、面で建物を支える構造が特長の木造工法です。
+            </p>
+            <ul class="reason-section__twoby-list">
+              <li class="reason-section__twoby-item">
+                <span class="reason-section__twoby-head"
+                  >・耐震性・耐風性に優れる</span
+                >
+                <span class="reason-section__twoby-desc">
+                  壁・床・天井を「面」で支えるため、地震や台風の力を分散しやすい構造です。
+                </span>
+              </li>
+              <li class="reason-section__twoby-item">
+                <span class="reason-section__twoby-head">・耐火性が高い</span>
+                <span class="reason-section__twoby-desc">
+                  木材が一定時間燃え進みにくい構造で、省令準耐火構造に対応しやすいのが特長です。
+                </span>
+              </li>
+              <li class="reason-section__twoby-item">
+                <span class="reason-section__twoby-head"
+                  >・品質が安定しやすい</span
+                >
+                <span class="reason-section__twoby-desc">
+                  規格化された部材と工法により、施工品質のバラつきが出にくい点もメリットです。
+                </span>
+              </li>
+              <li class="reason-section__twoby-item">
+                <span class="reason-section__twoby-head"
+                  >・遮音性・気密性に配慮しやすい</span
+                >
+                <span class="reason-section__twoby-desc">
+                  壁構造が厚く、賃貸住宅でも入居者満足度につながりやすい性能を確保できます。
+                </span>
+              </li>
+              <li class="reason-section__twoby-item">
+                <span class="reason-section__twoby-head"
+                  >・長期的な資産運用に向いている</span
+                >
+                <span class="reason-section__twoby-desc">
+                  安定した構造性能により、賃貸経営を前提とした建物計画と相性が良い工法です。
+                </span>
+              </li>
+            </ul>
+          </section>
         </section>
       </div>
     </div>
   </section>
-</Layout>
 
-<style lang="scss">
-  @use "sass:color";
-  @use "../styles/variables" as *;
+  <style lang="scss" is:global>
+    @use "sass:color";
+    @use "../styles/variables" as *;
 
-  .reason-page {
-    .reason-page__inner {
-      max-width: $content-max-width;
-      margin: 0 auto;
-      padding: $spacing-xxl 0;
-      background: $color-white;
+    .reason-page {
+      .reason-page__inner {
+        max-width: $content-max-width;
+        margin: 0 auto;
+        padding: $spacing-xxl 0;
+        background: $color-white;
 
-      @media (max-width: $breakpoint-sp) {
-        padding: $spacing-xl $spacing-sm $spacing-xxl;
-      }
-    }
-
-    .reason-page__content {
-      margin-top: $spacing-xl;
-
-      @media (max-width: $breakpoint-sp) {
-        margin-top: $spacing-lg;
-      }
-    }
-
-    .reason-section {
-      margin: 0 0 $spacing-xxl;
-
-      &:last-child {
-        margin-bottom: 0;
+        @media (max-width: $breakpoint-sp) {
+          padding: 0 $spacing-sm $spacing-xxl;
+        }
       }
 
-      @media (max-width: $breakpoint-sp) {
-        margin-bottom: $spacing-xl;
+      .reason-page__content {
+        margin-top: $spacing-xl;
+
+        @media (max-width: $breakpoint-sp) {
+          margin-top: $spacing-lg;
+        }
       }
-    }
 
-    .reason-section__title {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0 $spacing-sm;
-      margin: 0 0 $spacing-lg;
-      font-size: 28px;
-      font-weight: $fw-bold;
-      line-height: 1.35;
-      color: $color-primary;
-
-      @media (max-width: $breakpoint-sp) {
-        font-size: 22px;
-        margin-bottom: $spacing-md;
-      }
-    }
-
-    .reason-section__num {
-      font-family: $helvetica;
-      letter-spacing: 0.02em;
-    }
-
-    .reason-section__sep {
-      font-weight: $fw-bold;
-      color: $color-primary;
-    }
-
-    .reason-section__name {
-      font-weight: $fw-bold;
-    }
-
-    .reason-section__prose {
-      margin: 0 0 $spacing-xl;
-
-      p {
-        margin: 0 0 $spacing-md;
-        font-size: 15px;
-        font-weight: $fw-regular;
-        line-height: 1.9;
-        color: $color-text;
+      .reason-section {
+        margin: 0 0 $spacing-xxl;
 
         &:last-child {
           margin-bottom: 0;
         }
 
         @media (max-width: $breakpoint-sp) {
-          font-size: 14px;
+          margin-bottom: $spacing-xl;
+        }
+      }
+
+      .reason-section__title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0 $spacing-sm;
+        margin: 0 0 $spacing-lg;
+        font-size: 28px;
+        font-weight: $fw-bold;
+        line-height: 1.35;
+        color: $color-primary;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 22px;
+          margin-bottom: $spacing-md;
+        }
+      }
+
+      .reason-section__num {
+        font-family: $helvetica;
+        letter-spacing: 0.02em;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 28px;
+        }
+      }
+
+      .reason-section__sep {
+        font-weight: $fw-bold;
+        color: $color-primary;
+      }
+
+      .reason-section__name {
+        font-weight: $fw-bold;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 24px;
+        }
+      }
+
+      .reason-section__prose {
+        margin: 0 0 $spacing-xl;
+
+        p {
+          margin: 0 0 $spacing-md;
+          font-size: 15px;
+          font-weight: $fw-regular;
+          line-height: 1.9;
+          color: $color-text;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          @media (max-width: $breakpoint-sp) {
+            margin-bottom: $spacing-sm;
+          }
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          margin-bottom: $spacing-lg;
+        }
+      }
+
+      .reason-section__figure {
+        margin: 0 0 $spacing-md;
+        padding: 0;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+        }
+
+        @media (max-width: $breakpoint-sp) {
           margin-bottom: $spacing-sm;
         }
       }
 
-      @media (max-width: $breakpoint-sp) {
-        margin-bottom: $spacing-lg;
-      }
-    }
+      .reason-section__note {
+        margin: 0;
+        font-size: 11px;
+        font-weight: $fw-regular;
+        line-height: 1.6;
+        color: #{color.mix($color-white, $color-text, 45%)};
+        text-align: right;
 
-    .reason-section__figure {
-      margin: 0 0 $spacing-md;
-      padding: 0;
-
-      img {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
+        @media (max-width: $breakpoint-sp) {
+          font-size: 10px;
+          text-align: left;
+        }
       }
 
-      @media (max-width: $breakpoint-sp) {
-        margin-bottom: $spacing-sm;
-      }
-    }
-
-    .reason-section__note {
-      margin: 0;
-      font-size: 11px;
-      font-weight: $fw-regular;
-      line-height: 1.6;
-      color: #{color.mix($color-white, $color-text, 45%)};
-      text-align: right;
-
-      @media (max-width: $breakpoint-sp) {
-        font-size: 10px;
-        text-align: left;
-      }
-    }
-
-    .reason-section__intro {
-      margin: 0 0 $spacing-lg;
-      font-size: 15px;
-      font-weight: $fw-regular;
-      line-height: 1.9;
-      color: $color-text;
-
-      @media (max-width: $breakpoint-sp) {
-        font-size: 14px;
-        margin-bottom: $spacing-md;
-      }
-    }
-
-    .reason-section__twoby-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .reason-section__twoby-item {
-      margin: 0 0 $spacing-lg;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      @media (max-width: $breakpoint-sp) {
-        margin-bottom: $spacing-md;
-      }
-    }
-
-    .reason-section__twoby-head {
-      display: block;
-      margin-bottom: $spacing-xs;
-      font-size: 16px;
-      font-weight: $fw-bold;
-      line-height: 1.6;
-      color: $color-text;
-
-      @media (max-width: $breakpoint-sp) {
+      .reason-section__intro {
+        margin: 0 0 $spacing-lg;
         font-size: 15px;
+        font-weight: $fw-regular;
+        line-height: 1.9;
+        color: $color-text;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 14px;
+          margin-bottom: $spacing-md;
+        }
+      }
+
+      .reason-section__twoby-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .reason-section__twoby-item {
+        margin: 0 0 $spacing-md;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @media (max-width: $breakpoint-sp) {
+          margin-bottom: $spacing-xs;
+        }
+      }
+
+      .reason-section__twoby-head {
+        display: block;
+        margin-bottom: $spacing-xs;
+        font-size: 16px;
+        font-weight: $fw-bold;
+        line-height: 1.6;
+        color: $color-text;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 15px;
+        }
+      }
+
+      .reason-section__twoby-desc {
+        display: block;
+        padding-left: 0;
+        font-size: 15px;
+        font-weight: $fw-regular;
+        line-height: 1.85;
+        color: $color-text;
+
+        @media (max-width: $breakpoint-sp) {
+          font-size: 14px;
+        }
       }
     }
-
-    .reason-section__twoby-desc {
-      display: block;
-      padding-left: 0;
-      font-size: 15px;
-      font-weight: $fw-regular;
-      line-height: 1.85;
-      color: $color-text;
-
-      @media (max-width: $breakpoint-sp) {
-        font-size: 14px;
-      }
-    }
-  }
-</style>
+  </style>
+</Layout>

@@ -116,7 +116,7 @@ import { withBase } from "../utils/withBase";
               loading="lazy"
             />
             <h3 class="beginner__strength-title">
-              コストを抑え品質を確保する施工
+              コストを抑え品質を<br class="sp" />確保する施工
             </h3>
             <p class="beginner__strength-text">
               下請けを介さない「分離発注」＋「自社施工」を採用することで、余分なコストを削減。適正価格で資産価値を維持しながら、無駄のない修繕・リノベーションを提供します。
@@ -139,12 +139,11 @@ import { withBase } from "../utils/withBase";
       </section>
 
       <section class="beginner__flow" aria-labelledby="beginner-flow-heading">
-        <header class="beginner__flow-header">
-          <p class="beginner__flow-deco" aria-hidden="true">Flow</p>
-          <h2 class="beginner__flow-title" id="beginner-flow-heading">
-            完成までの流れ
-          </h2>
-        </header>
+        <SectionHeading
+          titleJapanese="完成までの流れ"
+          titleEnglish="Flow"
+          align="center"
+        />
         <ol class="beginner__flow-list">
           <li class="beginner__flow-item beginner__flow-item--1">
             <div class="beginner__flow-badge">
@@ -611,11 +610,20 @@ import { withBase } from "../utils/withBase";
       font-weight: $fw-bold;
       margin: 0 0 $spacing-xs;
       min-height: 100px;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 24px;
+        min-height: auto;
+      }
     }
 
     .beginner__strength-text {
       line-height: 1.8;
       margin: 0;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 15px;
+      }
     }
 
     .beginner__flow {
@@ -629,7 +637,7 @@ import { withBase } from "../utils/withBase";
 
       @media (max-width: $breakpoint-sp) {
         margin-top: $spacing-xl;
-        margin-bottom: $spacing-xl;
+        margin-bottom: 0;
         padding: $spacing-xl calc(50vw - 50%);
       }
     }
@@ -690,6 +698,10 @@ import { withBase } from "../utils/withBase";
       margin: 0 auto;
       padding: 0;
       list-style: none;
+
+      @media (max-width: $breakpoint-sp) {
+        gap: 10px;
+      }
     }
 
     .beginner__flow-item {
@@ -704,11 +716,13 @@ import { withBase } from "../utils/withBase";
       box-shadow: 0 1px 6px rgba($color-text, 0.06);
 
       @media (max-width: $breakpoint-sp) {
-        grid-template-columns: 56px 1fr;
+        grid-template-columns: 64px 1fr;
         grid-template-rows: auto auto;
-        column-gap: $spacing-sm;
+        column-gap: 10px;
         row-gap: $spacing-xs;
-        padding: $spacing-sm $spacing-sm $spacing-sm 0;
+        padding: 0 0 $spacing-xs 0;
+        border-radius: 0;
+        box-shadow: none;
       }
 
       &.beginner__flow-item--1 {
@@ -757,8 +771,9 @@ import { withBase } from "../utils/withBase";
       @media (max-width: $breakpoint-sp) {
         grid-row: 1 / span 2;
         grid-column: 1;
-        margin: (-$spacing-sm) 0 (-$spacing-sm) 0;
-        padding: $spacing-xs $spacing-xs calc(#{$spacing-xs} + 12px);
+        width: 64px;
+        margin: 0;
+        padding: $spacing-xs 4px calc(#{$spacing-xs} + 12px);
         clip-path: polygon(
           0 0,
           100% 0,
@@ -787,7 +802,8 @@ import { withBase } from "../utils/withBase";
       color: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 9px;
+        font-size: 20px;
+        line-height: 1;
       }
     }
 
@@ -799,7 +815,8 @@ import { withBase } from "../utils/withBase";
       color: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 28px;
+        margin-top: -2px;
+        font-size: 46px;
       }
     }
 
@@ -815,9 +832,10 @@ import { withBase } from "../utils/withBase";
       @media (max-width: $breakpoint-sp) {
         grid-column: 2;
         grid-row: 1;
-        align-self: end;
-        padding: 0;
-        font-size: 17px;
+        align-self: start;
+        padding: $spacing-xs $spacing-sm 0 0;
+        font-size: 18px;
+        line-height: 1.45;
       }
     }
 
@@ -834,8 +852,9 @@ import { withBase } from "../utils/withBase";
         grid-column: 2;
         grid-row: 2;
         align-self: start;
-        padding: 0;
-        font-size: 14px;
+        padding: 0 $spacing-sm 0 0;
+        font-size: 13px;
+        line-height: 1.7;
       }
     }
 
@@ -846,7 +865,7 @@ import { withBase } from "../utils/withBase";
       background: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        margin-top: $spacing-xl;
+        margin-top: 0;
         padding: $spacing-lg 0 $spacing-xl;
       }
     }

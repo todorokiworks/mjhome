@@ -47,7 +47,9 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
             >必須</span
           >
           <span class="download-form__legend-text"
-            >は必須項目です。お問い合わせの際は、プライバシーポリシーを必ずお読みください。</span
+            >は必須項目です。<br
+              class="sp"
+            />お問い合わせの際は、プライバシーポリシーを必ずお読みください。</span
           >
         </p>
 
@@ -236,7 +238,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       padding: $spacing-xxl $spacing-md;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-xl $spacing-sm $spacing-xxl;
+        padding: 0 $spacing-sm $spacing-xxl;
       }
     }
 
@@ -271,6 +273,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       font-size: 14px;
       line-height: 1.75;
       color: $color-text;
+      list-style: disc;
 
       li {
         margin: 0 0 0.65em;
@@ -299,6 +302,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       @media (max-width: $breakpoint-sp) {
         margin-bottom: $spacing-lg;
         font-size: 13px;
+        display: inline-block;
       }
     }
 
@@ -395,7 +399,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       line-height: 1.5;
       color: $color-text;
       background: rgb(241.68, 241.8, 241.74);
-      border: 1px solid #{color.mix($color-white, $color-text, 78%)};
+      border: 1px solid #212322;
       border-radius: 2px;
       box-shadow: 0 1px 3px rgba($color-text, 0.12);
 
@@ -409,7 +413,7 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       }
 
       @media (max-width: $breakpoint-sp) {
-        padding: 12px $spacing-sm;
+        padding: 8px $spacing-sm;
         font-size: 14px;
       }
     }
@@ -443,6 +447,8 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
 
       @media (max-width: $breakpoint-sp) {
         margin: $spacing-lg 0;
+        width: 90%;
+        margin: 0 auto;
       }
     }
 
@@ -573,7 +579,6 @@ const arrowIcon = withBase("/img/common/icon_arrow_white.png");
       }
 
       @media (max-width: $breakpoint-sp) {
-        width: 100%;
         max-width: none;
         padding: 16px 22px;
         font-size: 14px;

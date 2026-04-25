@@ -27,7 +27,9 @@ const base = "/img/product/urbangarage";
 
   <section class="products-intro" aria-labelledby="products-intro-heading">
     <p class="products-intro__bar" id="products-intro-heading">
-      希少な「インナーガレージ」で狭い土地も有効活用
+      狭い土地も有効活用。<br class="sp" />インナーガレージのある<br
+        class="sp"
+      />アーバンスタイル
     </p>
     <div class="products-intro__brand">
       <div class="products-intro__brand-inner">
@@ -53,7 +55,9 @@ const base = "/img/product/urbangarage";
         </div>
         <div class="intro__text">
           <h2 class="intro__title">
-            希少な「インナーガレージ」で、<br />狭い土地も有効活用
+            利便性の高い立地と限られた<br class="sp" />敷地条件を活かし、<br
+              class="sp"
+            />土地を高度利用。
           </h2>
           <p class="intro__body">
             利便性が良く限られた敷地条件でも、土地を高度利用することでプライバシー性の高い住環境を確保し、こだわりのあるライフスタイルを実現しました。<br
@@ -99,7 +103,7 @@ const base = "/img/product/urbangarage";
         </div>
       </div>
 
-      <div class="section__inner">
+      <div class="section__inner products-main__plan">
         <article
           class="products-plan products-plan--1"
           aria-labelledby="urban-plan1-title"
@@ -107,14 +111,12 @@ const base = "/img/product/urbangarage";
           <div class="products-plan__content">
             <div class="products-plan__text products-plan__text--r1">
               <h2 class="products-plan__title" id="urban-plan1-title">
-                インナーガレージと住空間を、<br />一体で設計する
+                耐久性と手入れのしやすさが<br
+                  class="sp"
+                />経営コスト削減につながる
               </h2>
               <p class="products-plan__body">
-                ガレージを建物内部に取り込むことで、路上からの視線を遮りながら車両の出し入れをスムーズに。<br
-                />
-                1階のボリュームを活かした開放的なLDKや、趣味・在宅ワークに使えるスペースとも連動しやすいプランを組み立てます。<br
-                />
-                外観はモダンでありながら倉庫やロフトを連想させるマテリアル感で、ブランドとしての統一感を出します。
+                建築費というスタート地点でコストを削減する「アーバンガレージ」は、その後長期にわたる経営コストにも着目。従来当然とされていた「原状回復」が、賃貸トラブルの上位に浮上する今、メンテナンスコストを抑えることは、入居者だけではなくオーナー様にとっても重要なポイントです。
               </p>
             </div>
             <div class="products-plan__figure products-plan__figure--r1">
@@ -170,14 +172,8 @@ const base = "/img/product/urbangarage";
                 />
               </figure>
               <p class="products-plan__body">
-                フローリング：アーバンガレージに採用したのは、耐衝撃性、耐熱性、<br
-                />耐摩耗性、耐化学薬品性、耐光性に優れたラミネートフローリング。、<br
-                />傷やタバコの焦げもつきにくく、手入れのしやすさも特長です。<br
-                />
-                クロス：クロス表面にフィルム層を形成しメンテナンス効果を高めています。、<br
-                />水を含ませた布などで拭き取るだけで、汚れが簡単に落ちます。油性の汚れは、<br
-                />中性洗剤やシンナーを含ませた布で拭くと効果的です。<br
-                />汚れの激しい壁面や、清潔さを要求する場所にもおすすめします。
+                フローリング：アーバンガレージに採用したのは、耐衝撃性、耐熱性、耐摩耗性、耐化学薬品性、耐光性に優れたラミネートフローリング。傷やタバコの焦げもつきにくく、手入れのしやすさも特長です。
+                クロス：クロス表面にフィルム層を形成しメンテナンス効果を高めています。水を含ませた布などで拭き取るだけで、汚れが簡単に落ちます。油性の汚れは中性洗剤やシンナーを含ませた布で拭くと効果的です。汚れの激しい壁面や、清潔さを要求する場所にもおすすめします。
               </p>
               <figure class="products-plan__gallery-item">
                 <img
@@ -210,3 +206,14 @@ const base = "/img/product/urbangarage";
     }
   </style>
 </Layout>
+
+<style lang="scss" is:global>
+  @use "../../styles/variables" as *;
+  @use "../../styles/products-plan-layout" as *;
+
+  .products-main__plan {
+    @media (max-width: $breakpoint-sp) {
+      padding: 0;
+    }
+  }
+</style>

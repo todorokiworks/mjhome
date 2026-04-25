@@ -27,22 +27,22 @@ const mapSearchUrl =
       />
       <dl class="company-page__dl">
         <div class="company-page__row">
-          <dt
-            class="company-page__dt company-page__dt--empty"
-            aria-hidden="true"
-          >
-          </dt>
+          <dt class="company-page__dt" aria-hidden="true">社名</dt>
           <dd class="company-page__dd">株式会社エム・ジェイホーム</dd>
         </div>
         <div class="company-page__row">
           <dt class="company-page__dt">本社所在地</dt>
           <dd class="company-page__dd">
-            〒526-0835 滋賀県長浜市室町109-1 16街区14番
+            〒526-0835 <br class="sp" />滋賀県長浜市室町109-1 <br
+              class="sp"
+            />16街区14番
           </dd>
         </div>
         <div class="company-page__row">
           <dt class="company-page__dt">TEL／FAX</dt>
-          <dd class="company-page__dd">TEL：0749-65-5940／FAX：0749-65-5950</dd>
+          <dd class="company-page__dd">
+            TEL：0749-65-5940<br class="sp" />FAX：0749-65-5950
+          </dd>
         </div>
         <div class="company-page__row">
           <dt class="company-page__dt">資本金</dt>
@@ -63,20 +63,20 @@ const mapSearchUrl =
         <div class="company-page__row">
           <dt class="company-page__dt">事業内容</dt>
           <dd class="company-page__dd">
-            賃貸仲介事業、賃貸管理事業、建築事業、不動産売買事業<br />
+            賃貸仲介事業、賃貸管理事業、<br
+              class="sp"
+            />建築事業、不動産売買事業<br class="sp" />
             教育・子育て支援事業
           </dd>
         </div>
         <div class="company-page__row">
           <dt class="company-page__dt">登記所所在地</dt>
-          <dd class="company-page__dd">〒526-0031 滋賀県長浜市八幡東町96-1</dd>
+          <dd class="company-page__dd">
+            〒526-0031 <br class="sp" />滋賀県長浜市八幡東町96-1
+          </dd>
         </div>
         <div class="company-page__row">
-          <dt
-            class="company-page__dt company-page__dt--empty"
-            aria-hidden="true"
-          >
-          </dt>
+          <dt class="company-page__dt" aria-hidden="true">免許</dt>
           <dd class="company-page__dd">
             <ul class="company-page__license-list">
               <li>宅地建物取引業者免許 国土交通大臣(1) 第10917号</li>
@@ -109,10 +109,10 @@ const mapSearchUrl =
             株式会社エム・ジェイホーム 本社
           </p>
           <p class="company-page__access-address">
-            〒526-0835 滋賀県長浜市室町109-1 16街区14番
+            〒526-0835 <br class="sp" />滋賀県長浜市室町109-1 16街区14番
           </p>
           <p class="company-page__access-tel">
-            TEL：0749-65-5940／FAX：0749-65-5950
+            TEL：0749-65-5940 / FAX：0749-65-5950
           </p>
           <div class="company-page__access-cta">
             <PillCtaLink
@@ -140,7 +140,7 @@ const mapSearchUrl =
       background: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-xl $spacing-sm $spacing-xxl;
+        padding: 0 $spacing-sm $spacing-xxl;
       }
     }
 
@@ -157,12 +157,13 @@ const mapSearchUrl =
       grid-template-columns: minmax(140px, 220px) 1fr;
       gap: 0;
       padding: 0;
+      align-items: stretch;
       border-bottom: 1px solid #{color.mix($color-white, $color-text, 82%)};
       border-left: 1px solid #{color.mix($color-white, $color-text, 82%)};
       border-right: 1px solid #{color.mix($color-white, $color-text, 82%)};
 
       @media (max-width: $breakpoint-sp) {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(96px, 32%) minmax(0, 1fr);
       }
 
       &:first-child {
@@ -177,20 +178,19 @@ const mapSearchUrl =
       font-weight: $fw-bold;
       line-height: 1.6;
       color: $color-text;
-      text-align: center;
+      text-align: left;
       background: $color-secondary;
       border-right: 1px solid #{color.mix($color-white, $color-text, 88%)};
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-sm;
-        text-align: left;
-        border-right: none;
-        border-bottom: 1px solid #{color.mix($color-white, $color-text, 90%)};
+        padding: $spacing-sm $spacing-sm;
+        font-size: 13px;
+        border-right: 1px solid #{color.mix($color-white, $color-text, 88%)};
       }
 
       &.company-page__dt--empty {
         @media (max-width: $breakpoint-sp) {
-          display: none;
+          min-width: 0;
         }
       }
     }
@@ -205,14 +205,17 @@ const mapSearchUrl =
       background: $color-white;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-sm $spacing-sm $spacing-md;
+        padding: $spacing-sm;
+        font-size: 13px;
+        line-height: 1.7;
+        min-width: 0;
       }
     }
 
     .company-page__license-list {
       margin: 0;
-      padding-left: 1.2em;
-      list-style: disc;
+      padding: 0;
+      list-style: none;
 
       li {
         margin-bottom: $spacing-xs;
@@ -266,7 +269,6 @@ const mapSearchUrl =
       color: $color-text;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 18px;
       }
     }
 

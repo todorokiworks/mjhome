@@ -28,8 +28,10 @@ const base = "/img/product/tsukuba";
   <section class="products-intro" aria-labelledby="products-intro-heading">
     <p class="products-intro__bar" id="products-intro-heading">
       各分野の専門性が一体になり <br
-      />「地域貢献」「さまざまな社会課題解決」への<br />
-      取り組みを弊社が連携をとり行うプロジェクトです。
+      />「地域貢献」「さまざまな社会課題解決」への<br class="pc" />
+      取り組みを<br class="sp" />弊社が連携をとり<br
+        class="sp"
+      />行うプロジェクトです。
     </p>
     <div class="products-intro__brand">
       <div class="products-intro__brand-inner">
@@ -54,7 +56,11 @@ const base = "/img/product/tsukuba";
           />
         </div>
         <div class="intro__text">
-          <h2 class="intro__title">運営事業者にて25年〜一括借り上げ</h2>
+          <h2 class="intro__title">
+            持続可能な<br class="sp" />社会づくりへの取組み<br
+              class="sp"
+            />地域と共に<br class="sp" />住み続けられる街づくり
+          </h2>
           <p class="intro__sub-title">障がい者専用グループホーム</p>
           <p class="intro__body">
             ・人口減少の中、障がい者入口は増えている
@@ -101,7 +107,7 @@ const base = "/img/product/tsukuba";
         <div class="products-plan__content">
           <div class="products-plan__text products-plan__text--r1">
             <h2 class="products-plan__title" id="tsunagu-plan1-title">
-              運営事業者にて25年〜一括借り上げ
+              運営事業者にて25年〜<br class="sp" />一括借り上げ
             </h2>
             <p class="products-plan__body">
               ・人口減少の中、障がい者入口は増えている<br />
@@ -158,6 +164,11 @@ const base = "/img/product/tsukuba";
   @use "../../styles/variables" as *;
   @use "../../styles/products-plan-layout" as *;
 
+  .products-plan {
+    @media (max-width: $breakpoint-sp) {
+      margin-bottom: 0px;
+    }
+  }
   .products-main {
     .intro__title {
       font-size: 32px;
@@ -169,6 +180,17 @@ const base = "/img/product/tsukuba";
       font-size: 24px;
       font-weight: $fw-bold;
       margin-bottom: $spacing-md;
+
+      @media (max-width: $breakpoint-sp) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .products-plan--1 .products-plan__gallery--wide {
+    @media (max-width: $breakpoint-sp) {
+      padding: 0;
+      margin-bottom: 0;
     }
   }
 </style>

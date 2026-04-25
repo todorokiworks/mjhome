@@ -13,13 +13,19 @@ import { withBase } from "../utils/withBase";
 >
   <section class="top-mv">
     <div class="top-mv__image-wrap">
-      <img
-        class="top-mv__image"
-        src={withBase("/img/top/img_mv.png")}
-        alt=""
-        width="1920"
-        height="800"
-      />
+      <picture>
+        <source
+          srcset={withBase("/img/top/img_mv-sp.png")}
+          media="(max-width: 768px)"
+        />
+        <img
+          class="top-mv__image"
+          src={withBase("/img/top/img_mv.png")}
+          alt=""
+          width="1920"
+          height="800"
+        />
+      </picture>
       <div class="top-mv__overlay" aria-hidden="true"></div>
     </div>
     <div class="top-mv__inner section__inner">
@@ -387,12 +393,16 @@ import { withBase } from "../utils/withBase";
       margin: 0 0 $spacing-md;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 14px;
       }
     }
 
     .top-about__cta {
       margin-top: $spacing-sm;
+
+      @media (max-width: $breakpoint-sp) {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     .top-about__media {
@@ -473,7 +483,16 @@ import { withBase } from "../utils/withBase";
       }
 
       @media (max-width: $breakpoint-sp) {
-        gap: $spacing-sm;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0;
+
+        .top-products__item:nth-child(-n + 4) {
+          grid-column: span 3;
+        }
+
+        .top-products__item:nth-child(n + 5) {
+          grid-column: span 2;
+        }
       }
     }
 
@@ -539,9 +558,9 @@ import { withBase } from "../utils/withBase";
       transform: translate(-10%, -42%);
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 48px;
+        font-size: 62px;
         left: $spacing-sm;
-        transform: translate(-6%, -40%);
+        transform: translate(-40%, -40%);
       }
     }
 
@@ -549,7 +568,7 @@ import { withBase } from "../utils/withBase";
       padding: $spacing-xl $spacing-md $spacing-xl;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-lg $spacing-sm $spacing-sm;
+        padding: $spacing-lg $spacing-sm $spacing-lg;
       }
     }
 
@@ -562,7 +581,7 @@ import { withBase } from "../utils/withBase";
       text-align: center;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 18px;
+        font-size: 20px;
       }
     }
 
@@ -575,7 +594,7 @@ import { withBase } from "../utils/withBase";
       text-align: left;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 13px;
+        font-size: 15px;
         line-height: 1.7;
       }
     }

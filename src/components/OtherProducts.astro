@@ -87,7 +87,16 @@ const { items = productLineup } = Astro.props;
       }
 
       @media (max-width: $breakpoint-sp) {
+        grid-template-columns: repeat(6, 1fr);
         gap: $spacing-sm;
+
+        .other-products__item:nth-child(-n + 4) {
+          grid-column: span 3;
+        }
+
+        .other-products__item:nth-child(n + 5) {
+          grid-column: span 2;
+        }
       }
     }
 

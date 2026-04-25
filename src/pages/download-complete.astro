@@ -45,7 +45,7 @@ import { withBase } from "../utils/withBase";
     </section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
     @use "../styles/variables" as *;
 
     .complete-page {
@@ -57,7 +57,7 @@ import { withBase } from "../utils/withBase";
             padding: $spacing-xxl $spacing-md;
 
             @media (max-width: $breakpoint-sp) {
-                padding: $spacing-xl $spacing-sm $spacing-xxl;
+                padding: 0 $spacing-sm $spacing-xxl;
             }
         }
 

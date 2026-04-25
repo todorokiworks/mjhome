@@ -26,22 +26,31 @@ import { withBase } from "../../utils/withBase";
           productLineup.map((product) => (
             <li class="products-index__item">
               <div class="products-index__card">
-                <div
+                <a
                   href={withBase(product.href)}
                   class="products-index__hit"
                   aria-label={`${product.alt}の詳細へ`}
                 >
                   <div class="products-index__logo">
-                    <img
-                      src={withBase(product.src)}
-                      alt={product.alt}
-                      width="280"
-                      height="120"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source
+                        srcset={withBase(product.srcSp)}
+                        media="(max-width: 768px)"
+                      />
+                      <img
+                        src={withBase(product.src)}
+                        alt={product.alt}
+                        width="280"
+                        height="120"
+                        loading="lazy"
+                      />
+                    </picture>
                   </div>
                   <div class="products-index__body">
-                    <h2 class="products-index__catch">{product.title}</h2>
+                    <h2
+                      class="products-index__catch"
+                      set:html={product.title}
+                    />
                     <p class="products-index__desc">{product.description}</p>
                     <div class="products-index__cta-wrap">
                       <PillCtaLink
@@ -52,7 +61,7 @@ import { withBase } from "../../utils/withBase";
                       />
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             </li>
           ))
@@ -75,7 +84,7 @@ import { withBase } from "../../utils/withBase";
       padding: 0;
 
       @media (max-width: $breakpoint-sp) {
-        gap: $spacing-sm;
+        gap: $spacing-lg;
       }
     }
 
@@ -105,7 +114,7 @@ import { withBase } from "../../utils/withBase";
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         gap: $spacing-md;
-        padding: $spacing-md;
+        padding: $spacing-md $spacing-md $spacing-lg;
       }
     }
 
@@ -146,7 +155,7 @@ import { withBase } from "../../utils/withBase";
       padding: $spacing-lg $spacing-xl $spacing-lg 0;
 
       @media (max-width: $breakpoint-sp) {
-        padding: $spacing-md;
+        padding: 0;
       }
     }
 
@@ -159,7 +168,7 @@ import { withBase } from "../../utils/withBase";
       color: $color-text;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 17px;
+        font-size: 24px;
       }
     }
 
@@ -174,8 +183,9 @@ import { withBase } from "../../utils/withBase";
       white-space: pre-line;
 
       @media (max-width: $breakpoint-sp) {
-        font-size: 13px;
-        line-height: 1.7;
+        font-size: 15px;
+        line-height: 2;
+        margin-bottom: $spacing-lg;
       }
     }
 
