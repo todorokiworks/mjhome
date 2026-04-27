@@ -38,14 +38,17 @@ import { withBase } from "../utils/withBase";
                 align="center"
               />
               <p class="beginner__lead">
-                不動産のプロが考える、資産価値を高める<br />
-                最適な建築・修繕・リノベーションをご提案します
+                不動産のプロが考える、<br class="sp" />資産価値を高める<br />
+                最適な建築・修繕・<br class="sp" />リノベーションをご提案します
               </p>
               <p class="beginner__body">
-                エム・ジェイホームは、管理・仲介・売買部門と連携し、<br />
-                資産価値を高めるための最適な建築・リフォーム・リノベーションをご提案できるのが当社の強み。<br
+                エム・ジェイホームは、管理・仲介・売買部門と連携し、<br
+                  class="pc"
+                />資産価値を高めるための最適な建築・リフォーム・リノベーションをご提案できるのが当社の強み。<br
+                  class="pc"
                 />
                 「空室が埋まらない」「収益が下がっている」「土地を有効活用したい」<br
+                  class="pc"
                 />そんなお悩みを、戦略的な建築プランで解決します。
               </p>
             </div>
@@ -481,16 +484,25 @@ import { withBase } from "../utils/withBase";
           grid-row: 2;
         }
 
+        @media (max-width: $breakpoint-sp) {
+          padding: 0 $spacing-sm;
+        }
+
         .beginner__lead {
           margin-bottom: $spacing-lg;
 
           @media (max-width: $breakpoint-sp) {
             margin-bottom: $spacing-md;
+            font-size: 24px;
           }
         }
 
         .beginner__body {
           margin-bottom: 0;
+          @media (max-width: $breakpoint-sp) {
+            font-size: 15px;
+            text-align: left;
+          }
         }
       }
 
@@ -633,7 +645,7 @@ import { withBase } from "../utils/withBase";
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
       padding: $spacing-xxl calc(50vw - 50%);
-      background: color.mix($color-white, $color-text, 96%);
+      background: #ebebeb;
 
       @media (max-width: $breakpoint-sp) {
         margin-top: $spacing-xl;
@@ -700,7 +712,7 @@ import { withBase } from "../utils/withBase";
       list-style: none;
 
       @media (max-width: $breakpoint-sp) {
-        gap: 10px;
+        gap: $spacing-md;
       }
     }
 
@@ -790,6 +802,26 @@ import { withBase } from "../utils/withBase";
 
       @media (max-width: $breakpoint-sp) {
         padding: $spacing-xs;
+        margin: 0px 0 -8px 0;
+      }
+    }
+
+    .beginner__flow-item:not(.beginner__flow-item--6) {
+      .beginner__flow-badge {
+        margin: -24px 0 -40px 0;
+        @media (max-width: $breakpoint-sp) {
+          position: relative;
+          z-index: 2;
+          margin: 0px 0 -32px 0;
+          padding: $spacing-xs 4px calc(#{$spacing-xs} + 22px);
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 22px),
+            50% 100%,
+            0 calc(100% - 22px)
+          );
+        }
       }
     }
 

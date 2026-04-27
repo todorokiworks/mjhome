@@ -51,7 +51,7 @@ export const productLineup: ProductLogoItem[] = [
     src: "/img/product/img_product06.png",
     srcSp: "/img/product/img_product06-sp.png",
     alt: "MEZONAGE",
-    title: `流行に敏感な入居者を引き<br class="sp">付ける新しい賃貸アパート`,
+    title: `流行に敏感な入居者を引き<br class="sp">付ける<br class="pc">新しい賃貸アパート`,
     description:
       "明確なコンセプトをもとに設計されたメゾネット賃貸は、“ここでしか暮らせない”という特別感を演出。一般的な賃貸アパートとは一線を画すデザインで、特定のライフスタイルや価値観を持つ層に強くアピール可能。結果、差別化された物件として競争力を発揮します。",
   },

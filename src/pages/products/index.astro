@@ -26,11 +26,7 @@ import { withBase } from "../../utils/withBase";
           productLineup.map((product) => (
             <li class="products-index__item">
               <div class="products-index__card">
-                <a
-                  href={withBase(product.href)}
-                  class="products-index__hit"
-                  aria-label={`${product.alt}の詳細へ`}
-                >
+                <div class="products-index__hit">
                   <div class="products-index__logo">
                     <picture>
                       <source
@@ -61,7 +57,7 @@ import { withBase } from "../../utils/withBase";
                       />
                     </div>
                   </div>
-                </a>
+                </div>
               </div>
             </li>
           ))
